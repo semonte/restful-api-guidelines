@@ -1,0 +1,489 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Common Data Objects | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../common-headers/CommonHeaders.html">
+    
+    
+    <link rel="prev" href="../data-formats/DataFormats.html">
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="11" data-chapter-title="Common Data Objects" data-filepath="common-data-objects/CommonDataObjects.md" data-basepath=".." data-revision="Tue Apr 05 2016 16:06:47 GMT+0200 (CEST)" data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="1" data-path="TOC.html">
+            
+                
+                    <a href="../TOC.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            
+                        
+                        Table of Contents
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i><b>1.</b>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="design-principles/DesignPrinciples.html">
+            
+                
+                    <a href="../design-principles/DesignPrinciples.html">
+                
+                        <i class="fa fa-check"></i><b>2.</b>
+                        
+                            
+                        
+                        Design Principles
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="general-guidelines/GeneralGuidelines.html">
+            
+                
+                    <a href="../general-guidelines/GeneralGuidelines.html">
+                
+                        <i class="fa fa-check"></i><b>3.</b>
+                        
+                            
+                        
+                        General Guidelines
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="security/Security.html">
+            
+                
+                    <a href="../security/Security.html">
+                
+                        <i class="fa fa-check"></i><b>4.</b>
+                        
+                            
+                        
+                        Security
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="compatibility/Compatibility.html">
+            
+                
+                    <a href="../compatibility/Compatibility.html">
+                
+                        <i class="fa fa-check"></i><b>5.</b>
+                        
+                            
+                        
+                        Compatibility
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="naming/Naming.html">
+            
+                
+                    <a href="../naming/Naming.html">
+                
+                        <i class="fa fa-check"></i><b>6.</b>
+                        
+                            
+                        
+                        Naming
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="http/Http.html">
+            
+                
+                    <a href="../http/Http.html">
+                
+                        <i class="fa fa-check"></i><b>7.</b>
+                        
+                            
+                        
+                        HTTP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="pagination/Pagination.html">
+            
+                
+                    <a href="../pagination/Pagination.html">
+                
+                        <i class="fa fa-check"></i><b>8.</b>
+                        
+                            
+                        
+                        Pagination
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="hyper-media/Hypermedia.html">
+            
+                
+                    <a href="../hyper-media/Hypermedia.html">
+                
+                        <i class="fa fa-check"></i><b>9.</b>
+                        
+                            
+                        
+                        Hypermedia
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="data-formats/DataFormats.html">
+            
+                
+                    <a href="../data-formats/DataFormats.html">
+                
+                        <i class="fa fa-check"></i><b>10.</b>
+                        
+                            
+                        
+                        Data Formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="11" data-path="common-data-objects/CommonDataObjects.html">
+            
+                
+                    <a href="../common-data-objects/CommonDataObjects.html">
+                
+                        <i class="fa fa-check"></i><b>11.</b>
+                        
+                            
+                        
+                        Common Data Objects
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="common-headers/CommonHeaders.html">
+            
+                
+                    <a href="../common-headers/CommonHeaders.html">
+                
+                        <i class="fa fa-check"></i><b>12.</b>
+                        
+                            
+                        
+                        Common Headers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="api-discovery/ApiDiscovery.html">
+            
+                
+                    <a href="../api-discovery/ApiDiscovery.html">
+                
+                        <i class="fa fa-check"></i><b>13.</b>
+                        
+                            
+                        
+                        API Discovery
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../">Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="common-data-objects">Common Data Objects</h1>
+<p>Definitions of data objects that are good candidates for wider usage:</p>
+<h2 id="should-use-a-common-money-object"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use a Common Money Object</h2>
+<p>Use the following common money structure:</p>
+<pre><code>Money:
+  type: object
+  properties:
+    amount:
+      type: number
+      format: decimal
+      example: 99.95
+    currency:
+      type: string
+      format: iso-4217
+      example: EUR
+  required:
+    - amount
+    - currency
+</code></pre><p>Make sure that you don&#x2019;t convert the &#x201C;amount&#x201D; field to <code>float</code> / <code>double</code> types when implementing
+this interface in a specific language or when doing calculations. Otherwise, you might lose
+precision. Instead, use exact formats like
+Java&#x2019;s <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html" target="_blank"><code>BigDecimal</code></a>.
+See <a href="http://stackoverflow.com/a/3730040/342852" target="_blank">Stack Overflow</a> for more info.</p>
+<p>Some JSON parsers (NodeJS&#x2019;s, for example) convert numbers to floats by default. After discussing the
+<a href="https://docs.google.com/spreadsheets/d/12wTj-2w39f69XZGwRDrosNc1yWPwQpGgEs_DCt5ODaQ" target="_blank">pros and cons</a>,
+we&#x2019;ve decided on &quot;decimal&quot; as our amount format. It is not a standard OpenAPI format, but should
+help us to avoid parsing numbers as float / doubles.</p>
+<h2 id="should-use-common-address-fields"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use Common Address Fields</h2>
+<p>Address structures play a role in different functional and use-case contexts, including country
+variances. The address structure below should be sufficient for most of our business-related use
+cases. Use it in your APIs &#x2014; and compatible extend it if necessary for your API concerns:</p>
+<pre><code>address:
+    description:
+      a common address structure adequate for many use cases
+    type: object
+    properties:
+      salutation:
+        type: string
+        description: |
+          A salutation and/or title which may be used for personal contacts. Hint: not to be confused with the gender information that is stored per customer account
+        example: Mr
+      first_name:
+        type: string
+        description: given name(s) or first name(s) of a person; may also include the middle names
+        example: Hans Dieter
+      last_name:
+        type: string
+        description: family name(s) or surname(s) of a person
+        example: Mustermann
+      business_name:
+        type: string
+        description: company name of the business organization
+        example: Consulting Services GmbH
+      street:
+        type: string
+        description: full street address including house number and street name
+        example: Sch&#xF6;nhauser Allee 103
+      additional:
+        type: string
+        description: further details like suite, apt no, etc.
+        example: 2. Hinterhof rechts
+      city:
+        type: string
+        description: name of the city
+        example: Berlin
+      zip:
+        type: string
+        description: Zip code or postal code
+        example: 14265
+      country_code:
+        type: string
+        format: iso-3166-1-alpha-2
+        example: DE
+    required:
+      - first_name
+      - last_name
+      - street
+      - city
+      - zip
+      - country_code
+</code></pre><h2 id="must-use-common-error-return-objects"><span style="color:red;font-weight:bold">Must:</span> Use Common Error Return Objects</h2>
+<p><code>application/x.problem+json</code> is an  example of a common error return object derived from an
+<a href="https://tools.ietf.org/html/draft-nottingham-http-problem-07" target="_blank">Internet draft specification</a> for
+error objects that have never reached registered
+<a href="http://www.iana.org/assignments/media-types/media-types.xhtml#application" target="_blank">media type status</a>.
+The media type name is prefixed with &#x201C;x.&#x201D; to denote its status. Hint: APIs may define custom problem types with extension properties, according to their specific needs.</p>
+<p>APIs may define custom problems types with extension properties, according to their specific needs.
+<a href="https://docs.pennybags.zalan.do/problems" target="_blank">Go here</a> for a more detailed explanation
+(IAM login required).</p>
+<pre><code>Problem:
+ type: object
+ properties:
+   type:
+     type: string
+     format: uri
+     description: |
+       An absolute URI that identifies the problem type.  When dereferenced,
+       it SHOULD provide human-readable documentation for the problem type
+       (e.g., using HTML).
+     example: http://httpstatus.es/503
+   title:
+     type: string
+     description: |
+       A short, summary of the problem type. Written in english and readable
+       for engineers (usually not suited for non technical stakeholders and
+       not localized); example: Service Unavailable
+   status:
+     type: integer
+     format: int32
+     description: |
+       The HTTP status code generated by the origin server for this occurrence
+       of the problem.
+     example: 503
+   detail:
+     type: string
+     description: |
+       A human readable explanation specific to this occurrence of the
+       problem.
+     example: Connection to database timed out
+   instance:
+     type: string
+     format: uri
+     description: |
+       An absolute URI that identifies the specific occurrence of the problem.
+       It may or may not yield further information if dereferenced.
+ required:
+   - type
+   - title
+   - status
+</code></pre><h2 id="must-an-error-message-must-not-contain-the-stack-trace"><span style="color:red;font-weight:bold">Must:</span> An error message must not contain the stack trace.</h2>
+<p>The reasons:</p>
+<ul>
+<li>The API would leak implementation details to the outside world.</li>
+<li>Clients may not rely on pure API implementation details.</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../data-formats/DataFormats.html" class="navigation navigation-prev " aria-label="Previous page: Data Formats"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../common-headers/CommonHeaders.html" class="navigation navigation-next " aria-label="Next page: Common Headers"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

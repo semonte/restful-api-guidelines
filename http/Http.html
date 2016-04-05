@@ -1,0 +1,721 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HTTP | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../pagination/Pagination.html">
+    
+    
+    <link rel="prev" href="../naming/Naming.html">
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="7" data-chapter-title="HTTP" data-filepath="http/Http.md" data-basepath=".." data-revision="Tue Apr 05 2016 16:06:47 GMT+0200 (CEST)" data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="1" data-path="TOC.html">
+            
+                
+                    <a href="../TOC.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            
+                        
+                        Table of Contents
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i><b>1.</b>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="design-principles/DesignPrinciples.html">
+            
+                
+                    <a href="../design-principles/DesignPrinciples.html">
+                
+                        <i class="fa fa-check"></i><b>2.</b>
+                        
+                            
+                        
+                        Design Principles
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="general-guidelines/GeneralGuidelines.html">
+            
+                
+                    <a href="../general-guidelines/GeneralGuidelines.html">
+                
+                        <i class="fa fa-check"></i><b>3.</b>
+                        
+                            
+                        
+                        General Guidelines
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="security/Security.html">
+            
+                
+                    <a href="../security/Security.html">
+                
+                        <i class="fa fa-check"></i><b>4.</b>
+                        
+                            
+                        
+                        Security
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="compatibility/Compatibility.html">
+            
+                
+                    <a href="../compatibility/Compatibility.html">
+                
+                        <i class="fa fa-check"></i><b>5.</b>
+                        
+                            
+                        
+                        Compatibility
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="naming/Naming.html">
+            
+                
+                    <a href="../naming/Naming.html">
+                
+                        <i class="fa fa-check"></i><b>6.</b>
+                        
+                            
+                        
+                        Naming
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="7" data-path="http/Http.html">
+            
+                
+                    <a href="../http/Http.html">
+                
+                        <i class="fa fa-check"></i><b>7.</b>
+                        
+                            
+                        
+                        HTTP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="pagination/Pagination.html">
+            
+                
+                    <a href="../pagination/Pagination.html">
+                
+                        <i class="fa fa-check"></i><b>8.</b>
+                        
+                            
+                        
+                        Pagination
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="hyper-media/Hypermedia.html">
+            
+                
+                    <a href="../hyper-media/Hypermedia.html">
+                
+                        <i class="fa fa-check"></i><b>9.</b>
+                        
+                            
+                        
+                        Hypermedia
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="data-formats/DataFormats.html">
+            
+                
+                    <a href="../data-formats/DataFormats.html">
+                
+                        <i class="fa fa-check"></i><b>10.</b>
+                        
+                            
+                        
+                        Data Formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="common-data-objects/CommonDataObjects.html">
+            
+                
+                    <a href="../common-data-objects/CommonDataObjects.html">
+                
+                        <i class="fa fa-check"></i><b>11.</b>
+                        
+                            
+                        
+                        Common Data Objects
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="common-headers/CommonHeaders.html">
+            
+                
+                    <a href="../common-headers/CommonHeaders.html">
+                
+                        <i class="fa fa-check"></i><b>12.</b>
+                        
+                            
+                        
+                        Common Headers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="api-discovery/ApiDiscovery.html">
+            
+                
+                    <a href="../api-discovery/ApiDiscovery.html">
+                
+                        <i class="fa fa-check"></i><b>13.</b>
+                        
+                            
+                        
+                        API Discovery
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../">Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="http">HTTP</h1>
+<h2 id="must-use-http-methods-correctly"><span style="color:red;font-weight:bold">Must:</span> Use HTTP Methods Correctly</h2>
+<p>Be compliant with the standardized HTTP method semantics summarized as follows:</p>
+<h3 id="get">GET</h3>
+<ul>
+<li>reads a resource or set of resource instances, respectively</li>
+<li>individual resources will usually generate a 404 if the resource does not exist;
+collection resources may return either 200 or 404 if the listing is empty</li>
+<li>must NOT have request body payload</li>
+</ul>
+<h3 id="put">PUT:</h3>
+<ul>
+<li>fully uploads an entity, i.e. provides a complete replacement by the resource representation
+passed as payload</li>
+<li>resource instance IDs are maintained by the client (either generated by the client or by the server
+in a previous POST request) and passed as a URL path segment</li>
+<li>PUT operations are usually only accepted by single resources, not collection resources, as
+PUT on a collection would imply replacing the entire collection</li>
+<li>usually robust against non-existence of the entity by implicit creation before update</li>
+</ul>
+<h3 id="patch">PATCH:</h3>
+<ul>
+<li>partial upload, i.e. only a specific subset of resource fields are replaced</li>
+<li>partial resource representation passed as payload has either resource content type with optional fields (to be
+updated) or a custom content type that also may include instructions of how to change the resource</li>
+<li>usually accepted only by single resources, because the semantics for PATCH on a collection resource
+are very hard to define</li>
+<li>usually not robust against non existence of the entity</li>
+</ul>
+<h3 id="delete">DELETE:</h3>
+<ul>
+<li>deletes a resource instance</li>
+<li>DELETE operations are usually only accepted by single resources, not collection resources, as
+DELETE on a collection would imply deleting the entire collection</li>
+<li>should return either status 404 (Not found) or 410 (Gone) if the resource does not exist</li>
+</ul>
+<h3 id="post">POST:</h3>
+<ul>
+<li>creates a resource instance</li>
+<li>resource instance id(s) are created and maintained by server and returned with the output payload</li>
+<li>POST methods should be accepted by collection resources only</li>
+<li>more generally, POST should be used for scenarios that cannot be covered by the other methods.
+For instance, GET with complex (e.g. SQL like structured) query that needs to be passed as
+request body payload. In such cases, make sure to document the fact that POST is used as a
+workaround</li>
+</ul>
+<h3 id="head">HEAD</h3>
+<ul>
+<li>has exactly the same semantics as GET, but returns headers only, no body</li>
+</ul>
+<h3 id="options">OPTIONS</h3>
+<ul>
+<li>returns the available operations (methods) on a given endpoint (usually either as a comma separated list
+of methods or as a structured list of link templates)</li>
+<li>this operation is rarely implemented, though it could be used to self-describe the full functionality
+of a resource.</li>
+</ul>
+<h2 id="must--http-methods-must-fulfill-safeness-and-idempotency-properties"><span style="color:red;font-weight:bold">Must:</span>  HTTP Methods must Fulfill Safeness and Idempotency Properties</h2>
+<p>An operation can be...</p>
+<ul>
+<li>idempotent, i.e. operation will produce the same results if executed once or multiple times (note: this does not
+necessarily mean returning the same status code)</li>
+<li>safe, i.e. must not have side effects such as state changes</li>
+</ul>
+<p>Method implementations must fulfill the following basic properties:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP method</th>
+<th>safe</th>
+<th>idempotent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OPTIONS</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Please see also <a href="https://goo.gl/vhwh8a" target="_blank">Best Practices</a> for further hints on how to support the
+different HTTP methods on resources.</p>
+<h2 id="must-use-meaningful-http-status-codes"><span style="color:red;font-weight:bold">Must:</span> Use Meaningful HTTP Status Codes</h2>
+<h3 id="success-codes">Success Codes:</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK - this is the standard success response</td>
+<td>All</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created - Returned on successful entity creation. You are free to return either an empty response or the created resource in conjunction with the Content-Location header.  Always set the Location header.</td>
+<td>POST, PUT</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Accepted - The request was successful and will be processed asynchronously.</td>
+<td>POST, PUT, DELETE, PATCH</td>
+</tr>
+<tr>
+<td>204</td>
+<td>No content - There is no response body</td>
+<td>PUT, DELETE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="redirection-codes">Redirection Codes:</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>301</td>
+<td>Moved Permamently - This and all future requests should be directed to the given URI.</td>
+<td>All</td>
+</tr>
+<tr>
+<td>303</td>
+<td>See Other - The response to the request can be found under another URI using a GET method.</td>
+<td>PATCH, POST, PUT, DELETE</td>
+</tr>
+<tr>
+<td>304</td>
+<td>Not Modified - resource has not been modified since the date or version passed via request headers If-Modified-Since or If-None-Match.</td>
+<td>GET</td>
+</tr>
+</tbody>
+</table>
+<h3 id="client-side-error-codes">Client Side Error Codes:</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad request - generic / unknown error</td>
+<td>All</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized - the users must log in (this often means &#x201C;Unauthenticated&#x201D;)</td>
+<td>All</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden - the user is not authorized to use this resource</td>
+<td>All</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not found - the resource is not found</td>
+<td>All</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed - the method is not supported, see OPTIONS</td>
+<td>All</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable - resource can only generate content not acceptable according to the Accept headers sent in the request</td>
+<td>All</td>
+</tr>
+<tr>
+<td>408</td>
+<td>Request timeout - the server times out waiting for the resource</td>
+<td>All</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict - returned if, e.g. when two clients try to create the same resource or if there are concurrent, conflicting updates</td>
+<td>PUT, DELETE, PATCH</td>
+</tr>
+<tr>
+<td>412</td>
+<td>Precondition Failed - returned for conditional requests, e.g. If-Match if the condition failed. Used for optimistic locking.</td>
+<td>PUT, DELETE, PATCH</td>
+</tr>
+<tr>
+<td>415</td>
+<td>Unsupported Media Type - e.g. clients sends request body without content type</td>
+<td>PUT, DELETE, PATCH</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unprocessable Entity - semantic error (as opposed to a syntax error which would usually trigger a 400)</td>
+<td>POST, PUT, DELETE, PATCH</td>
+</tr>
+<tr>
+<td>423</td>
+<td>Locked - Pessimistic locking, e.g. processing states</td>
+<td>PUT, DELETE, PATCH</td>
+</tr>
+<tr>
+<td>428</td>
+<td>Precondition Required - server requires the request to be conditional (e.g. to make sure that the &#x201C;lost update problem&#x201D; is avoided).</td>
+<td>All</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too many requests - the client does not consider rate limiting and sent too many requests</td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<h3 id="client-side-error-codes">Client Side Error Codes:</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>500</td>
+<td>Internal Server Error - a generic error indication for an unexpected server execution problem (here, client retry may be senseful)</td>
+<td>All</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Not Implemented -  server cannot fulfill the request (usually implies future availability, e.g. new feature).</td>
+<td>All</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable - server is (temporarily) not available (e.g. due to overload) -- client retry may be senseful.</td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<p>All error codes you can find at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank">W3C</a> and <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">Wikipedia</a> or via <a href="https://httpstatuses.com/" target="_blank">https://httpstatuses.com/</a><error_code>.</error_code></p>
+<h2 id="must-providing-error-documentation"><span style="color:red;font-weight:bold">Must:</span> Providing Error Documentation</h2>
+<p>APIs should define the functional, business view and abstract from implementation aspects. Errors become a key element providing context and visibility into how to use an API. The error object should be extended by an application-specific error identifier since the HTTP status code often is not specific enough to articulate the domain error situation. For this reason, we use a standardized error return object definition &#x2014; see <a href="../common-data-objects/CommonDataObjects.html#must-use-common-error-return-objects"><em>Use Common Error Return Objects</em></a> below.</p>
+<p>The OpenAPI specification shall include definition of all error status codes and error descriptions that possibly will be returned; they are part of the interface definition and provide important information for service clients to handle exceptional situations and support troubleshooting. You should also think about a troubleshooting board &#x2014; it is part of the associated online API documentation, provides information and handling guidance on application-specific errors and is referenced via links of the API definition. This can reduce service support tasks and contribute to service client and provider performance.</p>
+<h2 id="should-reducing-bandwidth-needs-and-improving-responsiveness"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Reducing Bandwidth Needs and Improving Responsiveness</h2>
+<p>APIs should support techniques for reducing bandwidth based on client needs. This holds for APIs
+that (might) have high payloads and/or are used in high-traffic scenarios like the public Internet
+and telecommunication networks. Typical examples are APIs used by mobile web app clients with
+(often) less bandwidth connectivity. (Zalando is a &#x201C;Mobile &#x201C;First&#x201D; company, so be mindful of this
+point.)</p>
+<p>Common techniques include:</p>
+<ul>
+<li>gzip compression</li>
+<li>querying field filters to retrieve a subset of resource attributes</li>
+<li><code>ETag</code> (and If-[None-]Match) headers to avoid refetch of unchanged resources</li>
+<li>pagination for incremental access of larger (result) lists</li>
+</ul>
+<p>Each of these items is described in greater detail below.</p>
+<h2 id="should-gzip-compression"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> gzip Compression</h2>
+<p>Compress the payload of your API&#x2019;s responses with gzip (GNU zip), unless there&#x2019;s a good reason not
+to &#x2014; for example,  you are serving so many requests that the time to compress becomes a bottleneck.
+This helps to transport data faster over the network (fewer bytes) and makes frontends respond faster.</p>
+<p>Though gzip compression might be the default choice for server payload, the server should also support payload without compression and its client control via Accept-Encoding request header -- see also <a href="http://tools.ietf.org/html/rfc7231#section-5.3.4" target="_blank">RFC 7231 Section 5.3.4</a>. The server should indicate used gzip
+compression via the Content-Encoding header.</p>
+<h2 id="should-support-filtering-of-resource-fields"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Support Filtering of Resource Fields</h2>
+<p>Depending on your use case and payload size, you can significantly reduce network bandwidth need by support filtering of returned entity fields. Here, the client can determine the subset of fields he wants to receive via the fields query parameter &#x2014; example see <a href="https://cloud.google.com/appengine/docs/python/taskqueue/rest/performance#partial-response" target="_blank">Google AppEngine API&apos;s partial response</a>:</p>
+<h3 id="unfiltered">Unfiltered</h3>
+<pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">http://api.example.org/resources/123</span> HTTP/1.1</span>
+
+<span class="http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x.person+json</span>
+
+<span class="json">{
+  &quot;<span class="hljs-attribute">id</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;cddd5e44-dae0-11e5-8c01-63ed66ab2da5&quot;</span></span>,
+  &quot;<span class="hljs-attribute">name</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;John Doe&quot;</span></span>,
+  &quot;<span class="hljs-attribute">address</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1600 Pennsylvania Avenue Northwest, Washington, DC, United States&quot;</span></span>,
+  &quot;<span class="hljs-attribute">birthday</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1984-09-13&quot;</span></span>,
+  &quot;<span class="hljs-attribute">partner</span>&quot;: <span class="hljs-value">{
+    &quot;<span class="hljs-attribute">id</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1fb43648-dae1-11e5-aa01-1fbc3abb1cd0&quot;</span></span>,
+    &quot;<span class="hljs-attribute">name</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;Jane Doe&quot;</span></span>,
+    &quot;<span class="hljs-attribute">address</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1600 Pennsylvania Avenue Northwest, Washington, DC, United States&quot;</span></span>,
+    &quot;<span class="hljs-attribute">birthday</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1988-04-07&quot;</span>
+  </span>}
+</span>}
+</span></span></code></pre>
+<h3 id="filtered">Filtered</h3>
+<pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">http://api.example.org/resources/123?fields=(name,partner(name))</span> HTTP/1.1</span>
+
+<span class="http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x.person+json;fields=(name,partner(name))</span>
+
+<span class="json">{
+  &quot;<span class="hljs-attribute">name</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;John Doe&quot;</span></span>,
+  &quot;<span class="hljs-attribute">partner</span>&quot;: <span class="hljs-value">{
+    &quot;<span class="hljs-attribute">name</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;Jane Doe&quot;</span>
+  </span>}
+</span>}
+</span></span></code></pre>
+<p>The approach we recommend for field is a Zalando Github project,
+<a href="https://github.com/zalando/json-fields" target="_blank">json-fields</a>. It defines a formal grammar for the ANTLR
+ parser generator and provides a ready-to use library for Java / Jackson based projects
+ (<a href="http://mvnrepository.com/artifact/org.zalando.guild.api/json-fields-jackson" target="_blank">Maven link</a>).
+Teams that use other JSON serializers are encouraged to contribute to the open source project and
+create their own parser / framework based on this grammar.</p>
+<p>Other approaches we have considered are JSONPath or GraphQL. While they have advantages, neither of
+them can easily be plugged into an existing serialization process, so they require an additional,
+manual serialization process, whereas the above solution addresses our main filter use cases and
+can easily be introduced with a minimum of effort.</p>
+<p>Hint: OpenAPI doesn&apos;t allow you to formally specify whether depending on a given parameter will
+return different parts of the specified result schema. Explain this in English in the parameter
+description.</p>
+<h2 id="could-support-the-etag-header"><span style="color:green;font-weight:bold">Could:</span> Support the ETag Header</h2>
+<p>If a resource changes, the contents of the <a href="https://en.wikipedia.org/wiki/HTTP_ETag" target="_blank"><code>ETag</code></a> header
+must also change. Combined with the <code>If-Match</code> and <code>If-None-Match</code> headers, the <code>ETag</code> header allows
+for:</p>
+<ul>
+<li>caching of entities</li>
+<li>optimistic locking</li>
+</ul>
+<p>Its possible contents:</p>
+<ul>
+<li>the entity&#x2019;s version number</li>
+<li>hash of the response body</li>
+<li>hash of the entity&#x2019;s last modified field</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../naming/Naming.html" class="navigation navigation-prev " aria-label="Previous page: Naming"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../pagination/Pagination.html" class="navigation navigation-next " aria-label="Next page: Pagination"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

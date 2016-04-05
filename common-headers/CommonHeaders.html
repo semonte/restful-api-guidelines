@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Common Headers | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../api-discovery/ApiDiscovery.html">
+    
+    
+    <link rel="prev" href="../common-data-objects/CommonDataObjects.html">
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="12" data-chapter-title="Common Headers" data-filepath="common-headers/CommonHeaders.md" data-basepath=".." data-revision="Tue Apr 05 2016 16:06:47 GMT+0200 (CEST)" data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="1" data-path="TOC.html">
+            
+                
+                    <a href="../TOC.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            
+                        
+                        Table of Contents
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i><b>1.</b>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="design-principles/DesignPrinciples.html">
+            
+                
+                    <a href="../design-principles/DesignPrinciples.html">
+                
+                        <i class="fa fa-check"></i><b>2.</b>
+                        
+                            
+                        
+                        Design Principles
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="general-guidelines/GeneralGuidelines.html">
+            
+                
+                    <a href="../general-guidelines/GeneralGuidelines.html">
+                
+                        <i class="fa fa-check"></i><b>3.</b>
+                        
+                            
+                        
+                        General Guidelines
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="security/Security.html">
+            
+                
+                    <a href="../security/Security.html">
+                
+                        <i class="fa fa-check"></i><b>4.</b>
+                        
+                            
+                        
+                        Security
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="compatibility/Compatibility.html">
+            
+                
+                    <a href="../compatibility/Compatibility.html">
+                
+                        <i class="fa fa-check"></i><b>5.</b>
+                        
+                            
+                        
+                        Compatibility
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="naming/Naming.html">
+            
+                
+                    <a href="../naming/Naming.html">
+                
+                        <i class="fa fa-check"></i><b>6.</b>
+                        
+                            
+                        
+                        Naming
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="http/Http.html">
+            
+                
+                    <a href="../http/Http.html">
+                
+                        <i class="fa fa-check"></i><b>7.</b>
+                        
+                            
+                        
+                        HTTP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="pagination/Pagination.html">
+            
+                
+                    <a href="../pagination/Pagination.html">
+                
+                        <i class="fa fa-check"></i><b>8.</b>
+                        
+                            
+                        
+                        Pagination
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="hyper-media/Hypermedia.html">
+            
+                
+                    <a href="../hyper-media/Hypermedia.html">
+                
+                        <i class="fa fa-check"></i><b>9.</b>
+                        
+                            
+                        
+                        Hypermedia
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="data-formats/DataFormats.html">
+            
+                
+                    <a href="../data-formats/DataFormats.html">
+                
+                        <i class="fa fa-check"></i><b>10.</b>
+                        
+                            
+                        
+                        Data Formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="common-data-objects/CommonDataObjects.html">
+            
+                
+                    <a href="../common-data-objects/CommonDataObjects.html">
+                
+                        <i class="fa fa-check"></i><b>11.</b>
+                        
+                            
+                        
+                        Common Data Objects
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="12" data-path="common-headers/CommonHeaders.html">
+            
+                
+                    <a href="../common-headers/CommonHeaders.html">
+                
+                        <i class="fa fa-check"></i><b>12.</b>
+                        
+                            
+                        
+                        Common Headers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="api-discovery/ApiDiscovery.html">
+            
+                
+                    <a href="../api-discovery/ApiDiscovery.html">
+                
+                        <i class="fa fa-check"></i><b>13.</b>
+                        
+                            
+                        
+                        API Discovery
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../">Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="common-headers">Common Headers</h1>
+<p>This section shares definitions of proprietary headers that should be named consistently because
+they address overarching service-related concerns. Whether services support these concerns or not is
+optional; therefore, the OpenAPI API specification is the right place to make this explicitly
+visible. Use the parameter definitions of the resource HTTP methods.</p>
+<table>
+<thead>
+<tr>
+<th>Header field name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X-Flow-Id</td>
+<td>String</td>
+<td>The flow id of the request, which is written into the logs and passed to called services. Helpful for operational troubleshooting and log analysis.</td>
+<td>GKY7oDhpSiKY_gAAAABZ_A</td>
+</tr>
+<tr>
+<td>X-Frontend-Type</td>
+<td>String</td>
+<td>Consumer facing applications (CFAs) provide business experience to their customers via different frontend application types, for instance, mobile app or browser. Info should be passed-through as generic aspect -- there are diverse concerns, e.g. pushing mobiles with specific coupons, that make use of it. Current range is mobile-app, browser, facebook-app, chat-app</td>
+<td>mobile-app</td>
+</tr>
+<tr>
+<td>X-Device-Type</td>
+<td>String</td>
+<td>There are also use cases for steering customer experience (incl. features and content) depending on device type. Via this header info should be passed-through as generic aspect. Current range is smartphone, tablet, desktop, other</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td>X-Device-OS</td>
+<td>String</td>
+<td>On top of device type above, we even want to differ between device platform, e.g. smartphone Android vs. iOS. Via this header info should be passed-through as generic aspect. Current range is iOS, Android, Windows, Linux, MacOS</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>X-App-Domain</td>
+<td>Integer</td>
+<td>The app domain (i.e. shop channel context) of the request</td>
+<td>16</td>
+</tr>
+<tr>
+<td>X-Uid</td>
+<td>String</td>
+<td>Generic user id of OpenId account that owns the passed (OAuth2) access token. E.g. additionally provided by OpenIG proxy after access token validation -- may save additional token validation round trips.</td>
+<td>w435-dker-jdh357</td>
+</tr>
+<tr>
+<td>X-Tenant-Id</td>
+<td>String</td>
+<td>The tenant id for future platform multitenancy support. <em>Should not be used unless new platform multitenancy is truly supported.</em> Must be validated for external retailer, supplier, etc. tenant users via OAuth2; details in clarification. Currently only used by New Platform Prototyping services.</td>
+<td>Zalando-Fashion-Store</td>
+</tr>
+</tbody>
+</table>
+<p>Remember that HTTP header field names are not case-sensitive.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../common-data-objects/CommonDataObjects.html" class="navigation navigation-prev " aria-label="Previous page: Common Data Objects"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../api-discovery/ApiDiscovery.html" class="navigation navigation-next " aria-label="Next page: API Discovery"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
