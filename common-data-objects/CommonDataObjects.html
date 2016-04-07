@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="11" data-chapter-title="Common Data Objects" data-filepath="common-data-objects/CommonDataObjects.md" data-basepath=".." data-revision="Thu Apr 07 2016 15:32:34 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="11" data-chapter-title="Common Data Objects" data-filepath="common-data-objects/CommonDataObjects.md" data-basepath=".." data-revision="Thu Apr 07 2016 15:55:08 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -385,14 +385,19 @@ cases. Use it in your APIs &#x2014; and compatible extend it if necessary for yo
       - zip
       - country_code
 </code></pre><h2 id="must-use-common-error-return-objects"><span style="color:red;font-weight:bold">Must:</span> Use Common Error Return Objects</h2>
-<p><code>application/x.problem+json</code> is an  example of a common error return object derived from an
-<a href="https://tools.ietf.org/html/draft-nottingham-http-problem-07" target="_blank">Internet draft specification</a> for
-error objects that have never reached registered
-<a href="http://www.iana.org/assignments/media-types/media-types.xhtml#application" target="_blank">media type status</a>.
-The media type name is prefixed with &#x201C;x.&#x201D; to denote its status. Hint: APIs may define custom problem types with extension properties, according to their specific needs.</p>
-<p>APIs may define custom problems types with extension properties, according to their specific needs.
-<a href="https://docs.pennybags.zalan.do/problems" target="_blank">Go here</a> for a more detailed explanation
-(IAM login required).</p>
+<p><a href="http://tools.ietf.org/html/rfc7807" target="_blank">RFC 7807</a> defines the media type <code>application/problem+json</code>
+for a common error return object (and the format of the contained JSON object).
+Operations should return that (together with a suitable status code) when any problem
+occurred during processing and you can give more details than the status code itself
+can supply, whether it be caused by the client or the server (i.e. both for 4xx or 5xx errors).</p>
+<p>A previous version of this guideline (before the publication of that RFC and the
+registration of the media type) told to return <code>application/x.problem+json</code> in these
+cases (with the same contents).
+Servers for APIs defined before this change should pay attention to the <code>Accept</code> header sent
+by the client and set the <code>Content-Type</code> header of the problem response correspondingly.
+Clients of such APIs should accept both media types.</p>
+<p>APIs may define custom problems types with extension properties, according to their specific needs.</p>
+<p>Here is the definition in Open API 2.0 YAML format in the case you don&apos;t need any extensions:</p>
 <pre><code>Problem:
  type: object
  properties:
