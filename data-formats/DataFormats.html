@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="10" data-chapter-title="Data Formats" data-filepath="data-formats/DataFormats.md" data-basepath=".." data-revision="Tue Apr 12 2016 21:17:22 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="10" data-chapter-title="Data Formats" data-filepath="data-formats/DataFormats.md" data-basepath=".." data-revision="Tue Apr 12 2016 21:38:12 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -314,7 +314,8 @@
 <li><p>In HTTP headers (including the proprietary headers), use the <a href="http://tools.ietf.org/html/rfc7231#section-7.1.1.1" target="_blank">HTTP date format defined in RFC 7231</a>.</p>
 </li>
 </ul>
-<p>Timestamps are passed in UTC-related format via APIs and should be stored in UTC (i.e. without any offset information). Localization based on UTC should be done by the services that provide user interfaces, if required.</p>
+<p>A zone offset may be used (both, in request and responses) -- this is simply defined by the standards. However, we encourage to restrict to UTC (and go without offsets) when dates are passed and returned. From experience we know that zone offsets are not easy to understand and often not correctly handled. Note also, that zone offsets are different from local times that may include daylight saving time.</p>
+<p>When it comes to storage, all dates should be consistently stored in UTC without zone offset. Localization should be done locally by the services that provide user interfaces, if required.</p>
 <h2 id="could-use-standard-data-formats"><span style="color:green;font-weight:bold">Could:</span> Use Standard Data Formats</h2>
 <ul>
 <li><p><a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1-alpha2 country codes</a></p>
