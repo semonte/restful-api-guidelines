@@ -21,10 +21,6 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
-        
-    
-        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -52,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="8" data-chapter-title="Pagination" data-filepath="pagination/Pagination.md" data-basepath=".." data-revision="Wed Apr 13 2016 11:27:34 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="8" data-chapter-title="Pagination" data-filepath="pagination/Pagination.md" data-basepath=".." data-revision="Wed Apr 13 2016 11:48:51 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -308,8 +304,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="pagination"><a name="pagination" class="plugin-anchor" href="#pagination"><span class="fa fa-link"></span></a>Pagination</h1>
-<h2 id="must-support-pagination"><a name="must-support-pagination" class="plugin-anchor" href="#must-support-pagination"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Support Pagination</h2>
+                        <h1 id="pagination">Pagination</h1>
+<h2 id="must-support-pagination"><span style="color:red;font-weight:bold">Must:</span> Support Pagination</h2>
 <p>For client side batch processing and iteration experience, access to lists of data items must support pagination. This holds for all lists that are (potentially) larger than just a
 few hundred entries.</p>
 <p>There are two page iteration techniques:</p>
@@ -320,7 +316,7 @@ numeric offset identifies the first page entry</li>
 unique key element identifies the first page entry (see also
 <a href="https://developers.facebook.com/docs/graph-api/using-graph-api/v2.4#paging" target="_blank">Facebook&#x2019;s guide</a>)</li>
 </ul>
-<h2 id="should-prefer-cursorbased-pagination-avoid-offsetbased-pagination"><a name="should-prefer-cursorbased-pagination-avoid-offsetbased-pagination" class="plugin-anchor" href="#should-prefer-cursorbased-pagination-avoid-offsetbased-pagination"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Prefer Cursor-Based Pagination, Avoid Offset-Based Pagination</h2>
+<h2 id="should-prefer-cursorbased-pagination-avoid-offsetbased-pagination"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Prefer Cursor-Based Pagination, Avoid Offset-Based Pagination</h2>
 <p>Cursor-based pagination is better for more efficient implementation, especially when it comes to
 high-data volumes and / or storage in NoSQL databases.</p>
 <p>Before choosing offset-based pagination,  make sure that it is feasible for efficient realization.
@@ -366,7 +362,7 @@ This also holds for total count and backward iteration support</li>
 <li><a href="https://dev.twitter.com/rest/public/timelines" target="_blank">Twitter</a></li>
 <li><a href="http://use-the-index-luke.com/no-offset" target="_blank">Use the Index, Luke</a></li>
 </ul>
-<h2 id="could-use-pagination-headers-where-applicable"><a name="could-use-pagination-headers-where-applicable" class="plugin-anchor" href="#could-use-pagination-headers-where-applicable"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Pagination Headers Where Applicable</h2>
+<h2 id="could-use-pagination-headers-where-applicable"><span style="color:green;font-weight:bold">Could:</span> Use Pagination Headers Where Applicable</h2>
 <ul>
 <li>Set <code>X-Total-Count</code> to send back the total count of entities.</li>
 <li>Set the <a href="http://tools.ietf.org/html/rfc5988#section-5" target="_blank">link headers</a>
@@ -421,7 +417,7 @@ Link: &lt;http://catalog-service.zalando.net/articles?offset=205&amp;limit=100&g
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
