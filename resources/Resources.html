@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>API Discovery | Introduction</title>
+        <title>Resources | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,8 +37,10 @@
         
     
     
+    <link rel="next" href="../http/Http.html">
     
-    <link rel="prev" href="../common-headers/CommonHeaders.html">
+    
+    <link rel="prev" href="../naming/Naming.html">
     
 
         
@@ -46,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="14" data-chapter-title="API Discovery" data-filepath="api-discovery/ApiDiscovery.md" data-basepath=".." data-revision="Wed Apr 13 2016 10:16:33 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="7" data-chapter-title="Resources" data-filepath="resources/Resources.md" data-basepath=".." data-revision="Wed Apr 13 2016 10:16:33 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -164,7 +166,7 @@
             
         </li>
     
-        <li class="chapter " data-level="7" data-path="resources/Resources.html">
+        <li class="chapter active" data-level="7" data-path="resources/Resources.html">
             
                 
                     <a href="../resources/Resources.html">
@@ -269,7 +271,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="14" data-path="api-discovery/ApiDiscovery.html">
+        <li class="chapter " data-level="14" data-path="api-discovery/ApiDiscovery.html">
             
                 
                     <a href="../api-discovery/ApiDiscovery.html">
@@ -317,24 +319,38 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="api-discovery">API Discovery</h1>
-<h2 id="must-applications-must-provide-online-access-to-their-api-swagger-definitions"><span style="color:red;font-weight:bold">Must:</span> Applications Must Provide Online Access to Their API (Swagger) Definitions</h2>
-<p>In our dynamic and complex service infrastructure, it is important to provide a central place with
-online access to the API definitions of all running applications. All service applications must
-provide the following two API endpoints:</p>
-<ul>
-<li>endpoint(s) for GET access on its API OpenAPI definition(s), for instance
-<code>https://myapi.com/swagger.json</code>. Either .json or .yaml formats are supported.</li>
-<li>&#x201C;Twintip&#x201D; discovery endpoint <code>https://myapi.com/.well-known/schema-discovery</code> that delivers
-the OpenAPI definition endpoint(s) above</li>
-</ul>
-<p>Note, these discovery endpoints have to be supported but need not be part of the OpenAPI definition as they do not provide API specific information.</p>
-<p>Background: <a href="http://docs.stups.io/en/latest/components/twintip.html" target="_blank">Twintip</a> is an API definition
-crawler of the STUPS infrastructure; it checks all running applications via the endpoint above and
-stores the discovered API definitions. Twintip itself provides a RESTful API as well as an API Viewer (OpenAPI GUI) for central access to all discovered API definitions.</p>
-<p>For the time being, this document is an appropriate place to mention this rule, even though it is
-not a RESTful API definition rule or related to our STUPS infrastructure for application service
-management.</p>
+                        <h1 id="resources">Resources</h1>
+<h2 id="must-avoid-actions-&#x2014;-think-about-resources"><span style="color:red;font-weight:bold">Must:</span> Avoid Actions &#x2014; Think About Resources</h2>
+<p>REST is all about your resources, so consider the domain entities that take part in web service interaction, and aim to model your API around these using the standard HTTP methods as operation indicators. For instance, if an application has to lock articles explicitly so that only one user may edit them, create an article lock with PUT or POST instead of using a lock action.</p>
+<p>Request:</p>
+<pre><code>PUT /article-locks/{article-id}
+</code></pre><p>The added benefit is that you already have a service for browsing and filtering article locks.</p>
+<h2 id="should-define-useful-resources"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Define <em>useful</em> resources</h2>
+<p>As a rule of thumb resources should be defined to cover 90% of all its client&apos;s use cases. A <em>useful</em> resource should
+contain as much information as necessary, but as little as possible. A great way to support the last 10% is to allow
+clients to specify their needs for more/less information by supporting filtering and
+<a href="../hyper-media/Hypermedia.html#should-allow-embedding-of-complex-subresources">embedding</a>.</p>
+<h2 id="must-keep-urls-verbfree"><span style="color:red;font-weight:bold">Must:</span> Keep URLs Verb-Free</h2>
+<p>The API describes resources, so the only place where actions should appear is in the HTTP methods.
+In URLs, use only nouns.</p>
+<h2 id="must-use-domainspecific-resource-names"><span style="color:red;font-weight:bold">Must:</span> Use Domain-Specific Resource Names</h2>
+<p>API resources represent elements of the application&#x2019;s domain model. Using domain-specific nomenclature for resource names helps developers to understand the functionality and basic semantics of your resources. It also reduces the need for further documentation outside the API definition. For example, &#x201C;sales-order-items&#x201D; is superior to &#x201C;order-items&#x201D; in that it clearly indicates which business object it represents. Along these lines, &#x201C;items&#x201D; is too general.</p>
+<h2 id="must-identify-resources-and-subresources-via-path-segments"><span style="color:red;font-weight:bold">Must:</span> Identify resources and Sub-Resources via Path Segments</h2>
+<p>Basic URL structure:</p>
+<pre><code>/{resources}/[resource-id]/{sub-resources}/[sub-resource-id]
+</code></pre><p>Examples:</p>
+<pre><code>/carts/1681e6b88ec1/items
+/carts/1681e6b88ec1/items/1
+</code></pre><h2 id="could-consider-using-non-nested-urls"><span style="color:green;font-weight:bold">Could:</span> Consider Using (Non-) Nested URLs</h2>
+<p>If a sub-resource is only accessible via its parent resource and may not exists without parent resource, consider using a nested URL structure, for instance:</p>
+<pre><code>/carts/1681e6b88ec1/cart-items/1
+</code></pre><p>However, if the resource can be accessed directly via its unique id, then the API should expose it as a top-level resource. For example, customer is a collection for sales orders; however, sales orders have globally unique id and some services may choose to access the orders directly, for instance:</p>
+<pre><code>/customer/1681e6b88ec1
+/sales-order/5273gh3k525a
+</code></pre><h2 id="should-limit-of-resources"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Limit of Resources</h2>
+<p>To keep maintenance manageable, and to avoid violations of the &#x201C;separation of concern&#x201D; principle, an API should not expose more than 16 resources. If you exceed 16 resources, first check if you can split them into separate subdomains with distinct APIs.</p>
+<h2 id="should-limit-of-subresource-levels"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Limit of Sub-Resource Levels</h2>
+<p>There are main resources (with root url paths) and sub-resources (or &#x201C;nested&#x201D; resources with non-root urls paths). Use sub-resources if their life cycle is (loosely) coupled to the main resource, i.e. the main resource works as collection resource of the subresource entities. You should use &lt;= 3 sub-resource (nesting) levels -- more levels increase API complexity and url path length. (Remember, some popular web browsers do not support URLs of more than 2000 characters)</p>
 
                     
                     </section>
@@ -345,8 +361,10 @@ management.</p>
         </div>
 
         
-        <a href="../common-headers/CommonHeaders.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Common Headers"><i class="fa fa-angle-left"></i></a>
+        <a href="../naming/Naming.html" class="navigation navigation-prev " aria-label="Previous page: Naming"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="../http/Http.html" class="navigation navigation-next " aria-label="Next page: HTTP"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
