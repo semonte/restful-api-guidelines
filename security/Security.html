@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -48,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-chapter-title="Security" data-filepath="security/Security.md" data-basepath=".." data-revision="Wed Apr 13 2016 12:22:01 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="4" data-chapter-title="Security" data-filepath="security/Security.md" data-basepath=".." data-revision="Wed Apr 13 2016 12:28:22 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -319,8 +323,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="security">Security</h1>
-<h2 id="must-secure-endpoints-with-oauth-20"><span style="color:red;font-weight:bold">Must:</span> Secure endpoints with OAuth 2.0</h2>
+                        <h1 id="security"><a name="security" class="plugin-anchor" href="#security"><span class="fa fa-link"></span></a>Security</h1>
+<h2 id="must-secure-endpoints-with-oauth-20"><a name="must-secure-endpoints-with-oauth-20" class="plugin-anchor" href="#must-secure-endpoints-with-oauth-20"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Secure endpoints with OAuth 2.0</h2>
 <p>Every API endpoint needs to be secured using OAuth 2.0. Please refer to the 
 <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#security-definitions-object" target="_blank">official OpenAPI spec</a>
 on how to specify security definitions in you API specification or take a look at the following example.</p>
@@ -334,7 +338,7 @@ on how to specify security definitions in you API specification or take a look a
       fulfillment-order-service.read: Allows to read from the fulfillment order service.
 </code></pre>
 <p>In order to see how to define and assign scopes, please refer to the next section.</p>
-<h2 id="must-define-and-assign-scopes"><span style="color:red;font-weight:bold">Must:</span> Define and assign scopes</h2>
+<h2 id="must-define-and-assign-scopes"><a name="must-define-and-assign-scopes" class="plugin-anchor" href="#must-define-and-assign-scopes"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Define and assign scopes</h2>
 <p>Every API needs to define scopes and every endpoint needs to have a at least one scope assigned. Scopes are defined by a name and a description once per API specification, as shown in the previous section. Please refer to the following rules when creating scope names:</p>
 <pre><code>&lt;scope&gt; ::= &lt;standard-scope&gt; |           -- should be sufficient for majority of use cases 
             &lt;resource-specific-scope&gt;    -- for special security access differentiation use cases 
@@ -431,7 +435,7 @@ on how to specify security definitions in you API specification or take a look a
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

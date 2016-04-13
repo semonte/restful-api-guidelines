@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -48,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="11" data-chapter-title="Data Formats" data-filepath="data-formats/DataFormats.md" data-basepath=".." data-revision="Wed Apr 13 2016 12:22:01 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="11" data-chapter-title="Data Formats" data-filepath="data-formats/DataFormats.md" data-basepath=".." data-revision="Wed Apr 13 2016 12:28:22 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -319,10 +323,10 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="data-formats">Data Formats</h1>
-<h2 id="must-use-json-as-the-body-payload"><span style="color:red;font-weight:bold">Must:</span> Use JSON as the Body Payload</h2>
+                        <h1 id="data-formats"><a name="data-formats" class="plugin-anchor" href="#data-formats"><span class="fa fa-link"></span></a>Data Formats</h1>
+<h2 id="must-use-json-as-the-body-payload"><a name="must-use-json-as-the-body-payload" class="plugin-anchor" href="#must-use-json-as-the-body-payload"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use JSON as the Body Payload</h2>
 <p>JSON-encode the body payload. The JSON payload must follow RFC-7158 and be compatible with RFC-4627 clients by having (if possible) a serialized object or array as the top-level object.</p>
-<h2 id="must-use-standard-date-and-time-formats"><span style="color:red;font-weight:bold">Must:</span> Use Standard Date and Time Formats</h2>
+<h2 id="must-use-standard-date-and-time-formats"><a name="must-use-standard-date-and-time-formats" class="plugin-anchor" href="#must-use-standard-date-and-time-formats"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use Standard Date and Time Formats</h2>
 <ul>
 <li><p>Inside the JSON payload, use the date and time formats defined by <a href="http://tools.ietf.org/html/rfc3339#section-5.6" target="_blank">RFC 3339</a> &#x2014; e.g. <code>2015-05-28T14:09:17+02:00</code> for a point in time (note that the  <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types" target="_blank">OpenAPI format</a> &quot;date-time&quot; corresponds to &quot;date-time&quot; in the RFC) and <code>2015-05-28</code> for a date (note that the OpenAPI format &quot;date&quot; corresponds to &quot;full-date&quot; in the RFC). Both are specific profiles, a subset of the international standard <a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>.</p>
 </li>
@@ -331,7 +335,7 @@
 </ul>
 <p>A zone offset may be used (both, in request and responses) -- this is simply defined by the standards. However, we encourage to restrict to UTC (and go without offsets) when dates are passed and returned. From experience we know that zone offsets are not easy to understand and often not correctly handled. Note also, that zone offsets are different from local times that may include daylight saving time.</p>
 <p>When it comes to storage, all dates should be consistently stored in UTC without zone offset. Localization should be done locally by the services that provide user interfaces, if required.</p>
-<h2 id="could-use-standard-data-formats"><span style="color:green;font-weight:bold">Could:</span> Use Standard Data Formats</h2>
+<h2 id="could-use-standard-data-formats"><a name="could-use-standard-data-formats" class="plugin-anchor" href="#could-use-standard-data-formats"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Standard Data Formats</h2>
 <ul>
 <li><p><a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1-alpha2 country codes</a></p>
 </li>
@@ -348,7 +352,7 @@
 <li><p><a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217 currency codes</a></p>
 </li>
 </ul>
-<h2 id="could-use-standards-for-country-language-and-currency-codes"><span style="color:green;font-weight:bold">Could:</span> Use Standards for Country, Language and Currency Codes</h2>
+<h2 id="could-use-standards-for-country-language-and-currency-codes"><a name="could-use-standards-for-country-language-and-currency-codes" class="plugin-anchor" href="#could-use-standards-for-country-language-and-currency-codes"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Standards for Country, Language and Currency Codes</h2>
 <p>Use the following standard formats for country, language and currency codes:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1-alpha2 country codes</a></li>
@@ -363,7 +367,7 @@
 </li>
 <li><a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217 currency codes</a></li>
 </ul>
-<h2 id="could-use-applicationspecific-content-types"><span style="color:green;font-weight:bold">Could:</span> Use Application-Specific Content Types</h2>
+<h2 id="could-use-applicationspecific-content-types"><a name="could-use-applicationspecific-content-types" class="plugin-anchor" href="#could-use-applicationspecific-content-types"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Application-Specific Content Types</h2>
 <p>For instance, <code>application/x.zalando.article+json</code>. For complex types, it&#x2019;s better to have a
 specific content type. For simple use cases this isn&#x2019;t necessary. We can attach version info to
 media type names and support content negotiation to get different representations, e.g.
@@ -407,7 +411,7 @@ media type names and support content negotiation to get different representation
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -48,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="7" data-chapter-title="Resources" data-filepath="resources/Resources.md" data-basepath=".." data-revision="Wed Apr 13 2016 12:22:01 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="7" data-chapter-title="Resources" data-filepath="resources/Resources.md" data-basepath=".." data-revision="Wed Apr 13 2016 12:28:22 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -319,37 +323,37 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="resources">Resources</h1>
-<h2 id="must-avoid-actions-&#x2014;-think-about-resources"><span style="color:red;font-weight:bold">Must:</span> Avoid Actions &#x2014; Think About Resources</h2>
+                        <h1 id="resources"><a name="resources" class="plugin-anchor" href="#resources"><span class="fa fa-link"></span></a>Resources</h1>
+<h2 id="must-avoid-actions-&#x2014;-think-about-resources"><a name="must-avoid-actions-&#x2014;-think-about-resources" class="plugin-anchor" href="#must-avoid-actions-&#x2014;-think-about-resources"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Avoid Actions &#x2014; Think About Resources</h2>
 <p>REST is all about your resources, so consider the domain entities that take part in web service interaction, and aim to model your API around these using the standard HTTP methods as operation indicators. For instance, if an application has to lock articles explicitly so that only one user may edit them, create an article lock with PUT or POST instead of using a lock action.</p>
 <p>Request:</p>
 <pre><code>PUT /article-locks/{article-id}
 </code></pre><p>The added benefit is that you already have a service for browsing and filtering article locks.</p>
-<h2 id="should-define-useful-resources"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Define <em>useful</em> resources</h2>
+<h2 id="should-define-useful-resources"><a name="should-define-useful-resources" class="plugin-anchor" href="#should-define-useful-resources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Define <em>useful</em> resources</h2>
 <p>As a rule of thumb resources should be defined to cover 90% of all its client&apos;s use cases. A <em>useful</em> resource should
 contain as much information as necessary, but as little as possible. A great way to support the last 10% is to allow
 clients to specify their needs for more/less information by supporting filtering and
 <a href="../hyper-media/Hypermedia.html#should-allow-embedding-of-complex-subresources">embedding</a>.</p>
-<h2 id="must-keep-urls-verbfree"><span style="color:red;font-weight:bold">Must:</span> Keep URLs Verb-Free</h2>
+<h2 id="must-keep-urls-verbfree"><a name="must-keep-urls-verbfree" class="plugin-anchor" href="#must-keep-urls-verbfree"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Keep URLs Verb-Free</h2>
 <p>The API describes resources, so the only place where actions should appear is in the HTTP methods.
 In URLs, use only nouns.</p>
-<h2 id="must-use-domainspecific-resource-names"><span style="color:red;font-weight:bold">Must:</span> Use Domain-Specific Resource Names</h2>
+<h2 id="must-use-domainspecific-resource-names"><a name="must-use-domainspecific-resource-names" class="plugin-anchor" href="#must-use-domainspecific-resource-names"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use Domain-Specific Resource Names</h2>
 <p>API resources represent elements of the application&#x2019;s domain model. Using domain-specific nomenclature for resource names helps developers to understand the functionality and basic semantics of your resources. It also reduces the need for further documentation outside the API definition. For example, &#x201C;sales-order-items&#x201D; is superior to &#x201C;order-items&#x201D; in that it clearly indicates which business object it represents. Along these lines, &#x201C;items&#x201D; is too general.</p>
-<h2 id="must-identify-resources-and-subresources-via-path-segments"><span style="color:red;font-weight:bold">Must:</span> Identify resources and Sub-Resources via Path Segments</h2>
+<h2 id="must-identify-resources-and-subresources-via-path-segments"><a name="must-identify-resources-and-subresources-via-path-segments" class="plugin-anchor" href="#must-identify-resources-and-subresources-via-path-segments"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Identify resources and Sub-Resources via Path Segments</h2>
 <p>Basic URL structure:</p>
 <pre><code>/{resources}/[resource-id]/{sub-resources}/[sub-resource-id]
 </code></pre><p>Examples:</p>
 <pre><code>/carts/1681e6b88ec1/items
 /carts/1681e6b88ec1/items/1
-</code></pre><h2 id="could-consider-using-non-nested-urls"><span style="color:green;font-weight:bold">Could:</span> Consider Using (Non-) Nested URLs</h2>
+</code></pre><h2 id="could-consider-using-non-nested-urls"><a name="could-consider-using-non-nested-urls" class="plugin-anchor" href="#could-consider-using-non-nested-urls"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Consider Using (Non-) Nested URLs</h2>
 <p>If a sub-resource is only accessible via its parent resource and may not exists without parent resource, consider using a nested URL structure, for instance:</p>
 <pre><code>/carts/1681e6b88ec1/cart-items/1
 </code></pre><p>However, if the resource can be accessed directly via its unique id, then the API should expose it as a top-level resource. For example, customer is a collection for sales orders; however, sales orders have globally unique id and some services may choose to access the orders directly, for instance:</p>
 <pre><code>/customer/1681e6b88ec1
 /sales-order/5273gh3k525a
-</code></pre><h2 id="should-limit-of-resources"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Limit of Resources</h2>
+</code></pre><h2 id="should-limit-of-resources"><a name="should-limit-of-resources" class="plugin-anchor" href="#should-limit-of-resources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Limit of Resources</h2>
 <p>To keep maintenance manageable, and to avoid violations of the &#x201C;separation of concern&#x201D; principle, an API should not expose more than 16 resources. If you exceed 16 resources, first check if you can split them into separate subdomains with distinct APIs.</p>
-<h2 id="should-limit-of-subresource-levels"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Limit of Sub-Resource Levels</h2>
+<h2 id="should-limit-of-subresource-levels"><a name="should-limit-of-subresource-levels" class="plugin-anchor" href="#should-limit-of-subresource-levels"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Limit of Sub-Resource Levels</h2>
 <p>There are main resources (with root url paths) and sub-resources (or &#x201C;nested&#x201D; resources with non-root urls paths). Use sub-resources if their life cycle is (loosely) coupled to the main resource, i.e. the main resource works as collection resource of the subresource entities. You should use &lt;= 3 sub-resource (nesting) levels -- more levels increase API complexity and url path length. (Remember, some popular web browsers do not support URLs of more than 2000 characters)</p>
 
                     
@@ -390,7 +394,7 @@ In URLs, use only nouns.</p>
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
