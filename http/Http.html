@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="7" data-chapter-title="HTTP" data-filepath="http/Http.md" data-basepath=".." data-revision="Wed Apr 13 2016 11:48:51 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="7" data-chapter-title="HTTP" data-filepath="http/Http.md" data-basepath=".." data-revision="Wed Apr 13 2016 12:00:50 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -328,15 +328,15 @@ PUT on a collection would imply replacing the entire collection</li>
 <ul>
 <li>partial upload, i.e. only a specific subset of resource fields are replaced</li>
 <li>usually not robust against non existence of the entity</li>
-<li><p>since implementing PATCH correctly is a bit tricky we strongly suggest to go for the following:</p>
-</li>
-<li><p>use PUT with a custom media type and only if that isn&apos;t sufficient anymore</p>
-</li>
+<li>since implementing PATCH correctly is a bit tricky we strongly suggest to go for the following:<ol>
+<li>use PUT with a custom media type and only if that isn&apos;t sufficient anymore</li>
 <li>use PATCH with <a href="https://tools.ietf.org/html/rfc7396" target="_blank">JSON Merge Patch</a>, a specialized media type 
 <code>application/merge-patch+json</code> that is a partial resource representation. If updates are too complex to be expressed
 with a merge patch, you should</li>
 <li>use PATCH with <a href="http://tools.ietf.org/html/rfc6902" target="_blank">JSON Patch</a>, a specialized media type 
 <code>application/json-patch+json</code> that includes instructions on how to change the resource</li>
+</ol>
+</li>
 </ul>
 <h3 id="delete">DELETE:</h3>
 <ul>
