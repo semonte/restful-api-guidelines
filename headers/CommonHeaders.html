@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Naming | Introduction</title>
+        <title>Common Headers | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -41,10 +41,10 @@
         
     
     
-    <link rel="next" href="../resources/Resources.html">
+    <link rel="next" href="../headers/ProprietaryHeaders.html">
     
     
-    <link rel="prev" href="../compatibility/Compatibility.html">
+    <link rel="prev" href="../common-data-objects/CommonDataObjects.html">
     
 
         
@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="6" data-chapter-title="Naming" data-filepath="naming/Naming.md" data-basepath=".." data-revision="Thu Apr 14 2016 09:00:09 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="13" data-chapter-title="Common Headers" data-filepath="headers/CommonHeaders.md" data-basepath=".." data-revision="Thu Apr 14 2016 09:00:09 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -155,7 +155,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="naming/Naming.html">
+        <li class="chapter " data-level="6" data-path="naming/Naming.html">
             
                 
                     <a href="../naming/Naming.html">
@@ -260,7 +260,7 @@
             
         </li>
     
-        <li class="chapter " data-level="13" data-path="headers/CommonHeaders.html">
+        <li class="chapter active" data-level="13" data-path="headers/CommonHeaders.html">
             
                 
                     <a href="../headers/CommonHeaders.html">
@@ -338,62 +338,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="naming"><a name="naming" class="plugin-anchor" href="#naming"><span class="fa fa-link"></span></a>Naming</h1>
-<h2 id="must-path-segments-must-be-lowercase-separate-words-with-hyphens"><a name="must-path-segments-must-be-lowercase-separate-words-with-hyphens" class="plugin-anchor" href="#must-path-segments-must-be-lowercase-separate-words-with-hyphens"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Path segments must be lowercase separate words with hyphens</h2>
-<p>Example:</p>
-<pre><code>/shipment-orders/{shipment-order-id}
-</code></pre><p>This applies to concrete path segments and not the names of path parameters. For example <code>{shipment_order_id}</code> would be ok as a path parameter.</p>
-<h2 id="must-query-parameters-must-be-snakecase-never-camelcase"><a name="must-query-parameters-must-be-snakecase-never-camelcase" class="plugin-anchor" href="#must-query-parameters-must-be-snakecase-never-camelcase"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Query parameters must be snake_case (never camelCase)</h2>
-<p>Examples:</p>
-<pre><code>customer_number, order_id, billing_address
-</code></pre><h2 id="must-json-field-names-must-be-snakecase-never-camelcase"><a name="must-json-field-names-must-be-snakecase-never-camelcase" class="plugin-anchor" href="#must-json-field-names-must-be-snakecase-never-camelcase"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> JSON field names must be snake_case (never camelCase)</h2>
-<p>Intentionally consistent with the query parameters.
-Examples see above (Query Parameters).</p>
-<p>Why: It&#x2019;s essential to establish a  consistent  look and feel. No established industry standard
-exists, but many popular Internet companies prefer snake_case:  e.g. GitHub, Stack Exchange, Twitter.
-Others, like Google and Amazon, use both &#x2014; but not only camelCase.</p>
-<h2 id="must-you-must-hyphenate-http-headers"><a name="must-you-must-hyphenate-http-headers" class="plugin-anchor" href="#must-you-must-hyphenate-http-headers"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> You Must Hyphenate HTTP Headers</h2>
-<h2 id="should-prefer-hyphenatedpascalcase-for-http-header-fields"><a name="should-prefer-hyphenatedpascalcase-for-http-header-fields" class="plugin-anchor" href="#should-prefer-hyphenatedpascalcase-for-http-header-fields"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Prefer Hyphenated-Pascal-Case for HTTP header Fields</h2>
-<p>This is for consistency in your documentation (most other headers follow this convention). Avoid
-camelCase (without hyphens). Exceptions are common abbreviations like &#x201C;ID.&#x201D;</p>
-<p>Examples:</p>
-<pre><code>Accept-Encoding
-Apply-To-Redirect-Ref
-Disposition-Notification-Options
-Original-Message-ID
-</code></pre><p>See also: <a href="http://tools.ietf.org/html/rfc7230#page-22" target="_blank">HTTP Headers are case-insensitive
-(RFC 7230)</a>.</p>
-<h2 id="could-use-standardized-headers"><a name="could-use-standardized-headers" class="plugin-anchor" href="#could-use-standardized-headers"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Standardized Headers</h2>
-<p>Use <a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields" target="_blank">this list</a> and mention its support in
-your OpenAPI definition.</p>
-<h2 id="must-always-pluralize-resource-names"><a name="must-always-pluralize-resource-names" class="plugin-anchor" href="#must-always-pluralize-resource-names"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Always Pluralize Resource Names</h2>
-<p>Usually, a collection of resource instances is provided (at least API should be ready here). The special case of a resource singleton is a collection with cardinality 1.</p>
-<h2 id="could-first-path-segment-may-be-api"><a name="could-first-path-segment-may-be-api" class="plugin-anchor" href="#could-first-path-segment-may-be-api"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> First Path segment May be /api</h2>
-<p>In most cases, all resources provided by a service are part of the public API, and therefore should
-be made available under the root &#x201C;/&#x201D; base path. If  the service should also support non-public,
-internal APIs &#x2014; for specific operational support functions, for example &#x2014; add &#x201C;/api&#x201D; as base path to
-clearly separate public and non-public API resources.</p>
-<h2 id="must-avoid-trailing-slashes"><a name="must-avoid-trailing-slashes" class="plugin-anchor" href="#must-avoid-trailing-slashes"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Avoid Trailing Slashes</h2>
-<p>The trailing slash must not have specific semantics. Resource paths must deliver the same results
-whether they have the trailing slash or not.</p>
-<h2 id="could-use-conventional-query-strings"><a name="could-use-conventional-query-strings" class="plugin-anchor" href="#could-use-conventional-query-strings"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Conventional Query Strings</h2>
-<p>If you provide query support for sorting, pagination, filtering functions or other actions, use the
-following standardized naming conventions:</p>
-<ul>
-<li><code>q</code> &#x2014; default query parameter (e.g. used by browser tab completion);
-should have an entity specific alias, like sku</li>
-<li><code>limit</code> &#x2014; to restrict the number of entries. See Pagination section below.
-Hint: You can use size as an alternate query string.</li>
-<li><code>cursor</code> &#x2014; key-based page start. See Pagination section below.</li>
-<li><code>offset</code> &#x2014; numeric offset page start. See Pagination section below.
-Hint: In combination with limit, you can use page as an alternative to offset.</li>
-<li><code>sort</code> &#x2014; comma-separated list of fields to sort. To indicate sorting direction,
-fields my prefixed with + (ascending) or - (descending, default), e.g. /sales-orders?sort=+id</li>
-<li><code>fields</code> &#x2014; to retrieve a subset of fields. See <a href="../http/Http.html#should-support-filtering-of-resource-fields"><em>Support Filtering of Resource Fields</em></a> below.</li>
-<li><code>embed</code> &#x2014; to expand embedded entities (ie.: inside of an article entity, expand silhouette code
-into the silhouette object). Implementing &#x201C;expand&#x201D; correctly is difficult, so do it with care. See
-<a href="../hyper-media/Hypermedia.html#should-allow-embedding-of-complex-subresources"><em>Embedding resources</em></a> for more details.</li>
-</ul>
+                        <h1 id="common-headers"><a name="common-headers" class="plugin-anchor" href="#common-headers"><span class="fa fa-link"></span></a>Common Headers</h1>
+<p>This section describes a handful of headers, which we found raised the most questions in our daily usage.</p>
+<h2 id="contentlocation"><a name="contentlocation" class="plugin-anchor" href="#contentlocation"><span class="fa fa-link"></span></a>Content-Location</h2>
+<p>This header is used in the response of either a successful read (GET, HEAD) or successful write operation (PUT, POST or PATCH).</p>
+<p>In the case of the GET requests it points to a location where an alternate representation of the
+entity in the response body can be found. In this case one
+has to set the Content-Type header as well. For example:</p>
+<pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">/products/123/images</span> HTTP/1.1</span>
+
+<span class="http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">image/png</span>
+<span class="hljs-attribute">Content-Location</span>: <span class="hljs-string">/products/123/images?format=raw</span>
+</span></code></pre>
+<p>In the case of mutating HTTP methods, the Content-Location header can be used when there is a response body,
+and then it indicates that the included response body can be found at the location indicated in the header.</p>
+<p>If the header value is the same as the location of the created resource (as indicated by the Location header
+after POST) or the modified resource (as indicated by the request URI after PUT / PATCH), then the returned
+body is indeed the current representation of the entity making a subsequent GET operation from the client side
+not necessary.</p>
+<p>If your API returns the new representation after a PUT, PATCH, or POST you should include the Content-Location header
+to make it explicit, that the returned resource is an up-to-date version.</p>
+<p>More details in <a href="https://tools.ietf.org/html/rfc7231#section-3.1.4.2" target="_blank">rfc7231</a></p>
 
                     
                     </section>
@@ -404,10 +370,10 @@ into the silhouette object). Implementing &#x201C;expand&#x201D; correctly is di
         </div>
 
         
-        <a href="../compatibility/Compatibility.html" class="navigation navigation-prev " aria-label="Previous page: Compatibility"><i class="fa fa-angle-left"></i></a>
+        <a href="../common-data-objects/CommonDataObjects.html" class="navigation navigation-prev " aria-label="Previous page: Common Data Objects"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../resources/Resources.html" class="navigation navigation-next " aria-label="Next page: Resources"><i class="fa fa-angle-right"></i></a>
+        <a href="../headers/ProprietaryHeaders.html" class="navigation navigation-next " aria-label="Next page: Proprietary Headers"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
