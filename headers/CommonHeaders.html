@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Pagination | Introduction</title>
+        <title>Common Headers | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -41,10 +41,10 @@
         
     
     
-    <link rel="next" href="../hyper-media/Hypermedia.html">
+    <link rel="next" href="../headers/ProprietaryHeaders.html">
     
     
-    <link rel="prev" href="../http/Http.html">
+    <link rel="prev" href="../common-data-objects/CommonDataObjects.html">
     
 
         
@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="9" data-chapter-title="Pagination" data-filepath="pagination/Pagination.md" data-basepath=".." data-revision="Mon Apr 18 2016 15:49:43 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="13" data-chapter-title="Common Headers" data-filepath="headers/CommonHeaders.md" data-basepath=".." data-revision="Mon Apr 18 2016 15:49:43 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -200,7 +200,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="9" data-path="pagination/Pagination.html">
+        <li class="chapter " data-level="9" data-path="pagination/Pagination.html">
             
                 
                     <a href="../pagination/Pagination.html">
@@ -260,7 +260,7 @@
             
         </li>
     
-        <li class="chapter " data-level="13" data-path="headers/CommonHeaders.html">
+        <li class="chapter active" data-level="13" data-path="headers/CommonHeaders.html">
             
                 
                     <a href="../headers/CommonHeaders.html">
@@ -338,84 +338,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="pagination"><a name="pagination" class="plugin-anchor" href="#pagination"><span class="fa fa-link"></span></a>Pagination</h1>
-<h2 id="must-support-pagination"><a name="must-support-pagination" class="plugin-anchor" href="#must-support-pagination"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Support Pagination</h2>
-<p>For client side batch processing and iteration experience, access to lists of data items must support pagination. This holds for all lists that are (potentially) larger than just a
-few hundred entries.</p>
-<p>There are two page iteration techniques:</p>
-<ul>
-<li><a href="http://developer.infoconnect.com/paging-results-limit-and-offset" target="_blank">Offset/Limit-based pagination</a>:
-numeric offset identifies the first page entry</li>
-<li><a href="https://dev.twitter.com/overview/api/cursoring" target="_blank">Cursor-based</a> &#x2014; aka key-based &#x2014; pagination: a
-unique key element identifies the first page entry (see also
-<a href="https://developers.facebook.com/docs/graph-api/using-graph-api/v2.4#paging" target="_blank">Facebook&#x2019;s guide</a>)</li>
-</ul>
-<p>The technical conception of pagination should also consider user experience related issues. As mentioned
-in this <a href="https://www.smashingmagazine.com/2016/03/pagination-infinite-scrolling-load-more-buttons/" target="_blank">article</a>,
-jumping to a specific page is far less used than navigation via next/previous page links. This favours
-cursor-based over offset-based pagination.</p>
-<h2 id="should-prefer-cursorbased-pagination-avoid-offsetbased-pagination"><a name="should-prefer-cursorbased-pagination-avoid-offsetbased-pagination" class="plugin-anchor" href="#should-prefer-cursorbased-pagination-avoid-offsetbased-pagination"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Prefer Cursor-Based Pagination, Avoid Offset-Based Pagination</h2>
-<p>Cursor-based pagination is better for more efficient implementation, especially when it comes to
-high-data volumes and / or storage in NoSQL databases.</p>
-<p>Before choosing offset-based pagination,  make sure that it is feasible for efficient realization.
-Carefully consider the following trade-offs:</p>
-<ul>
-<li>Usability/framework support</li>
-<li><ul>
-<li>offset/limit pagination is more familiar than cursor-based, so it has more framework support and
-is easier to use for API clients</li>
-</ul>
-</li>
-<li>Use case: Jump to a certain page</li>
-<li><ul>
-<li>If jumping to a particular page in a range (e.g., 51 of 100) is really a required use case,
-cursor-based navigation is not feasible</li>
-</ul>
-</li>
-<li>Variability of data may lead to anomalies in result pages</li>
-<li><ul>
-<li>Using offset will create duplicates or lead to missed entries if rows are inserted or  deleted,
-respectively, between fetching two pages</li>
-</ul>
-</li>
-<li><ul>
-<li>When using cursor-based pagination, paging cannot continue when the cursor entry has been
-deleted while fetching two pages</li>
-</ul>
-</li>
-<li>Performance considerations
-Efficient server-side processing using offset-based pagination is hardly feasible for...</li>
-<li><ul>
-<li>higher data list volumes, especially if they do not reside in the database&#x2019;s main memory</li>
-</ul>
-</li>
-<li><ul>
-<li>sharded or NoSQL databases
-This also holds for total count and backward iteration support</li>
-</ul>
-</li>
-</ul>
-<p>Further reading:</p>
-<ul>
-<li><a href="https://dev.twitter.com/rest/public/timelines" target="_blank">Twitter</a></li>
-<li><a href="http://use-the-index-luke.com/no-offset" target="_blank">Use the Index, Luke</a></li>
-</ul>
-<h2 id="could-use-pagination-headers-where-applicable"><a name="could-use-pagination-headers-where-applicable" class="plugin-anchor" href="#could-use-pagination-headers-where-applicable"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Pagination Headers Where Applicable</h2>
-<ul>
-<li>Set <code>X-Total-Count</code> to send back the total count of entities.</li>
-<li>Set the <a href="http://tools.ietf.org/html/rfc5988#section-5" target="_blank">link headers</a>
-to provide information to the client about subsequent paging options.</li>
-</ul>
-<p>For example:</p>
-<pre><code>Link: &lt;http://catalog-service.zalando.net/articles?cursor=62726863268328&amp;limit=100&gt;;
-      rel=&quot;next&quot;; title=&quot;next chunk of articles&quot;
-</code></pre><p>or</p>
-<pre><code>Link: &lt;http://catalog-service.zalando.net/articles?offset=5&amp;limit=100&gt;;
-      rel=&quot;prev&quot;; title=&quot;previous chunk of articles&quot;
-Link: &lt;http://catalog-service.zalando.net/articles?offset=205&amp;limit=100&gt;;
-      rel=&quot;next&quot;; title=&quot;next chunk of articles&quot;
-</code></pre><p><a href="http://www.iana.org/assignments/link-relations/link-relations.xml" target="_blank">Possible relations</a>:
-<code>next</code>, <code>prev</code>, <code>last</code>, <code>first</code></p>
+                        <h1 id="common-headers"><a name="common-headers" class="plugin-anchor" href="#common-headers"><span class="fa fa-link"></span></a>Common Headers</h1>
+<p>This section describes a handful of headers, which we found raised the most questions in our daily usage.</p>
+<h2 id="contentlocation"><a name="contentlocation" class="plugin-anchor" href="#contentlocation"><span class="fa fa-link"></span></a>Content-Location</h2>
+<p>This header is used in the response of either a successful read (GET, HEAD) or successful write operation (PUT, POST or PATCH).</p>
+<p>In the case of the GET requests it points to a location where an alternate representation of the
+entity in the response body can be found. In this case one
+has to set the Content-Type header as well. For example:</p>
+<pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">/products/123/images</span> HTTP/1.1</span>
+
+<span class="http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">image/png</span>
+<span class="hljs-attribute">Content-Location</span>: <span class="hljs-string">/products/123/images?format=raw</span>
+</span></code></pre>
+<p>In the case of mutating HTTP methods, the Content-Location header can be used when there is a response body,
+and then it indicates that the included response body can be found at the location indicated in the header.</p>
+<p>If the header value is the same as the location of the created resource (as indicated by the Location header
+after POST) or the modified resource (as indicated by the request URI after PUT / PATCH), then the returned
+body is indeed the current representation of the entity making a subsequent GET operation from the client side
+not necessary.</p>
+<p>If your API returns the new representation after a PUT, PATCH, or POST you should include the Content-Location header
+to make it explicit, that the returned resource is an up-to-date version.</p>
+<p>More details in <a href="https://tools.ietf.org/html/rfc7231#section-3.1.4.2" target="_blank">rfc7231</a></p>
 
                     
                     </section>
@@ -426,10 +370,10 @@ Link: &lt;http://catalog-service.zalando.net/articles?offset=205&amp;limit=100&g
         </div>
 
         
-        <a href="../http/Http.html" class="navigation navigation-prev " aria-label="Previous page: HTTP"><i class="fa fa-angle-left"></i></a>
+        <a href="../common-data-objects/CommonDataObjects.html" class="navigation navigation-prev " aria-label="Previous page: Common Data Objects"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../hyper-media/Hypermedia.html" class="navigation navigation-next " aria-label="Next page: Hypermedia"><i class="fa fa-angle-right"></i></a>
+        <a href="../headers/ProprietaryHeaders.html" class="navigation navigation-next " aria-label="Next page: Proprietary Headers"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
