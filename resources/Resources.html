@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Common Data Objects | Introduction</title>
+        <title>Resources | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -41,10 +41,10 @@
         
     
     
-    <link rel="next" href="../headers/CommonHeaders.html">
+    <link rel="next" href="../http/Http.html">
     
     
-    <link rel="prev" href="../data-formats/DataFormats.html">
+    <link rel="prev" href="../naming/Naming.html">
     
 
         
@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="12" data-chapter-title="Common Data Objects" data-filepath="common-data-objects/CommonDataObjects.md" data-basepath=".." data-revision="Tue Apr 19 2016 09:23:38 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="7" data-chapter-title="Resources" data-filepath="resources/Resources.md" data-basepath=".." data-revision="Tue Apr 19 2016 09:23:38 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -170,7 +170,7 @@
             
         </li>
     
-        <li class="chapter " data-level="7" data-path="resources/Resources.html">
+        <li class="chapter active" data-level="7" data-path="resources/Resources.html">
             
                 
                     <a href="../resources/Resources.html">
@@ -245,7 +245,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="12" data-path="common-data-objects/CommonDataObjects.html">
+        <li class="chapter " data-level="12" data-path="common-data-objects/CommonDataObjects.html">
             
                 
                     <a href="../common-data-objects/CommonDataObjects.html">
@@ -338,146 +338,38 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="common-data-objects"><a name="common-data-objects" class="plugin-anchor" href="#common-data-objects"><span class="fa fa-link"></span></a>Common Data Objects</h1>
-<p>Definitions of data objects that are good candidates for wider usage:</p>
-<h2 id="should-use-a-common-money-object"><a name="should-use-a-common-money-object" class="plugin-anchor" href="#should-use-a-common-money-object"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use a Common Money Object</h2>
-<p>Use the following common money structure:</p>
-<pre><code>Money:
-  type: object
-  properties:
-    amount:
-      type: number
-      format: decimal
-      example: 99.95
-    currency:
-      type: string
-      format: iso-4217
-      example: EUR
-  required:
-    - amount
-    - currency
-</code></pre><p>Make sure that you don&#x2019;t convert the &#x201C;amount&#x201D; field to <code>float</code> / <code>double</code> types when implementing
-this interface in a specific language or when doing calculations. Otherwise, you might lose
-precision. Instead, use exact formats like
-Java&#x2019;s <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html" target="_blank"><code>BigDecimal</code></a>.
-See <a href="http://stackoverflow.com/a/3730040/342852" target="_blank">Stack Overflow</a> for more info.</p>
-<p>Some JSON parsers (NodeJS&#x2019;s, for example) convert numbers to floats by default. After discussing the
-<a href="https://docs.google.com/spreadsheets/d/12wTj-2w39f69XZGwRDrosNc1yWPwQpGgEs_DCt5ODaQ" target="_blank">pros and cons</a>,
-we&#x2019;ve decided on &quot;decimal&quot; as our amount format. It is not a standard OpenAPI format, but should
-help us to avoid parsing numbers as float / doubles.</p>
-<h2 id="should-use-common-address-fields"><a name="should-use-common-address-fields" class="plugin-anchor" href="#should-use-common-address-fields"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use Common Address Fields</h2>
-<p>Address structures play a role in different functional and use-case contexts, including country
-variances. The address structure below should be sufficient for most of our business-related use
-cases. Use it in your APIs &#x2014; and compatible extend it if necessary for your API concerns:</p>
-<pre><code>address:
-    description:
-      a common address structure adequate for many use cases
-    type: object
-    properties:
-      salutation:
-        type: string
-        description: |
-          A salutation and/or title which may be used for personal contacts. Hint: not to be confused with the gender information that is stored per customer account
-        example: Mr
-      first_name:
-        type: string
-        description: given name(s) or first name(s) of a person; may also include the middle names
-        example: Hans Dieter
-      last_name:
-        type: string
-        description: family name(s) or surname(s) of a person
-        example: Mustermann
-      business_name:
-        type: string
-        description: company name of the business organization
-        example: Consulting Services GmbH
-      street:
-        type: string
-        description: full street address including house number and street name
-        example: Sch&#xF6;nhauser Allee 103
-      additional:
-        type: string
-        description: further details like suite, apt no, etc.
-        example: 2. Hinterhof rechts
-      city:
-        type: string
-        description: name of the city
-        example: Berlin
-      zip:
-        type: string
-        description: Zip code or postal code
-        example: 14265
-      country_code:
-        type: string
-        format: iso-3166-1-alpha-2
-        example: DE
-    required:
-      - first_name
-      - last_name
-      - street
-      - city
-      - zip
-      - country_code
-</code></pre><h2 id="must-use-common-error-return-objects"><a name="must-use-common-error-return-objects" class="plugin-anchor" href="#must-use-common-error-return-objects"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use Common Error Return Objects</h2>
-<p><a href="http://tools.ietf.org/html/rfc7807" target="_blank">RFC 7807</a> defines the media type <code>application/problem+json</code>
-for a common error return object (and the format of the contained JSON object).
-Operations should return that (together with a suitable status code) when any problem
-occurred during processing and you can give more details than the status code itself
-can supply, whether it be caused by the client or the server (i.e. both for 4xx or 5xx errors).</p>
-<p>A previous version of this guideline (before the publication of that RFC and the
-registration of the media type) told to return <code>application/x.problem+json</code> in these
-cases (with the same contents).
-Servers for APIs defined before this change should pay attention to the <code>Accept</code> header sent
-by the client and set the <code>Content-Type</code> header of the problem response correspondingly.
-Clients of such APIs should accept both media types.</p>
-<p>APIs may define custom problems types with extension properties, according to their specific needs.</p>
-<p>Here is the definition in Open API 2.0 YAML format in the case you don&apos;t need any extensions:</p>
-<pre><code>Problem:
- type: object
- properties:
-   type:
-     type: string
-     format: uri
-     description: |
-       An absolute URI that identifies the problem type.  When dereferenced,
-       it SHOULD provide human-readable documentation for the problem type
-       (e.g., using HTML).
-     example: http://httpstatus.es/503
-   title:
-     type: string
-     description: |
-       A short, summary of the problem type. Written in english and readable
-       for engineers (usually not suited for non technical stakeholders and
-       not localized); example: Service Unavailable
-   status:
-     type: integer
-     format: int32
-     description: |
-       The HTTP status code generated by the origin server for this occurrence
-       of the problem.
-     example: 503
-   detail:
-     type: string
-     description: |
-       A human readable explanation specific to this occurrence of the
-       problem.
-     example: Connection to database timed out
-   instance:
-     type: string
-     format: uri
-     description: |
-       An absolute URI that identifies the specific occurrence of the problem.
-       It may or may not yield further information if dereferenced.
- required:
-   - type
-   - title
-   - status
-</code></pre><h2 id="must-an-error-message-must-not-contain-the-stack-trace"><a name="must-an-error-message-must-not-contain-the-stack-trace" class="plugin-anchor" href="#must-an-error-message-must-not-contain-the-stack-trace"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> An error message must not contain the stack trace.</h2>
-<p>The reasons:</p>
-<ul>
-<li>The API would leak implementation details to the outside world.</li>
-<li>Clients may not rely on pure API implementation details.</li>
-</ul>
+                        <h1 id="resources"><a name="resources" class="plugin-anchor" href="#resources"><span class="fa fa-link"></span></a>Resources</h1>
+<h2 id="must-avoid-actions-&#x2014;-think-about-resources"><a name="must-avoid-actions-&#x2014;-think-about-resources" class="plugin-anchor" href="#must-avoid-actions-&#x2014;-think-about-resources"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Avoid Actions &#x2014; Think About Resources</h2>
+<p>REST is all about your resources, so consider the domain entities that take part in web service interaction, and aim to model your API around these using the standard HTTP methods as operation indicators. For instance, if an application has to lock articles explicitly so that only one user may edit them, create an article lock with PUT or POST instead of using a lock action.</p>
+<p>Request:</p>
+<pre><code>PUT /article-locks/{article-id}
+</code></pre><p>The added benefit is that you already have a service for browsing and filtering article locks.</p>
+<h2 id="should-define-useful-resources"><a name="should-define-useful-resources" class="plugin-anchor" href="#should-define-useful-resources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Define <em>useful</em> resources</h2>
+<p>As a rule of thumb resources should be defined to cover 90% of all its client&apos;s use cases. A <em>useful</em> resource should
+contain as much information as necessary, but as little as possible. A great way to support the last 10% is to allow
+clients to specify their needs for more/less information by supporting filtering and
+<a href="../hyper-media/Hypermedia.html#should-allow-embedding-of-complex-subresources">embedding</a>.</p>
+<h2 id="must-keep-urls-verbfree"><a name="must-keep-urls-verbfree" class="plugin-anchor" href="#must-keep-urls-verbfree"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Keep URLs Verb-Free</h2>
+<p>The API describes resources, so the only place where actions should appear is in the HTTP methods.
+In URLs, use only nouns.</p>
+<h2 id="must-use-domainspecific-resource-names"><a name="must-use-domainspecific-resource-names" class="plugin-anchor" href="#must-use-domainspecific-resource-names"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use Domain-Specific Resource Names</h2>
+<p>API resources represent elements of the application&#x2019;s domain model. Using domain-specific nomenclature for resource names helps developers to understand the functionality and basic semantics of your resources. It also reduces the need for further documentation outside the API definition. For example, &#x201C;sales-order-items&#x201D; is superior to &#x201C;order-items&#x201D; in that it clearly indicates which business object it represents. Along these lines, &#x201C;items&#x201D; is too general.</p>
+<h2 id="must-identify-resources-and-subresources-via-path-segments"><a name="must-identify-resources-and-subresources-via-path-segments" class="plugin-anchor" href="#must-identify-resources-and-subresources-via-path-segments"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Identify resources and Sub-Resources via Path Segments</h2>
+<p>Basic URL structure:</p>
+<pre><code>/{resources}/[resource-id]/{sub-resources}/[sub-resource-id]
+</code></pre><p>Examples:</p>
+<pre><code>/carts/1681e6b88ec1/items
+/carts/1681e6b88ec1/items/1
+</code></pre><h2 id="could-consider-using-non-nested-urls"><a name="could-consider-using-non-nested-urls" class="plugin-anchor" href="#could-consider-using-non-nested-urls"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Consider Using (Non-) Nested URLs</h2>
+<p>If a sub-resource is only accessible via its parent resource and may not exists without parent resource, consider using a nested URL structure, for instance:</p>
+<pre><code>/carts/1681e6b88ec1/cart-items/1
+</code></pre><p>However, if the resource can be accessed directly via its unique id, then the API should expose it as a top-level resource. For example, customer is a collection for sales orders; however, sales orders have globally unique id and some services may choose to access the orders directly, for instance:</p>
+<pre><code>/customer/1681e6b88ec1
+/sales-order/5273gh3k525a
+</code></pre><h2 id="should-limit-of-resources"><a name="should-limit-of-resources" class="plugin-anchor" href="#should-limit-of-resources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Limit of Resources</h2>
+<p>To keep maintenance manageable, and to avoid violations of the &#x201C;separation of concern&#x201D; principle, an API should not expose more than 16 resources. If you exceed 16 resources, first check if you can split them into separate subdomains with distinct APIs.</p>
+<h2 id="should-limit-of-subresource-levels"><a name="should-limit-of-subresource-levels" class="plugin-anchor" href="#should-limit-of-subresource-levels"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Limit of Sub-Resource Levels</h2>
+<p>There are main resources (with root url paths) and sub-resources (or &#x201C;nested&#x201D; resources with non-root urls paths). Use sub-resources if their life cycle is (loosely) coupled to the main resource, i.e. the main resource works as collection resource of the subresource entities. You should use &lt;= 3 sub-resource (nesting) levels -- more levels increase API complexity and url path length. (Remember, some popular web browsers do not support URLs of more than 2000 characters)</p>
 
                     
                     </section>
@@ -488,10 +380,10 @@ Clients of such APIs should accept both media types.</p>
         </div>
 
         
-        <a href="../data-formats/DataFormats.html" class="navigation navigation-prev " aria-label="Previous page: Data Formats"><i class="fa fa-angle-left"></i></a>
+        <a href="../naming/Naming.html" class="navigation navigation-prev " aria-label="Previous page: Naming"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../headers/CommonHeaders.html" class="navigation navigation-next " aria-label="Next page: Common Headers"><i class="fa fa-angle-right"></i></a>
+        <a href="../http/Http.html" class="navigation navigation-next " aria-label="Next page: HTTP"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

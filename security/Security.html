@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -48,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-chapter-title="Security" data-filepath="security/Security.md" data-basepath=".." data-revision="Tue Apr 19 2016 06:28:25 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="4" data-chapter-title="Security" data-filepath="security/Security.md" data-basepath=".." data-revision="Tue Apr 19 2016 09:23:38 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -166,12 +170,27 @@
             
         </li>
     
-        <li class="chapter " data-level="7" data-path="http/Http.html">
+        <li class="chapter " data-level="7" data-path="resources/Resources.html">
+            
+                
+                    <a href="../resources/Resources.html">
+                
+                        <i class="fa fa-check"></i><b>7.</b>
+                        
+                            
+                        
+                        Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="http/Http.html">
             
                 
                     <a href="../http/Http.html">
                 
-                        <i class="fa fa-check"></i><b>7.</b>
+                        <i class="fa fa-check"></i><b>8.</b>
                         
                             
                         
@@ -181,12 +200,12 @@
             
         </li>
     
-        <li class="chapter " data-level="8" data-path="pagination/Pagination.html">
+        <li class="chapter " data-level="9" data-path="pagination/Pagination.html">
             
                 
                     <a href="../pagination/Pagination.html">
                 
-                        <i class="fa fa-check"></i><b>8.</b>
+                        <i class="fa fa-check"></i><b>9.</b>
                         
                             
                         
@@ -196,12 +215,12 @@
             
         </li>
     
-        <li class="chapter " data-level="9" data-path="hyper-media/Hypermedia.html">
+        <li class="chapter " data-level="10" data-path="hyper-media/Hypermedia.html">
             
                 
                     <a href="../hyper-media/Hypermedia.html">
                 
-                        <i class="fa fa-check"></i><b>9.</b>
+                        <i class="fa fa-check"></i><b>10.</b>
                         
                             
                         
@@ -211,12 +230,12 @@
             
         </li>
     
-        <li class="chapter " data-level="10" data-path="data-formats/DataFormats.html">
+        <li class="chapter " data-level="11" data-path="data-formats/DataFormats.html">
             
                 
                     <a href="../data-formats/DataFormats.html">
                 
-                        <i class="fa fa-check"></i><b>10.</b>
+                        <i class="fa fa-check"></i><b>11.</b>
                         
                             
                         
@@ -226,12 +245,12 @@
             
         </li>
     
-        <li class="chapter " data-level="11" data-path="common-data-objects/CommonDataObjects.html">
+        <li class="chapter " data-level="12" data-path="common-data-objects/CommonDataObjects.html">
             
                 
                     <a href="../common-data-objects/CommonDataObjects.html">
                 
-                        <i class="fa fa-check"></i><b>11.</b>
+                        <i class="fa fa-check"></i><b>12.</b>
                         
                             
                         
@@ -241,12 +260,12 @@
             
         </li>
     
-        <li class="chapter " data-level="12" data-path="common-headers/CommonHeaders.html">
+        <li class="chapter " data-level="13" data-path="headers/CommonHeaders.html">
             
                 
-                    <a href="../common-headers/CommonHeaders.html">
+                    <a href="../headers/CommonHeaders.html">
                 
-                        <i class="fa fa-check"></i><b>12.</b>
+                        <i class="fa fa-check"></i><b>13.</b>
                         
                             
                         
@@ -256,12 +275,27 @@
             
         </li>
     
-        <li class="chapter " data-level="13" data-path="api-discovery/ApiDiscovery.html">
+        <li class="chapter " data-level="14" data-path="headers/ProprietaryHeaders.html">
+            
+                
+                    <a href="../headers/ProprietaryHeaders.html">
+                
+                        <i class="fa fa-check"></i><b>14.</b>
+                        
+                            
+                        
+                        Proprietary Headers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="api-discovery/ApiDiscovery.html">
             
                 
                     <a href="../api-discovery/ApiDiscovery.html">
                 
-                        <i class="fa fa-check"></i><b>13.</b>
+                        <i class="fa fa-check"></i><b>15.</b>
                         
                             
                         
@@ -304,8 +338,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="security">Security</h1>
-<h2 id="must-secure-endpoints-with-oauth-20"><span style="color:red;font-weight:bold">Must:</span> Secure endpoints with OAuth 2.0</h2>
+                        <h1 id="security"><a name="security" class="plugin-anchor" href="#security"><span class="fa fa-link"></span></a>Security</h1>
+<h2 id="must-secure-endpoints-with-oauth-20"><a name="must-secure-endpoints-with-oauth-20" class="plugin-anchor" href="#must-secure-endpoints-with-oauth-20"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Secure endpoints with OAuth 2.0</h2>
 <p>Every API endpoint needs to be secured using OAuth 2.0. Please refer to the 
 <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#security-definitions-object" target="_blank">official OpenAPI spec</a>
 on how to specify security definitions in you API specification or take a look at the following example.</p>
@@ -319,7 +353,7 @@ on how to specify security definitions in you API specification or take a look a
       fulfillment-order-service.read: Allows to read from the fulfillment order service.
 </code></pre>
 <p>In order to see how to define and assign scopes, please refer to the next section.</p>
-<h2 id="must-define-and-assign-scopes"><span style="color:red;font-weight:bold">Must:</span> Define and assign scopes</h2>
+<h2 id="must-define-and-assign-scopes"><a name="must-define-and-assign-scopes" class="plugin-anchor" href="#must-define-and-assign-scopes"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Define and assign scopes</h2>
 <p>Every API needs to define scopes and every endpoint needs to have a at least one scope assigned. Scopes are defined by a name and a description once per API specification, as shown in the previous section. Please refer to the following rules when creating scope names:</p>
 <pre><code>&lt;scope&gt; ::= &lt;standard-scope&gt; |           -- should be sufficient for majority of use cases 
             &lt;resource-specific-scope&gt;    -- for special security access differentiation use cases 
@@ -416,7 +450,7 @@ on how to specify security definitions in you API specification or take a look a
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -48,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="9" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Tue Apr 19 2016 06:28:25 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="10" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Tue Apr 19 2016 09:23:38 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -166,12 +170,27 @@
             
         </li>
     
-        <li class="chapter " data-level="7" data-path="http/Http.html">
+        <li class="chapter " data-level="7" data-path="resources/Resources.html">
+            
+                
+                    <a href="../resources/Resources.html">
+                
+                        <i class="fa fa-check"></i><b>7.</b>
+                        
+                            
+                        
+                        Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="http/Http.html">
             
                 
                     <a href="../http/Http.html">
                 
-                        <i class="fa fa-check"></i><b>7.</b>
+                        <i class="fa fa-check"></i><b>8.</b>
                         
                             
                         
@@ -181,12 +200,12 @@
             
         </li>
     
-        <li class="chapter " data-level="8" data-path="pagination/Pagination.html">
+        <li class="chapter " data-level="9" data-path="pagination/Pagination.html">
             
                 
                     <a href="../pagination/Pagination.html">
                 
-                        <i class="fa fa-check"></i><b>8.</b>
+                        <i class="fa fa-check"></i><b>9.</b>
                         
                             
                         
@@ -196,12 +215,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="9" data-path="hyper-media/Hypermedia.html">
+        <li class="chapter active" data-level="10" data-path="hyper-media/Hypermedia.html">
             
                 
                     <a href="../hyper-media/Hypermedia.html">
                 
-                        <i class="fa fa-check"></i><b>9.</b>
+                        <i class="fa fa-check"></i><b>10.</b>
                         
                             
                         
@@ -211,12 +230,12 @@
             
         </li>
     
-        <li class="chapter " data-level="10" data-path="data-formats/DataFormats.html">
+        <li class="chapter " data-level="11" data-path="data-formats/DataFormats.html">
             
                 
                     <a href="../data-formats/DataFormats.html">
                 
-                        <i class="fa fa-check"></i><b>10.</b>
+                        <i class="fa fa-check"></i><b>11.</b>
                         
                             
                         
@@ -226,12 +245,12 @@
             
         </li>
     
-        <li class="chapter " data-level="11" data-path="common-data-objects/CommonDataObjects.html">
+        <li class="chapter " data-level="12" data-path="common-data-objects/CommonDataObjects.html">
             
                 
                     <a href="../common-data-objects/CommonDataObjects.html">
                 
-                        <i class="fa fa-check"></i><b>11.</b>
+                        <i class="fa fa-check"></i><b>12.</b>
                         
                             
                         
@@ -241,12 +260,12 @@
             
         </li>
     
-        <li class="chapter " data-level="12" data-path="common-headers/CommonHeaders.html">
+        <li class="chapter " data-level="13" data-path="headers/CommonHeaders.html">
             
                 
-                    <a href="../common-headers/CommonHeaders.html">
+                    <a href="../headers/CommonHeaders.html">
                 
-                        <i class="fa fa-check"></i><b>12.</b>
+                        <i class="fa fa-check"></i><b>13.</b>
                         
                             
                         
@@ -256,12 +275,27 @@
             
         </li>
     
-        <li class="chapter " data-level="13" data-path="api-discovery/ApiDiscovery.html">
+        <li class="chapter " data-level="14" data-path="headers/ProprietaryHeaders.html">
+            
+                
+                    <a href="../headers/ProprietaryHeaders.html">
+                
+                        <i class="fa fa-check"></i><b>14.</b>
+                        
+                            
+                        
+                        Proprietary Headers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="api-discovery/ApiDiscovery.html">
             
                 
                     <a href="../api-discovery/ApiDiscovery.html">
                 
-                        <i class="fa fa-check"></i><b>13.</b>
+                        <i class="fa fa-check"></i><b>15.</b>
                         
                             
                         
@@ -304,8 +338,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="hypermedia">Hypermedia</h1>
-<h2 id="should-use-hateoas"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use HATEOAS</h2>
+                        <h1 id="hypermedia"><a name="hypermedia" class="plugin-anchor" href="#hypermedia"><span class="fa fa-link"></span></a>Hypermedia</h1>
+<h2 id="should-use-hateoas"><a name="should-use-hateoas" class="plugin-anchor" href="#should-use-hateoas"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use HATEOAS</h2>
 <p>This is a challenging topic. We don&#x2019;t have specific recommendations yet; we expect them to emerge
 from trial and error, and from the API Guild&#x2019;s ongoing research. For now, we strongly encourage
 teams to apply this principle and document results.</p>
@@ -316,7 +350,7 @@ teams to apply this principle and document results.</p>
 <li>Additional client development work vs. reduced efforts in case of API and state handling changes</li>
 </ul>
 <p>Additional resources: <a href="http://en.wikipedia.org/wiki/HATEOAS" target="_blank">Wikipedia</a>, <a href="http://restcookbook.com/Basics/hateoas/" target="_blank">The RESTful CookBook</a></p>
-<h2 id="could-use-uris-for-custom-link-relations"><span style="color:green;font-weight:bold">Could:</span> Use URIs for Custom Link Relations</h2>
+<h2 id="could-use-uris-for-custom-link-relations"><a name="could-use-uris-for-custom-link-relations" class="plugin-anchor" href="#could-use-uris-for-custom-link-relations"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use URIs for Custom Link Relations</h2>
 <p>Related or even embedded (sub-) resources should be linked via &#x201C;meta link attributes&#x201D; within the response payload; use here the following <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a> compliant syntax:</p>
 <pre><code>{
   &#x201C;_links&#x201D;: {
@@ -325,20 +359,15 @@ teams to apply this principle and document results.</p>
     }]
   }
 }
-</code></pre><h2 id="should-use-standards-for-hypermedia-link-types"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use Standards for Hypermedia Link Types</h2>
+</code></pre><h2 id="should-use-standards-for-hypermedia-link-types"><a name="should-use-standards-for-hypermedia-link-types" class="plugin-anchor" href="#should-use-standards-for-hypermedia-link-types"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use Standards for Hypermedia Link Types</h2>
 <p>To represent hypermedia links in payload results, we should consider using a standard format like <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a>, <a href="http://jsonapi.org/" target="_blank">JSON API</a>, <a href="http://json-ld.org/" target="_blank">JSON-LD</a> with <a href="http://www.hydra-cg.com/spec/latest/core/" target="_blank">Hydra</a>, or <a href="https://github.com/kevinswiber/siren" target="_blank">Siren</a>.  (Hint: Read <a href="http://sookocheff.com/post/api/on-choosing-a-hypermedia-format/" target="_blank">Kevin Sookocheff&#x2019;s post</a>, for instance, to learn more about the hypermedia types.)</p>
-<h2 id="should-consider-using-a-standard-for-linkedembedded-resources"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Consider Using a Standard for linked/embedded resources</h2>
-<p>For HTTP Link headers, consider using a format like <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a>,
-<a href="http://json-ld.org/" target="_blank">JSON-LD</a> with <a href="http://www.markus-lanthaler.com/hydra/spec/latest/core/" target="_blank">Hydra</a>,
-or <a href="https://github.com/kevinswiber/siren" target="_blank">Siren</a>. For a comparison of these hypermedia types, see
-<a href="http://sookocheff.com/post/api/on-choosing-a-hypermedia-format/" target="_blank">Kevin Sookocheff&#x2019;s post</a>.</p>
-<h2 id="should-allow-embedding-of-complex-subresources"><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Allow embedding of complex sub-resources</h2>
+<h2 id="should-allow-optional-embedding-of-subresources"><a name="should-allow-optional-embedding-of-subresources" class="plugin-anchor" href="#should-allow-optional-embedding-of-subresources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Allow Optional Embedding of Sub-Resources</h2>
 <p>Embedding related resources (also know as <em>Resource expansion</em>) is a great way to reduce the number of requests. In
 cases where clients know upfront that they need some related resources they can instruct the server to prefetch that
 data eagerly. Whether this is optimized on the server, e.g. a database join, or done in a generic way, e.g. an HTTP
 proxy that transparently embeds resources, is up the implementation.</p>
 <p>See <a href="../naming/Naming.html#could-use-conventional-query-strings"><em>Conventional Query Strings</em></a> for naming.</p>
-<h2 id="must-modify-the-contenttype-for-embedded-resources"><span style="color:red;font-weight:bold">Must:</span> Modify the Content-Type for embedded resources</h2>
+<h2 id="must-modify-the-contenttype-for-embedded-resources"><a name="must-modify-the-contenttype-for-embedded-resources" class="plugin-anchor" href="#must-modify-the-contenttype-for-embedded-resources"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Modify the Content-Type for Embedded Resources</h2>
 <p>Embedded resources requires to change the media type of the response accordingly:</p>
 <pre><code class="lang-http">GET /order/123?embed=(items)
 Accept: application/x.order+json
@@ -385,7 +414,7 @@ Accept: application/x.order+json
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

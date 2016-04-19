@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
@@ -38,7 +42,7 @@
     
     
     
-    <link rel="prev" href="../common-headers/CommonHeaders.html">
+    <link rel="prev" href="../headers/ProprietaryHeaders.html">
     
 
         
@@ -46,7 +50,7 @@
     <body>
         
         
-    <div class="book" data-level="13" data-chapter-title="API Discovery" data-filepath="api-discovery/ApiDiscovery.md" data-basepath=".." data-revision="Tue Apr 19 2016 06:28:25 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="15" data-chapter-title="API Discovery" data-filepath="api-discovery/ApiDiscovery.md" data-basepath=".." data-revision="Tue Apr 19 2016 09:23:38 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -164,12 +168,27 @@
             
         </li>
     
-        <li class="chapter " data-level="7" data-path="http/Http.html">
+        <li class="chapter " data-level="7" data-path="resources/Resources.html">
+            
+                
+                    <a href="../resources/Resources.html">
+                
+                        <i class="fa fa-check"></i><b>7.</b>
+                        
+                            
+                        
+                        Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="http/Http.html">
             
                 
                     <a href="../http/Http.html">
                 
-                        <i class="fa fa-check"></i><b>7.</b>
+                        <i class="fa fa-check"></i><b>8.</b>
                         
                             
                         
@@ -179,12 +198,12 @@
             
         </li>
     
-        <li class="chapter " data-level="8" data-path="pagination/Pagination.html">
+        <li class="chapter " data-level="9" data-path="pagination/Pagination.html">
             
                 
                     <a href="../pagination/Pagination.html">
                 
-                        <i class="fa fa-check"></i><b>8.</b>
+                        <i class="fa fa-check"></i><b>9.</b>
                         
                             
                         
@@ -194,12 +213,12 @@
             
         </li>
     
-        <li class="chapter " data-level="9" data-path="hyper-media/Hypermedia.html">
+        <li class="chapter " data-level="10" data-path="hyper-media/Hypermedia.html">
             
                 
                     <a href="../hyper-media/Hypermedia.html">
                 
-                        <i class="fa fa-check"></i><b>9.</b>
+                        <i class="fa fa-check"></i><b>10.</b>
                         
                             
                         
@@ -209,12 +228,12 @@
             
         </li>
     
-        <li class="chapter " data-level="10" data-path="data-formats/DataFormats.html">
+        <li class="chapter " data-level="11" data-path="data-formats/DataFormats.html">
             
                 
                     <a href="../data-formats/DataFormats.html">
                 
-                        <i class="fa fa-check"></i><b>10.</b>
+                        <i class="fa fa-check"></i><b>11.</b>
                         
                             
                         
@@ -224,12 +243,12 @@
             
         </li>
     
-        <li class="chapter " data-level="11" data-path="common-data-objects/CommonDataObjects.html">
+        <li class="chapter " data-level="12" data-path="common-data-objects/CommonDataObjects.html">
             
                 
                     <a href="../common-data-objects/CommonDataObjects.html">
                 
-                        <i class="fa fa-check"></i><b>11.</b>
+                        <i class="fa fa-check"></i><b>12.</b>
                         
                             
                         
@@ -239,12 +258,12 @@
             
         </li>
     
-        <li class="chapter " data-level="12" data-path="common-headers/CommonHeaders.html">
+        <li class="chapter " data-level="13" data-path="headers/CommonHeaders.html">
             
                 
-                    <a href="../common-headers/CommonHeaders.html">
+                    <a href="../headers/CommonHeaders.html">
                 
-                        <i class="fa fa-check"></i><b>12.</b>
+                        <i class="fa fa-check"></i><b>13.</b>
                         
                             
                         
@@ -254,12 +273,27 @@
             
         </li>
     
-        <li class="chapter active" data-level="13" data-path="api-discovery/ApiDiscovery.html">
+        <li class="chapter " data-level="14" data-path="headers/ProprietaryHeaders.html">
+            
+                
+                    <a href="../headers/ProprietaryHeaders.html">
+                
+                        <i class="fa fa-check"></i><b>14.</b>
+                        
+                            
+                        
+                        Proprietary Headers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="15" data-path="api-discovery/ApiDiscovery.html">
             
                 
                     <a href="../api-discovery/ApiDiscovery.html">
                 
-                        <i class="fa fa-check"></i><b>13.</b>
+                        <i class="fa fa-check"></i><b>15.</b>
                         
                             
                         
@@ -302,8 +336,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="api-discovery">API Discovery</h1>
-<h2 id="must-applications-must-provide-online-access-to-their-api-swagger-definitions"><span style="color:red;font-weight:bold">Must:</span> Applications Must Provide Online Access to Their API (Swagger) Definitions</h2>
+                        <h1 id="api-discovery"><a name="api-discovery" class="plugin-anchor" href="#api-discovery"><span class="fa fa-link"></span></a>API Discovery</h1>
+<h2 id="must-applications-must-provide-online-access-to-their-api-swagger-definitions"><a name="must-applications-must-provide-online-access-to-their-api-swagger-definitions" class="plugin-anchor" href="#must-applications-must-provide-online-access-to-their-api-swagger-definitions"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Applications Must Provide Online Access to Their API (Swagger) Definitions</h2>
 <p>In our dynamic and complex service infrastructure, it is important to provide a central place with
 online access to the API definitions of all running applications. All service applications must
 provide the following two API endpoints:</p>
@@ -330,7 +364,7 @@ management.</p>
         </div>
 
         
-        <a href="../common-headers/CommonHeaders.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Common Headers"><i class="fa fa-angle-left"></i></a>
+        <a href="../headers/ProprietaryHeaders.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Proprietary Headers"><i class="fa fa-angle-left"></i></a>
         
         
     </div>
@@ -357,7 +391,7 @@ management.</p>
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>
