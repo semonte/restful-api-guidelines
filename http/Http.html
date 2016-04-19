@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="8" data-chapter-title="HTTP" data-filepath="http/Http.md" data-basepath=".." data-revision="Tue Apr 19 2016 09:23:38 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="8" data-chapter-title="HTTP" data-filepath="http/Http.md" data-basepath=".." data-revision="Tue Apr 19 2016 09:36:31 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -364,12 +364,12 @@ PUT on a collection would imply replacing the entire collection</li>
 <li>usually not robust against non existence of the entity</li>
 <li>since implementing PATCH correctly is a bit tricky we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by <a href="../compatibility/Compatibility#compatibility">a backwards compatible change</a>:<ol>
 <li>use PUT with a custom media type and only if that isn&apos;t sufficient anymore</li>
-<li>use PATCH with <a href="https://tools.ietf.org/html/rfc7396" target="_blank">JSON Merge Patch</a>, a specialized media type 
+<li>use PATCH with <a href="https://tools.ietf.org/html/rfc7396" target="_blank">JSON Merge Patch</a>, a specialized media type
 <code>application/merge-patch+json</code> that is a partial resource representation. If updates are too complex to be
 expressed with a merge patch, you should</li>
-<li>use PATCH with <a href="http://tools.ietf.org/html/rfc6902" target="_blank">JSON Patch</a>, a specialized media type 
+<li>use PATCH with <a href="http://tools.ietf.org/html/rfc6902" target="_blank">JSON Patch</a>, a specialized media type
 <code>application/json-patch+json</code> that includes instructions on how to change the resource</li>
-<li>use POST if the PATCH request does not modify the resource in a way defined by the 
+<li>use POST if the PATCH request does not modify the resource in a way defined by the
 semantics of the media type</li>
 </ol>
 </li>
@@ -686,7 +686,7 @@ compression via the Content-Encoding header.</p>
 </span>}
 </span></span></code></pre>
 <p>The approach we recommend for field is a Zalando Github project,
-<a href="https://github.com/zalando/json-fields" target="_blank">json-fields</a>. It defines a formal grammar for the ANTLR
+<a href="https://github.com/zalando-incubator/json-fields" target="_blank">json-fields</a>. It defines a formal grammar for the ANTLR
  parser generator and provides a ready-to use library for Java / Jackson based projects
  (<a href="http://mvnrepository.com/artifact/org.zalando.guild.api/json-fields-jackson" target="_blank">Maven link</a>).
 Teams that use other JSON serializers are encouraged to contribute to the open source project and
