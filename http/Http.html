@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="8" data-chapter-title="HTTP" data-filepath="http/Http.md" data-basepath=".." data-revision="Tue Apr 19 2016 09:36:31 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="8" data-chapter-title="HTTP" data-filepath="http/Http.md" data-basepath=".." data-revision="Tue Apr 19 2016 10:14:50 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -348,7 +348,7 @@
 collection resources may return either 200 or 404 if the listing is empty</li>
 <li>must NOT have request body payload</li>
 </ul>
-<h3 id="put"><a name="put" class="plugin-anchor" href="#put"><span class="fa fa-link"></span></a>PUT</h3>
+<h3 id="put"><a name="put" class="plugin-anchor" href="#put"><span class="fa fa-link"></span></a>PUT:</h3>
 <ul>
 <li>fully uploads an entity, i.e. provides a complete replacement by the resource representation
 passed as payload</li>
@@ -358,30 +358,23 @@ in a previous POST request) and passed as a URL path segment</li>
 PUT on a collection would imply replacing the entire collection</li>
 <li>usually robust against non-existence of the entity by implicit creation before update</li>
 </ul>
-<h3 id="patch"><a name="patch" class="plugin-anchor" href="#patch"><span class="fa fa-link"></span></a>PATCH</h3>
+<h3 id="patch"><a name="patch" class="plugin-anchor" href="#patch"><span class="fa fa-link"></span></a>PATCH:</h3>
 <ul>
 <li>partial upload, i.e. only a specific subset of resource fields are replaced</li>
+<li>partial resource representation passed as payload has either resource content type with optional fields (to be
+updated) or a custom content type that also may include instructions of how to change the resource</li>
+<li>usually accepted only by single resources, because the semantics for PATCH on a collection resource
+are very hard to define</li>
 <li>usually not robust against non existence of the entity</li>
-<li>since implementing PATCH correctly is a bit tricky we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by <a href="../compatibility/Compatibility#compatibility">a backwards compatible change</a>:<ol>
-<li>use PUT with a custom media type and only if that isn&apos;t sufficient anymore</li>
-<li>use PATCH with <a href="https://tools.ietf.org/html/rfc7396" target="_blank">JSON Merge Patch</a>, a specialized media type
-<code>application/merge-patch+json</code> that is a partial resource representation. If updates are too complex to be
-expressed with a merge patch, you should</li>
-<li>use PATCH with <a href="http://tools.ietf.org/html/rfc6902" target="_blank">JSON Patch</a>, a specialized media type
-<code>application/json-patch+json</code> that includes instructions on how to change the resource</li>
-<li>use POST if the PATCH request does not modify the resource in a way defined by the
-semantics of the media type</li>
-</ol>
-</li>
 </ul>
-<h3 id="delete"><a name="delete" class="plugin-anchor" href="#delete"><span class="fa fa-link"></span></a>DELETE</h3>
+<h3 id="delete"><a name="delete" class="plugin-anchor" href="#delete"><span class="fa fa-link"></span></a>DELETE:</h3>
 <ul>
 <li>deletes a resource instance</li>
 <li>DELETE operations are usually only accepted by single resources, not collection resources, as
 DELETE on a collection would imply deleting the entire collection</li>
 <li>should return either status 404 (Not found) or 410 (Gone) if the resource does not exist</li>
 </ul>
-<h3 id="post"><a name="post" class="plugin-anchor" href="#post"><span class="fa fa-link"></span></a>POST</h3>
+<h3 id="post"><a name="post" class="plugin-anchor" href="#post"><span class="fa fa-link"></span></a>POST:</h3>
 <ul>
 <li>creates a resource instance</li>
 <li>resource instance id(s) are created and maintained by server and returned with the output payload</li>
@@ -459,7 +452,7 @@ necessarily mean returning the same status code)</li>
 <p>Please see also <a href="https://goo.gl/vhwh8a" target="_blank">Best Practices [internal link]</a> for further hints on how to support the
 different HTTP methods on resources.</p>
 <h2 id="must-use-meaningful-http-status-codes"><a name="must-use-meaningful-http-status-codes" class="plugin-anchor" href="#must-use-meaningful-http-status-codes"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use Meaningful HTTP Status Codes</h2>
-<h3 id="success-codes"><a name="success-codes" class="plugin-anchor" href="#success-codes"><span class="fa fa-link"></span></a>Success Codes</h3>
+<h3 id="success-codes"><a name="success-codes" class="plugin-anchor" href="#success-codes"><span class="fa fa-link"></span></a>Success Codes:</h3>
 <table>
 <thead>
 <tr>
@@ -491,7 +484,7 @@ different HTTP methods on resources.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="redirection-codes"><a name="redirection-codes" class="plugin-anchor" href="#redirection-codes"><span class="fa fa-link"></span></a>Redirection Codes</h3>
+<h3 id="redirection-codes"><a name="redirection-codes" class="plugin-anchor" href="#redirection-codes"><span class="fa fa-link"></span></a>Redirection Codes:</h3>
 <table>
 <thead>
 <tr>
@@ -518,7 +511,7 @@ different HTTP methods on resources.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="client-side-error-codes"><a name="client-side-error-codes" class="plugin-anchor" href="#client-side-error-codes"><span class="fa fa-link"></span></a>Client Side Error Codes</h3>
+<h3 id="client-side-error-codes"><a name="client-side-error-codes" class="plugin-anchor" href="#client-side-error-codes"><span class="fa fa-link"></span></a>Client Side Error Codes:</h3>
 <table>
 <thead>
 <tr>
@@ -600,7 +593,7 @@ different HTTP methods on resources.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="client-side-error-codes"><a name="client-side-error-codes" class="plugin-anchor" href="#client-side-error-codes"><span class="fa fa-link"></span></a>Client Side Error Codes</h3>
+<h3 id="client-side-error-codes"><a name="client-side-error-codes" class="plugin-anchor" href="#client-side-error-codes"><span class="fa fa-link"></span></a>Client Side Error Codes:</h3>
 <table>
 <thead>
 <tr>
@@ -652,7 +645,7 @@ This helps to transport data faster over the network (fewer bytes) and makes fro
 <p>Though gzip compression might be the default choice for server payload, the server should also support payload without compression and its client control via Accept-Encoding request header -- see also <a href="http://tools.ietf.org/html/rfc7231#section-5.3.4" target="_blank">RFC 7231 Section 5.3.4</a>. The server should indicate used gzip
 compression via the Content-Encoding header.</p>
 <h2 id="should-support-filtering-of-resource-fields"><a name="should-support-filtering-of-resource-fields" class="plugin-anchor" href="#should-support-filtering-of-resource-fields"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Support Filtering of Resource Fields</h2>
-<p>Depending on your use case and payload size, you can significantly reduce network bandwidth need by support filtering of returned entity fields. Here, the client can determine the subset of fields he wants to receive via the fields query parameter &#x2014; example see <a href="https://cloud.google.com/appengine/docs/python/taskqueue/rest/performance#partial-response" target="_blank">Google AppEngine API&apos;s partial response</a>:</p>
+<p>Depending on your use case and payload size, you can significantly reduce network bandwidth need by support filtering of returned entity fields. Here, the client can determine the subset of fields he wants to receive via the &apos;fields&apos; query parameter &#x2014; see example below (or e.g. <a href="https://cloud.google.com/appengine/docs/python/taskqueue/rest/performance#partial-response" target="_blank">Google AppEngine API&apos;s partial response</a>):</p>
 <h3 id="unfiltered"><a name="unfiltered" class="plugin-anchor" href="#unfiltered"><span class="fa fa-link"></span></a>Unfiltered</h3>
 <pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">http://api.example.org/resources/123</span> HTTP/1.1</span>
 
@@ -685,13 +678,16 @@ compression via the Content-Encoding header.</p>
   </span>}
 </span>}
 </span></span></code></pre>
-<p>The approach we recommend for field is a Zalando Github project,
+<p>We standardized the &apos;field&apos; query parameter notation via a generic syntax for 
+field filtering; it should be supported by our APIs and referenced in the description 
+of its API definition. Field query parameter syntax and a Java
+parser library are provided via public Zalando Github project 
 <a href="https://github.com/zalando-incubator/json-fields" target="_blank">json-fields</a>. It defines a formal grammar for the ANTLR
  parser generator and provides a ready-to use library for Java / Jackson based projects
  (<a href="http://mvnrepository.com/artifact/org.zalando.guild.api/json-fields-jackson" target="_blank">Maven link</a>).
-Teams that use other JSON serializers are encouraged to contribute to the open source project and
+Teams that use other JSON serializers and languages are encouraged to contribute to the open source project and
 create their own parser / framework based on this grammar.</p>
-<p>Other approaches we have considered are JSONPath or GraphQL. While they have advantages, neither of
+<p>Remark: Other approaches we have considered are JSONPath or GraphQL. While they have advantages, neither of
 them can easily be plugged into an existing serialization process, so they require an additional,
 manual serialization process, whereas the above solution addresses our main filter use cases and
 can easily be introduced with a minimum of effort.</p>
