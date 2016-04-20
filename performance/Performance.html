@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Naming | Introduction</title>
+        <title>Performance | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -41,10 +41,10 @@
         
     
     
-    <link rel="next" href="../resources/Resources.html">
+    <link rel="next" href="../pagination/Pagination.html">
     
     
-    <link rel="prev" href="../compatibility/Compatibility.html">
+    <link rel="prev" href="../http/Http.html">
     
 
         
@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="6" data-chapter-title="Naming" data-filepath="naming/Naming.md" data-basepath=".." data-revision="Wed Apr 20 2016 07:17:21 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="9" data-chapter-title="Performance" data-filepath="performance/Performance.md" data-basepath=".." data-revision="Wed Apr 20 2016 07:17:21 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -155,7 +155,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="naming/Naming.html">
+        <li class="chapter " data-level="6" data-path="naming/Naming.html">
             
                 
                     <a href="../naming/Naming.html">
@@ -200,7 +200,7 @@
             
         </li>
     
-        <li class="chapter " data-level="9" data-path="performance/Performance.html">
+        <li class="chapter active" data-level="9" data-path="performance/Performance.html">
             
                 
                     <a href="../performance/Performance.html">
@@ -338,62 +338,88 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="naming"><a name="naming" class="plugin-anchor" href="#naming"><span class="fa fa-link"></span></a>Naming</h1>
-<h2 id="must-path-segments-must-be-lowercase-separate-words-with-hyphens"><a name="must-path-segments-must-be-lowercase-separate-words-with-hyphens" class="plugin-anchor" href="#must-path-segments-must-be-lowercase-separate-words-with-hyphens"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Path segments must be lowercase separate words with hyphens</h2>
-<p>Example:</p>
-<pre><code>/shipment-orders/{shipment-order-id}
-</code></pre><p>This applies to concrete path segments and not the names of path parameters. For example <code>{shipment_order_id}</code> would be ok as a path parameter.</p>
-<h2 id="must-query-parameters-must-be-snakecase-never-camelcase"><a name="must-query-parameters-must-be-snakecase-never-camelcase" class="plugin-anchor" href="#must-query-parameters-must-be-snakecase-never-camelcase"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Query parameters must be snake_case (never camelCase)</h2>
-<p>Examples:</p>
-<pre><code>customer_number, order_id, billing_address
-</code></pre><h2 id="must-json-field-names-must-be-snakecase-never-camelcase"><a name="must-json-field-names-must-be-snakecase-never-camelcase" class="plugin-anchor" href="#must-json-field-names-must-be-snakecase-never-camelcase"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> JSON field names must be snake_case (never camelCase)</h2>
-<p>Intentionally consistent with the query parameters.
-Examples see above (Query Parameters).</p>
-<p>Why: It&#x2019;s essential to establish a  consistent  look and feel. No established industry standard
-exists, but many popular Internet companies prefer snake_case:  e.g. GitHub, Stack Exchange, Twitter.
-Others, like Google and Amazon, use both &#x2014; but not only camelCase.</p>
-<h2 id="must-you-must-hyphenate-http-headers"><a name="must-you-must-hyphenate-http-headers" class="plugin-anchor" href="#must-you-must-hyphenate-http-headers"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> You Must Hyphenate HTTP Headers</h2>
-<h2 id="should-prefer-hyphenatedpascalcase-for-http-header-fields"><a name="should-prefer-hyphenatedpascalcase-for-http-header-fields" class="plugin-anchor" href="#should-prefer-hyphenatedpascalcase-for-http-header-fields"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Prefer Hyphenated-Pascal-Case for HTTP header Fields</h2>
-<p>This is for consistency in your documentation (most other headers follow this convention). Avoid
-camelCase (without hyphens). Exceptions are common abbreviations like &#x201C;ID.&#x201D;</p>
-<p>Examples:</p>
-<pre><code>Accept-Encoding
-Apply-To-Redirect-Ref
-Disposition-Notification-Options
-Original-Message-ID
-</code></pre><p>See also: <a href="http://tools.ietf.org/html/rfc7230#page-22" target="_blank">HTTP Headers are case-insensitive
-(RFC 7230)</a>.</p>
-<h2 id="could-use-standardized-headers"><a name="could-use-standardized-headers" class="plugin-anchor" href="#could-use-standardized-headers"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Standardized Headers</h2>
-<p>Use <a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields" target="_blank">this list</a> and mention its support in
-your OpenAPI definition.</p>
-<h2 id="must-always-pluralize-resource-names"><a name="must-always-pluralize-resource-names" class="plugin-anchor" href="#must-always-pluralize-resource-names"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Always Pluralize Resource Names</h2>
-<p>Usually, a collection of resource instances is provided (at least API should be ready here). The special case of a resource singleton is a collection with cardinality 1.</p>
-<h2 id="could-first-path-segment-may-be-api"><a name="could-first-path-segment-may-be-api" class="plugin-anchor" href="#could-first-path-segment-may-be-api"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> First Path segment May be /api</h2>
-<p>In most cases, all resources provided by a service are part of the public API, and therefore should
-be made available under the root &#x201C;/&#x201D; base path. If  the service should also support non-public,
-internal APIs &#x2014; for specific operational support functions, for example &#x2014; add &#x201C;/api&#x201D; as base path to
-clearly separate public and non-public API resources.</p>
-<h2 id="must-avoid-trailing-slashes"><a name="must-avoid-trailing-slashes" class="plugin-anchor" href="#must-avoid-trailing-slashes"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Avoid Trailing Slashes</h2>
-<p>The trailing slash must not have specific semantics. Resource paths must deliver the same results
-whether they have the trailing slash or not.</p>
-<h2 id="could-use-conventional-query-strings"><a name="could-use-conventional-query-strings" class="plugin-anchor" href="#could-use-conventional-query-strings"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Conventional Query Strings</h2>
-<p>If you provide query support for sorting, pagination, filtering functions or other actions, use the
-following standardized naming conventions:</p>
+                        <h1 id="performance"><a name="performance" class="plugin-anchor" href="#performance"><span class="fa fa-link"></span></a>Performance</h1>
+<h2 id="should-reducing-bandwidth-needs-and-improving-responsiveness"><a name="should-reducing-bandwidth-needs-and-improving-responsiveness" class="plugin-anchor" href="#should-reducing-bandwidth-needs-and-improving-responsiveness"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Reducing Bandwidth Needs and Improving Responsiveness</h2>
+<p>APIs should support techniques for reducing bandwidth based on client needs. This holds for APIs
+that (might) have high payloads and/or are used in high-traffic scenarios like the public Internet
+and telecommunication networks. Typical examples are APIs used by mobile web app clients with
+(often) less bandwidth connectivity. (Zalando is a &apos;Mobile First&apos; company, so be mindful of this
+point.)</p>
+<p>Common techniques include:</p>
 <ul>
-<li><code>q</code> &#x2014; default query parameter (e.g. used by browser tab completion);
-should have an entity specific alias, like sku</li>
-<li><code>limit</code> &#x2014; to restrict the number of entries. See Pagination section below.
-Hint: You can use size as an alternate query string.</li>
-<li><code>cursor</code> &#x2014; key-based page start. See Pagination section below.</li>
-<li><code>offset</code> &#x2014; numeric offset page start. See Pagination section below.
-Hint: In combination with limit, you can use page as an alternative to offset.</li>
-<li><code>sort</code> &#x2014; comma-separated list of fields to sort. To indicate sorting direction,
-fields my prefixed with + (ascending) or - (descending, default), e.g. /sales-orders?sort=+id</li>
-<li><code>fields</code> &#x2014; to retrieve a subset of fields. See <a href="../http/Http.html#should-support-filtering-of-resource-fields"><em>Support Filtering of Resource Fields</em></a> below.</li>
-<li><code>embed</code> &#x2014; to expand embedded entities (ie.: inside of an article entity, expand silhouette code
-into the silhouette object). Implementing &#x201C;expand&#x201D; correctly is difficult, so do it with care. See
-<a href="../hyper-media/Hypermedia.html#should-allow-embedding-of-complex-subresources"><em>Embedding resources</em></a> for more details.</li>
+<li>gzip compression</li>
+<li>querying field filters to retrieve a subset of resource attributes (see <a href="Performance.html#should-support-filtering-of-resource-fields"><em>Support Filtering of Resource Fields</em></a>
+below)</li>
+<li>paginate lists of data items (see <a href="../pagination/Pagination.html"><em>Pagination</em></a> below)</li>
+<li><code>ETag</code> (and If-[None-]Match) headers to avoid refetch of unchanged resources</li>
+<li>pagination for incremental access of larger (result) lists</li>
 </ul>
+<p>Each of these items is described in greater detail below.</p>
+<h2 id="should-gzip-compression"><a name="should-gzip-compression" class="plugin-anchor" href="#should-gzip-compression"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> gzip Compression</h2>
+<p>Compress the payload of your API&#x2019;s responses with gzip, unless there&#x2019;s a good reason not
+to &#x2014; for example,  you are serving so many requests that the time to compress becomes a bottleneck.
+This helps to transport data faster over the network (fewer bytes) and makes frontends respond faster.</p>
+<p>Though gzip compression might be the default choice for server payload, the server should also support payload without compression and its client control via Accept-Encoding request header -- see also <a href="http://tools.ietf.org/html/rfc7231#section-5.3.4" target="_blank">RFC 7231 Section 5.3.4</a>. The server should indicate used gzip
+compression via the Content-Encoding header.</p>
+<h2 id="should-support-filtering-of-resource-fields"><a name="should-support-filtering-of-resource-fields" class="plugin-anchor" href="#should-support-filtering-of-resource-fields"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Support Filtering of Resource Fields</h2>
+<p>Depending on your use case and payload size, you can significantly reduce network bandwidth need by supporting filtering of returned entity fields. Here, the client can determine the subset of fields he wants to receive via the fields query parameter &#x2014; example see <a href="https://cloud.google.com/appengine/docs/python/taskqueue/rest/performance#partial-response" target="_blank">Google AppEngine API&apos;s partial response</a>:</p>
+<h3 id="unfiltered"><a name="unfiltered" class="plugin-anchor" href="#unfiltered"><span class="fa fa-link"></span></a>Unfiltered</h3>
+<pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">http://api.example.org/resources/123</span> HTTP/1.1</span>
+
+<span class="http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x.person+json</span>
+
+<span class="json">{
+  &quot;<span class="hljs-attribute">id</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;cddd5e44-dae0-11e5-8c01-63ed66ab2da5&quot;</span></span>,
+  &quot;<span class="hljs-attribute">name</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;John Doe&quot;</span></span>,
+  &quot;<span class="hljs-attribute">address</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1600 Pennsylvania Avenue Northwest, Washington, DC, United States&quot;</span></span>,
+  &quot;<span class="hljs-attribute">birthday</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1984-09-13&quot;</span></span>,
+  &quot;<span class="hljs-attribute">partner</span>&quot;: <span class="hljs-value">{
+    &quot;<span class="hljs-attribute">id</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1fb43648-dae1-11e5-aa01-1fbc3abb1cd0&quot;</span></span>,
+    &quot;<span class="hljs-attribute">name</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;Jane Doe&quot;</span></span>,
+    &quot;<span class="hljs-attribute">address</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1600 Pennsylvania Avenue Northwest, Washington, DC, United States&quot;</span></span>,
+    &quot;<span class="hljs-attribute">birthday</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;1988-04-07&quot;</span>
+  </span>}
+</span>}
+</span></span></code></pre>
+<h3 id="filtered"><a name="filtered" class="plugin-anchor" href="#filtered"><span class="fa fa-link"></span></a>Filtered</h3>
+<pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">http://api.example.org/resources/123?fields=(name,partner(name))</span> HTTP/1.1</span>
+
+<span class="http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x.person+json;fields=(name,partner(name))</span>
+
+<span class="json">{
+  &quot;<span class="hljs-attribute">name</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;John Doe&quot;</span></span>,
+  &quot;<span class="hljs-attribute">partner</span>&quot;: <span class="hljs-value">{
+    &quot;<span class="hljs-attribute">name</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;Jane Doe&quot;</span>
+  </span>}
+</span>}
+</span></span></code></pre>
+<p>The approach we recommend for field filtering is a Zalando Github project,
+<a href="https://github.com/zalando/json-fields" target="_blank">json-fields</a>. It defines a formal grammar for the ANTLR
+ parser generator and provides a ready-to use library for Java / Jackson based projects
+ (<a href="http://mvnrepository.com/artifact/org.zalando.guild.api/json-fields-jackson" target="_blank">Maven link</a>).
+Teams that use other JSON serializers are encouraged to contribute to the open source project and
+create their own parser / framework based on this grammar.</p>
+<p>Other approaches we have considered are JSONPath or GraphQL. While they have advantages, neither of
+them can easily be plugged into an existing serialization process, so they require an additional,
+manual serialization process, whereas the above solution addresses our main filter use cases and
+can easily be introduced with a minimum of effort.</p>
+<p>Hint: OpenAPI doesn&apos;t allow you to formally specify whether depending on a given parameter will
+return different parts of the specified result schema. Explain this in English in the parameter
+description.</p>
+<h2 id="could-support-the-etag-header"><a name="could-support-the-etag-header" class="plugin-anchor" href="#could-support-the-etag-header"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Support the ETag Header</h2>
+<p>If a resource changes, the contents of the <a href="https://en.wikipedia.org/wiki/HTTP_ETag" target="_blank"><code>ETag</code></a> header
+must also change. Combined with the <code>If-Match</code> and <code>If-None-Match</code> headers, the <code>ETag</code> header allows
+caching of entities.</p>
+<p>Its possible contents:</p>
+<ul>
+<li>the entity&#x2019;s version number</li>
+<li>hash of the response body</li>
+<li>hash of the entity&#x2019;s last modified field</li>
+</ul>
+<p>Also see <a href="../hyper-media/Hypermedia.html#should-allow-embedding-of-complex-subresources"><em>Allow Embedding of Complex Sub-Resources</em></a>
+below as contribution to performance optimization as to avoid multiple requests for sub-resources.</p>
 
                     
                     </section>
@@ -404,10 +430,10 @@ into the silhouette object). Implementing &#x201C;expand&#x201D; correctly is di
         </div>
 
         
-        <a href="../compatibility/Compatibility.html" class="navigation navigation-prev " aria-label="Previous page: Compatibility"><i class="fa fa-angle-left"></i></a>
+        <a href="../http/Http.html" class="navigation navigation-prev " aria-label="Previous page: HTTP"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../resources/Resources.html" class="navigation navigation-next " aria-label="Next page: Resources"><i class="fa fa-angle-right"></i></a>
+        <a href="../pagination/Pagination.html" class="navigation navigation-next " aria-label="Next page: Pagination"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

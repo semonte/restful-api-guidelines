@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="10" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Wed Apr 20 2016 06:20:44 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="11" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Wed Apr 20 2016 07:17:21 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -200,12 +200,27 @@
             
         </li>
     
-        <li class="chapter " data-level="9" data-path="pagination/Pagination.html">
+        <li class="chapter " data-level="9" data-path="performance/Performance.html">
+            
+                
+                    <a href="../performance/Performance.html">
+                
+                        <i class="fa fa-check"></i><b>9.</b>
+                        
+                            
+                        
+                        Performance
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="pagination/Pagination.html">
             
                 
                     <a href="../pagination/Pagination.html">
                 
-                        <i class="fa fa-check"></i><b>9.</b>
+                        <i class="fa fa-check"></i><b>10.</b>
                         
                             
                         
@@ -215,12 +230,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="10" data-path="hyper-media/Hypermedia.html">
+        <li class="chapter active" data-level="11" data-path="hyper-media/Hypermedia.html">
             
                 
                     <a href="../hyper-media/Hypermedia.html">
                 
-                        <i class="fa fa-check"></i><b>10.</b>
+                        <i class="fa fa-check"></i><b>11.</b>
                         
                             
                         
@@ -230,12 +245,12 @@
             
         </li>
     
-        <li class="chapter " data-level="11" data-path="data-formats/DataFormats.html">
+        <li class="chapter " data-level="12" data-path="data-formats/DataFormats.html">
             
                 
                     <a href="../data-formats/DataFormats.html">
                 
-                        <i class="fa fa-check"></i><b>11.</b>
+                        <i class="fa fa-check"></i><b>12.</b>
                         
                             
                         
@@ -245,12 +260,12 @@
             
         </li>
     
-        <li class="chapter " data-level="12" data-path="common-data-objects/CommonDataObjects.html">
+        <li class="chapter " data-level="13" data-path="common-data-objects/CommonDataObjects.html">
             
                 
                     <a href="../common-data-objects/CommonDataObjects.html">
                 
-                        <i class="fa fa-check"></i><b>12.</b>
+                        <i class="fa fa-check"></i><b>13.</b>
                         
                             
                         
@@ -260,31 +275,16 @@
             
         </li>
     
-        <li class="chapter " data-level="13" data-path="headers/CommonHeaders.html">
+        <li class="chapter " data-level="14" data-path="common-headers/CommonHeaders.html">
             
                 
-                    <a href="../headers/CommonHeaders.html">
-                
-                        <i class="fa fa-check"></i><b>13.</b>
-                        
-                            
-                        
-                        Common Headers
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="14" data-path="headers/ProprietaryHeaders.html">
-            
-                
-                    <a href="../headers/ProprietaryHeaders.html">
+                    <a href="../common-headers/CommonHeaders.html">
                 
                         <i class="fa fa-check"></i><b>14.</b>
                         
                             
                         
-                        Proprietary Headers
+                        Common Headers
                     </a>
             
             
@@ -300,21 +300,6 @@
                             
                         
                         API Discovery
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="16" data-path="references/References.html">
-            
-                
-                    <a href="../references/References.html">
-                
-                        <i class="fa fa-check"></i><b>16.</b>
-                        
-                            
-                        
-                        References
                     </a>
             
             
@@ -376,13 +361,18 @@ teams to apply this principle and document results.</p>
 }
 </code></pre><h2 id="should-use-standards-for-hypermedia-link-types"><a name="should-use-standards-for-hypermedia-link-types" class="plugin-anchor" href="#should-use-standards-for-hypermedia-link-types"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use Standards for Hypermedia Link Types</h2>
 <p>To represent hypermedia links in payload results, we should consider using a standard format like <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a>, <a href="http://jsonapi.org/" target="_blank">JSON API</a>, <a href="http://json-ld.org/" target="_blank">JSON-LD</a> with <a href="http://www.hydra-cg.com/spec/latest/core/" target="_blank">Hydra</a>, or <a href="https://github.com/kevinswiber/siren" target="_blank">Siren</a>.  (Hint: Read <a href="http://sookocheff.com/post/api/on-choosing-a-hypermedia-format/" target="_blank">Kevin Sookocheff&#x2019;s post</a>, for instance, to learn more about the hypermedia types.)</p>
-<h2 id="should-allow-optional-embedding-of-subresources"><a name="should-allow-optional-embedding-of-subresources" class="plugin-anchor" href="#should-allow-optional-embedding-of-subresources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Allow Optional Embedding of Sub-Resources</h2>
+<h2 id="should-consider-using-a-standard-for-linkedembedded-resources"><a name="should-consider-using-a-standard-for-linkedembedded-resources" class="plugin-anchor" href="#should-consider-using-a-standard-for-linkedembedded-resources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Consider Using a Standard for linked/embedded resources</h2>
+<p>For HTTP Link headers, consider using a format like <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a>,
+<a href="http://json-ld.org/" target="_blank">JSON-LD</a> with <a href="http://www.markus-lanthaler.com/hydra/spec/latest/core/" target="_blank">Hydra</a>,
+or <a href="https://github.com/kevinswiber/siren" target="_blank">Siren</a>. For a comparison of these hypermedia types, see
+<a href="http://sookocheff.com/post/api/on-choosing-a-hypermedia-format/" target="_blank">Kevin Sookocheff&#x2019;s post</a>.</p>
+<h2 id="should-allow-embedding-of-complex-subresources"><a name="should-allow-embedding-of-complex-subresources" class="plugin-anchor" href="#should-allow-embedding-of-complex-subresources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Allow embedding of complex sub-resources</h2>
 <p>Embedding related resources (also know as <em>Resource expansion</em>) is a great way to reduce the number of requests. In
 cases where clients know upfront that they need some related resources they can instruct the server to prefetch that
 data eagerly. Whether this is optimized on the server, e.g. a database join, or done in a generic way, e.g. an HTTP
 proxy that transparently embeds resources, is up the implementation.</p>
 <p>See <a href="../naming/Naming.html#could-use-conventional-query-strings"><em>Conventional Query Strings</em></a> for naming.</p>
-<h2 id="must-modify-the-contenttype-for-embedded-resources"><a name="must-modify-the-contenttype-for-embedded-resources" class="plugin-anchor" href="#must-modify-the-contenttype-for-embedded-resources"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Modify the Content-Type for Embedded Resources</h2>
+<h2 id="must-modify-the-contenttype-for-embedded-resources"><a name="must-modify-the-contenttype-for-embedded-resources" class="plugin-anchor" href="#must-modify-the-contenttype-for-embedded-resources"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Modify the Content-Type for embedded resources</h2>
 <p>Embedded resources requires to change the media type of the response accordingly:</p>
 <pre><code class="lang-http">GET /order/123?embed=(items)
 Accept: application/x.order+json
