@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Common Data Objects | Introduction</title>
+        <title>References | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -41,10 +41,8 @@
         
     
     
-    <link rel="next" href="../headers/CommonHeaders.html">
     
-    
-    <link rel="prev" href="../data-formats/DataFormats.html">
+    <link rel="prev" href="../api-discovery/ApiDiscovery.html">
     
 
         
@@ -52,7 +50,7 @@
     <body>
         
         
-    <div class="book" data-level="12" data-chapter-title="Common Data Objects" data-filepath="common-data-objects/CommonDataObjects.md" data-basepath=".." data-revision="Wed Apr 20 2016 06:20:44 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="16" data-chapter-title="References" data-filepath="references/References.md" data-basepath=".." data-revision="Wed Apr 20 2016 06:20:44 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -245,7 +243,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="12" data-path="common-data-objects/CommonDataObjects.html">
+        <li class="chapter " data-level="12" data-path="common-data-objects/CommonDataObjects.html">
             
                 
                     <a href="../common-data-objects/CommonDataObjects.html">
@@ -305,7 +303,7 @@
             
         </li>
     
-        <li class="chapter " data-level="16" data-path="references/References.html">
+        <li class="chapter active" data-level="16" data-path="references/References.html">
             
                 
                     <a href="../references/References.html">
@@ -353,145 +351,45 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="common-data-objects"><a name="common-data-objects" class="plugin-anchor" href="#common-data-objects"><span class="fa fa-link"></span></a>Common Data Objects</h1>
-<p>Definitions of data objects that are good candidates for wider usage:</p>
-<h2 id="should-use-a-common-money-object"><a name="should-use-a-common-money-object" class="plugin-anchor" href="#should-use-a-common-money-object"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use a Common Money Object</h2>
-<p>Use the following common money structure:</p>
-<pre><code>Money:
-  type: object
-  properties:
-    amount:
-      type: number
-      format: decimal
-      example: 99.95
-    currency:
-      type: string
-      format: iso-4217
-      example: EUR
-  required:
-    - amount
-    - currency
-</code></pre><p>Make sure that you don&#x2019;t convert the &#x201C;amount&#x201D; field to <code>float</code> / <code>double</code> types when implementing
-this interface in a specific language or when doing calculations. Otherwise, you might lose
-precision. Instead, use exact formats like
-Java&#x2019;s <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html" target="_blank"><code>BigDecimal</code></a>.
-See <a href="http://stackoverflow.com/a/3730040/342852" target="_blank">Stack Overflow</a> for more info.</p>
-<p>Some JSON parsers (NodeJS&#x2019;s, for example) convert numbers to floats by default. After discussing the
-<a href="https://docs.google.com/spreadsheets/d/12wTj-2w39f69XZGwRDrosNc1yWPwQpGgEs_DCt5ODaQ" target="_blank">pros and cons</a>,
-we&#x2019;ve decided on &quot;decimal&quot; as our amount format. It is not a standard OpenAPI format, but should
-help us to avoid parsing numbers as float / doubles.</p>
-<h2 id="should-use-common-address-fields"><a name="should-use-common-address-fields" class="plugin-anchor" href="#should-use-common-address-fields"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use Common Address Fields</h2>
-<p>Address structures play a role in different functional and use-case contexts, including country
-variances. The address structure below should be sufficient for most of our business-related use
-cases. Use it in your APIs &#x2014; and compatible extend it if necessary for your API concerns:</p>
-<pre><code>address:
-    description:
-      a common address structure adequate for many use cases
-    type: object
-    properties:
-      salutation:
-        type: string
-        description: |
-          A salutation and/or title which may be used for personal contacts. Hint: not to be confused with the gender information that is stored per customer account
-        example: Mr
-      first_name:
-        type: string
-        description: given name(s) or first name(s) of a person; may also include the middle names
-        example: Hans Dieter
-      last_name:
-        type: string
-        description: family name(s) or surname(s) of a person
-        example: Mustermann
-      business_name:
-        type: string
-        description: company name of the business organization
-        example: Consulting Services GmbH
-      street:
-        type: string
-        description: full street address including house number and street name
-        example: Sch&#xF6;nhauser Allee 103
-      additional:
-        type: string
-        description: further details like suite, apt no, etc.
-        example: 2. Hinterhof rechts
-      city:
-        type: string
-        description: name of the city
-        example: Berlin
-      zip:
-        type: string
-        description: Zip code or postal code
-        example: 14265
-      country_code:
-        type: string
-        format: iso-3166-1-alpha-2
-        example: DE
-    required:
-      - first_name
-      - last_name
-      - street
-      - city
-      - zip
-      - country_code
-</code></pre><h2 id="must-use-common-error-return-objects"><a name="must-use-common-error-return-objects" class="plugin-anchor" href="#must-use-common-error-return-objects"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use Common Error Return Objects</h2>
-<p><a href="http://tools.ietf.org/html/rfc7807" target="_blank">RFC 7807</a> defines the media type <code>application/problem+json</code>
-for a common error return object (and the format of the contained JSON object).
-Operations should return that (together with a suitable status code) when any problem
-occurred during processing and you can give more details than the status code itself
-can supply, whether it be caused by the client or the server (i.e. both for 4xx or 5xx errors).</p>
-<p>A previous version of this guideline (before the publication of that RFC and the
-registration of the media type) told to return <code>application/x.problem+json</code> in these
-cases (with the same contents).
-Servers for APIs defined before this change should pay attention to the <code>Accept</code> header sent
-by the client and set the <code>Content-Type</code> header of the problem response correspondingly.
-Clients of such APIs should accept both media types.</p>
-<p>APIs may define custom problems types with extension properties, according to their specific needs.</p>
-<p>Here is the definition in Open API 2.0 YAML format in the case you don&apos;t need any extensions:</p>
-<pre><code>Problem:
- type: object
- properties:
-   type:
-     type: string
-     format: uri
-     description: |
-       An absolute URI that identifies the problem type.  When dereferenced,
-       it SHOULD provide human-readable documentation for the problem type
-       (e.g., using HTML).
-     example: http://httpstatus.es/503
-   title:
-     type: string
-     description: |
-       A short, summary of the problem type. Written in english and readable
-       for engineers (usually not suited for non technical stakeholders and
-       not localized); example: Service Unavailable
-   status:
-     type: integer
-     format: int32
-     description: |
-       The HTTP status code generated by the origin server for this occurrence
-       of the problem.
-     example: 503
-   detail:
-     type: string
-     description: |
-       A human readable explanation specific to this occurrence of the
-       problem.
-     example: Connection to database timed out
-   instance:
-     type: string
-     format: uri
-     description: |
-       An absolute URI that identifies the specific occurrence of the problem.
-       It may or may not yield further information if dereferenced.
- required:
-   - type
-   - title
-   - status
-</code></pre><h2 id="must-an-error-message-must-not-contain-the-stack-trace"><a name="must-an-error-message-must-not-contain-the-stack-trace" class="plugin-anchor" href="#must-an-error-message-must-not-contain-the-stack-trace"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> An error message must not contain the stack trace.</h2>
-<p>The reasons:</p>
+                        <h1 id="references"><a name="references" class="plugin-anchor" href="#references"><span class="fa fa-link"></span></a>References</h1>
+<p>This section collects links to documents to which we refer, and base our guidelines on.</p>
+<h2 id="openapi-specification"><a name="openapi-specification" class="plugin-anchor" href="#openapi-specification"><span class="fa fa-link"></span></a>OpenAPI Specification</h2>
 <ul>
-<li>The API would leak implementation details to the outside world.</li>
-<li>Clients may not rely on pure API implementation details.</li>
+<li><a href="https://github.com/OAI/OpenAPI-Specification/" target="_blank">OpenAPI Specification</a></li>
+</ul>
+<h2 id="publications-specifications-and-standards"><a name="publications-specifications-and-standards" class="plugin-anchor" href="#publications-specifications-and-standards"><span class="fa fa-link"></span></a>Publications, specifications and standards</h2>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc3339" target="_blank">RFC 3339: Date and Time on the Internet: Timestamps</a></li>
+<li><a href="https://tools.ietf.org/html/rfc5988" target="_blank">RFC 5988: Web Linking</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7159" target="_blank">RFC 7159: The JavaScript Object Notation (JSON) Data Interchange Format</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7230" target="_blank">RFC 7230: Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7231" target="_blank">RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7807" target="_blank">RFC 7807: Problem Details for HTTP APIs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601: Date and time format</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1 alpha-2: Two letter country codes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1: Two letter language codes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217: Currency codes</a></li>
+<li><a href="https://tools.ietf.org/html/bcp47" target="_blank">BCP 47: Tags for Identifying Languages</a></li>
+</ul>
+<h2 id="dissertations"><a name="dissertations" class="plugin-anchor" href="#dissertations"><span class="fa fa-link"></span></a>Dissertations</h2>
+<ul>
+<li><a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" target="_blank">Roy Thomas Fielding - Architectural Styles and the Design of Network-Based Software
+Architectures</a>.
+This is the text which defines what REST is.</li>
+</ul>
+<h2 id="books"><a name="books" class="plugin-anchor" href="#books"><span class="fa fa-link"></span></a>Books</h2>
+<ul>
+<li><a href="http://www.amazon.de/REST-Practice-Hypermedia-Systems-Architecture/dp/0596805829" target="_blank">REST in Practice: Hypermedia and Systems
+Architecture</a></li>
+<li><a href="https://leanpub.com/build-apis-you-wont-hate" target="_blank">Build APIs You Won&apos;t
+Hate</a></li>
+<li><a href="http://www.infoq.com/minibooks/emag-web-api" target="_blank">InfoQ eBook - Web APIs: From Start to
+Finish</a></li>
+</ul>
+<h2 id="blogs"><a name="blogs" class="plugin-anchor" href="#blogs"><span class="fa fa-link"></span></a>Blogs</h2>
+<ul>
+<li><a href="http://restful-api-design.readthedocs.org/en/latest/" target="_blank">Lessons-learned blog: Thoughts on RESTful API
+Design</a></li>
 </ul>
 
                     
@@ -503,10 +401,8 @@ Clients of such APIs should accept both media types.</p>
         </div>
 
         
-        <a href="../data-formats/DataFormats.html" class="navigation navigation-prev " aria-label="Previous page: Data Formats"><i class="fa fa-angle-left"></i></a>
+        <a href="../api-discovery/ApiDiscovery.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: API Discovery"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../headers/CommonHeaders.html" class="navigation navigation-next " aria-label="Next page: Common Headers"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

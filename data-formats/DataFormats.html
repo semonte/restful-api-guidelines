@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="11" data-chapter-title="Data Formats" data-filepath="data-formats/DataFormats.md" data-basepath=".." data-revision="Tue Apr 19 2016 12:19:11 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="11" data-chapter-title="Data Formats" data-filepath="data-formats/DataFormats.md" data-basepath=".." data-revision="Wed Apr 20 2016 06:20:44 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -305,6 +305,21 @@
             
         </li>
     
+        <li class="chapter " data-level="16" data-path="references/References.html">
+            
+                
+                    <a href="../references/References.html">
+                
+                        <i class="fa fa-check"></i><b>16.</b>
+                        
+                            
+                        
+                        References
+                    </a>
+            
+            
+        </li>
+    
 
 
             
@@ -340,7 +355,8 @@
                     
                         <h1 id="data-formats"><a name="data-formats" class="plugin-anchor" href="#data-formats"><span class="fa fa-link"></span></a>Data Formats</h1>
 <h2 id="must-use-json-as-the-body-payload"><a name="must-use-json-as-the-body-payload" class="plugin-anchor" href="#must-use-json-as-the-body-payload"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use JSON as the Body Payload</h2>
-<p>JSON-encode the body payload. The JSON payload must follow RFC-7158 and be compatible with RFC-4627 clients by having (if possible) a serialized object or array as the top-level object.</p>
+<p>JSON-encode the body payload. The JSON payload must follow <a href="https://tools.ietf.org/html/rfc7159" target="_blank">RFC-7159</a> by having
+(if possible) a serialized object or array as the top-level object.</p>
 <h2 id="must-use-standard-date-and-time-formats"><a name="must-use-standard-date-and-time-formats" class="plugin-anchor" href="#must-use-standard-date-and-time-formats"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use Standard Date and Time Formats</h2>
 <ul>
 <li><p>Inside the JSON payload, use the date and time formats defined by <a href="http://tools.ietf.org/html/rfc3339#section-5.6" target="_blank">RFC 3339</a> &#x2014; e.g. <code>2015-05-28T14:09:17+02:00</code> for a point in time (note that the  <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types" target="_blank">OpenAPI format</a> &quot;date-time&quot; corresponds to &quot;date-time&quot; in the RFC) and <code>2015-05-28</code> for a date (note that the OpenAPI format &quot;date&quot; corresponds to &quot;full-date&quot; in the RFC). Both are specific profiles, a subset of the international standard <a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>.</p>
