@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Naming | Introduction</title>
+        <title>References | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -41,10 +41,8 @@
         
     
     
-    <link rel="next" href="../resources/Resources.html">
     
-    
-    <link rel="prev" href="../compatibility/Compatibility.html">
+    <link rel="prev" href="../api-discovery/ApiDiscovery.html">
     
 
         
@@ -52,7 +50,7 @@
     <body>
         
         
-    <div class="book" data-level="6" data-chapter-title="Naming" data-filepath="naming/Naming.md" data-basepath=".." data-revision="Wed Apr 20 2016 07:37:09 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="16" data-chapter-title="References" data-filepath="references/References.md" data-basepath=".." data-revision="Wed Apr 20 2016 07:37:09 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -155,7 +153,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="naming/Naming.html">
+        <li class="chapter " data-level="6" data-path="naming/Naming.html">
             
                 
                     <a href="../naming/Naming.html">
@@ -305,7 +303,7 @@
             
         </li>
     
-        <li class="chapter " data-level="16" data-path="references/References.html">
+        <li class="chapter active" data-level="16" data-path="references/References.html">
             
                 
                     <a href="../references/References.html">
@@ -353,61 +351,45 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="naming"><a name="naming" class="plugin-anchor" href="#naming"><span class="fa fa-link"></span></a>Naming</h1>
-<h2 id="must-path-segments-must-be-lowercase-separate-words-with-hyphens"><a name="must-path-segments-must-be-lowercase-separate-words-with-hyphens" class="plugin-anchor" href="#must-path-segments-must-be-lowercase-separate-words-with-hyphens"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Path segments must be lowercase separate words with hyphens</h2>
-<p>Example:</p>
-<pre><code>/shipment-orders/{shipment-order-id}
-</code></pre><p>This applies to concrete path segments and not the names of path parameters. For example <code>{shipment_order_id}</code> would be ok as a path parameter.</p>
-<h2 id="must-query-parameters-must-be-snakecase-never-camelcase"><a name="must-query-parameters-must-be-snakecase-never-camelcase" class="plugin-anchor" href="#must-query-parameters-must-be-snakecase-never-camelcase"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Query parameters must be snake_case (never camelCase)</h2>
-<p>Examples:</p>
-<pre><code>customer_number, order_id, billing_address
-</code></pre><h2 id="must-json-field-names-must-be-snakecase-never-camelcase"><a name="must-json-field-names-must-be-snakecase-never-camelcase" class="plugin-anchor" href="#must-json-field-names-must-be-snakecase-never-camelcase"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> JSON field names must be snake_case (never camelCase)</h2>
-<p>Intentionally consistent with the query parameters.
-Examples see above (Query Parameters).</p>
-<p>Why: It&#x2019;s essential to establish a  consistent  look and feel. No established industry standard
-exists, but many popular Internet companies prefer snake_case:  e.g. GitHub, Stack Exchange, Twitter.
-Others, like Google and Amazon, use both &#x2014; but not only camelCase.</p>
-<h2 id="must-you-must-hyphenate-http-headers"><a name="must-you-must-hyphenate-http-headers" class="plugin-anchor" href="#must-you-must-hyphenate-http-headers"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> You Must Hyphenate HTTP Headers</h2>
-<h2 id="should-prefer-hyphenatedpascalcase-for-http-header-fields"><a name="should-prefer-hyphenatedpascalcase-for-http-header-fields" class="plugin-anchor" href="#should-prefer-hyphenatedpascalcase-for-http-header-fields"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Prefer Hyphenated-Pascal-Case for HTTP header Fields</h2>
-<p>This is for consistency in your documentation (most other headers follow this convention). Avoid
-camelCase (without hyphens). Exceptions are common abbreviations like &#x201C;ID.&#x201D;</p>
-<p>Examples:</p>
-<pre><code>Accept-Encoding
-Apply-To-Redirect-Ref
-Disposition-Notification-Options
-Original-Message-ID
-</code></pre><p>See also: <a href="http://tools.ietf.org/html/rfc7230#page-22" target="_blank">HTTP Headers are case-insensitive
-(RFC 7230)</a>.</p>
-<h2 id="could-use-standardized-headers"><a name="could-use-standardized-headers" class="plugin-anchor" href="#could-use-standardized-headers"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Standardized Headers</h2>
-<p>Use <a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields" target="_blank">this list</a> and mention its support in
-your OpenAPI definition.</p>
-<h2 id="must-always-pluralize-resource-names"><a name="must-always-pluralize-resource-names" class="plugin-anchor" href="#must-always-pluralize-resource-names"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Always Pluralize Resource Names</h2>
-<p>Usually, a collection of resource instances is provided (at least API should be ready here). The special case of a resource singleton is a collection with cardinality 1.</p>
-<h2 id="could-first-path-segment-may-be-api"><a name="could-first-path-segment-may-be-api" class="plugin-anchor" href="#could-first-path-segment-may-be-api"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> First Path segment May be /api</h2>
-<p>In most cases, all resources provided by a service are part of the public API, and therefore should
-be made available under the root &#x201C;/&#x201D; base path. If  the service should also support non-public,
-internal APIs &#x2014; for specific operational support functions, for example &#x2014; add &#x201C;/api&#x201D; as base path to
-clearly separate public and non-public API resources.</p>
-<h2 id="must-avoid-trailing-slashes"><a name="must-avoid-trailing-slashes" class="plugin-anchor" href="#must-avoid-trailing-slashes"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Avoid Trailing Slashes</h2>
-<p>The trailing slash must not have specific semantics. Resource paths must deliver the same results
-whether they have the trailing slash or not.</p>
-<h2 id="could-use-conventional-query-strings"><a name="could-use-conventional-query-strings" class="plugin-anchor" href="#could-use-conventional-query-strings"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Conventional Query Strings</h2>
-<p>If you provide query support for sorting, pagination, filtering functions or other actions, use the
-following standardized naming conventions:</p>
+                        <h1 id="references"><a name="references" class="plugin-anchor" href="#references"><span class="fa fa-link"></span></a>References</h1>
+<p>This section collects links to documents to which we refer, and base our guidelines on.</p>
+<h2 id="openapi-specification"><a name="openapi-specification" class="plugin-anchor" href="#openapi-specification"><span class="fa fa-link"></span></a>OpenAPI Specification</h2>
 <ul>
-<li><code>q</code> &#x2014; default query parameter (e.g. used by browser tab completion);
-should have an entity specific alias, like sku</li>
-<li><code>limit</code> &#x2014; to restrict the number of entries. See Pagination section below.
-Hint: You can use size as an alternate query string.</li>
-<li><code>cursor</code> &#x2014; key-based page start. See Pagination section below.</li>
-<li><code>offset</code> &#x2014; numeric offset page start. See Pagination section below.
-Hint: In combination with limit, you can use page as an alternative to offset.</li>
-<li><code>sort</code> &#x2014; comma-separated list of fields to sort. To indicate sorting direction,
-fields my prefixed with + (ascending) or - (descending, default), e.g. /sales-orders?sort=+id</li>
-<li><code>fields</code> &#x2014; to retrieve a subset of fields. See <a href="../http/Http.html#should-support-filtering-of-resource-fields"><em>Support Filtering of Resource Fields</em></a> below.</li>
-<li><code>embed</code> &#x2014; to expand embedded entities (ie.: inside of an article entity, expand silhouette code
-into the silhouette object). Implementing &#x201C;expand&#x201D; correctly is difficult, so do it with care. See
-<a href="../hyper-media/Hypermedia.html#should-allow-embedding-of-complex-subresources"><em>Embedding resources</em></a> for more details.</li>
+<li><a href="https://github.com/OAI/OpenAPI-Specification/" target="_blank">OpenAPI Specification</a></li>
+</ul>
+<h2 id="publications-specifications-and-standards"><a name="publications-specifications-and-standards" class="plugin-anchor" href="#publications-specifications-and-standards"><span class="fa fa-link"></span></a>Publications, specifications and standards</h2>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc3339" target="_blank">RFC 3339: Date and Time on the Internet: Timestamps</a></li>
+<li><a href="https://tools.ietf.org/html/rfc5988" target="_blank">RFC 5988: Web Linking</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7159" target="_blank">RFC 7159: The JavaScript Object Notation (JSON) Data Interchange Format</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7230" target="_blank">RFC 7230: Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7231" target="_blank">RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</a></li>
+<li><a href="https://tools.ietf.org/html/rfc7807" target="_blank">RFC 7807: Problem Details for HTTP APIs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601: Date and time format</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1 alpha-2: Two letter country codes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1: Two letter language codes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217: Currency codes</a></li>
+<li><a href="https://tools.ietf.org/html/bcp47" target="_blank">BCP 47: Tags for Identifying Languages</a></li>
+</ul>
+<h2 id="dissertations"><a name="dissertations" class="plugin-anchor" href="#dissertations"><span class="fa fa-link"></span></a>Dissertations</h2>
+<ul>
+<li><a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" target="_blank">Roy Thomas Fielding - Architectural Styles and the Design of Network-Based Software
+Architectures</a>.
+This is the text which defines what REST is.</li>
+</ul>
+<h2 id="books"><a name="books" class="plugin-anchor" href="#books"><span class="fa fa-link"></span></a>Books</h2>
+<ul>
+<li><a href="http://www.amazon.de/REST-Practice-Hypermedia-Systems-Architecture/dp/0596805829" target="_blank">REST in Practice: Hypermedia and Systems
+Architecture</a></li>
+<li><a href="https://leanpub.com/build-apis-you-wont-hate" target="_blank">Build APIs You Won&apos;t
+Hate</a></li>
+<li><a href="http://www.infoq.com/minibooks/emag-web-api" target="_blank">InfoQ eBook - Web APIs: From Start to
+Finish</a></li>
+</ul>
+<h2 id="blogs"><a name="blogs" class="plugin-anchor" href="#blogs"><span class="fa fa-link"></span></a>Blogs</h2>
+<ul>
+<li><a href="http://restful-api-design.readthedocs.org/en/latest/" target="_blank">Lessons-learned blog: Thoughts on RESTful API
+Design</a></li>
 </ul>
 
                     
@@ -419,10 +401,8 @@ into the silhouette object). Implementing &#x201C;expand&#x201D; correctly is di
         </div>
 
         
-        <a href="../compatibility/Compatibility.html" class="navigation navigation-prev " aria-label="Previous page: Compatibility"><i class="fa fa-angle-left"></i></a>
+        <a href="../api-discovery/ApiDiscovery.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: API Discovery"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../resources/Resources.html" class="navigation navigation-next " aria-label="Next page: Resources"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

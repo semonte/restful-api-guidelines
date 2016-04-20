@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="12" data-chapter-title="Data Formats" data-filepath="data-formats/DataFormats.md" data-basepath=".." data-revision="Wed Apr 20 2016 07:17:21 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="11" data-chapter-title="Data Formats" data-filepath="data-formats/DataFormats.md" data-basepath=".." data-revision="Wed Apr 20 2016 07:37:09 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -200,27 +200,12 @@
             
         </li>
     
-        <li class="chapter " data-level="9" data-path="performance/Performance.html">
-            
-                
-                    <a href="../performance/Performance.html">
-                
-                        <i class="fa fa-check"></i><b>9.</b>
-                        
-                            
-                        
-                        Performance
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="10" data-path="pagination/Pagination.html">
+        <li class="chapter " data-level="9" data-path="pagination/Pagination.html">
             
                 
                     <a href="../pagination/Pagination.html">
                 
-                        <i class="fa fa-check"></i><b>10.</b>
+                        <i class="fa fa-check"></i><b>9.</b>
                         
                             
                         
@@ -230,12 +215,12 @@
             
         </li>
     
-        <li class="chapter " data-level="11" data-path="hyper-media/Hypermedia.html">
+        <li class="chapter " data-level="10" data-path="hyper-media/Hypermedia.html">
             
                 
                     <a href="../hyper-media/Hypermedia.html">
                 
-                        <i class="fa fa-check"></i><b>11.</b>
+                        <i class="fa fa-check"></i><b>10.</b>
                         
                             
                         
@@ -245,12 +230,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="12" data-path="data-formats/DataFormats.html">
+        <li class="chapter active" data-level="11" data-path="data-formats/DataFormats.html">
             
                 
                     <a href="../data-formats/DataFormats.html">
                 
-                        <i class="fa fa-check"></i><b>12.</b>
+                        <i class="fa fa-check"></i><b>11.</b>
                         
                             
                         
@@ -260,12 +245,12 @@
             
         </li>
     
-        <li class="chapter " data-level="13" data-path="common-data-objects/CommonDataObjects.html">
+        <li class="chapter " data-level="12" data-path="common-data-objects/CommonDataObjects.html">
             
                 
                     <a href="../common-data-objects/CommonDataObjects.html">
                 
-                        <i class="fa fa-check"></i><b>13.</b>
+                        <i class="fa fa-check"></i><b>12.</b>
                         
                             
                         
@@ -275,16 +260,31 @@
             
         </li>
     
-        <li class="chapter " data-level="14" data-path="common-headers/CommonHeaders.html">
+        <li class="chapter " data-level="13" data-path="headers/CommonHeaders.html">
             
                 
-                    <a href="../common-headers/CommonHeaders.html">
+                    <a href="../headers/CommonHeaders.html">
+                
+                        <i class="fa fa-check"></i><b>13.</b>
+                        
+                            
+                        
+                        Common Headers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="headers/ProprietaryHeaders.html">
+            
+                
+                    <a href="../headers/ProprietaryHeaders.html">
                 
                         <i class="fa fa-check"></i><b>14.</b>
                         
                             
                         
-                        Common Headers
+                        Proprietary Headers
                     </a>
             
             
@@ -300,6 +300,21 @@
                             
                         
                         API Discovery
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="references/References.html">
+            
+                
+                    <a href="../references/References.html">
+                
+                        <i class="fa fa-check"></i><b>16.</b>
+                        
+                            
+                        
+                        References
                     </a>
             
             
@@ -340,7 +355,8 @@
                     
                         <h1 id="data-formats"><a name="data-formats" class="plugin-anchor" href="#data-formats"><span class="fa fa-link"></span></a>Data Formats</h1>
 <h2 id="must-use-json-as-the-body-payload"><a name="must-use-json-as-the-body-payload" class="plugin-anchor" href="#must-use-json-as-the-body-payload"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use JSON as the Body Payload</h2>
-<p>JSON-encode the body payload. The JSON payload must follow RFC-7158 and be compatible with RFC-4627 clients by having (if possible) a serialized object or array as the top-level object.</p>
+<p>JSON-encode the body payload. The JSON payload must follow <a href="https://tools.ietf.org/html/rfc7159" target="_blank">RFC-7159</a> by having
+(if possible) a serialized object or array as the top-level object.</p>
 <h2 id="must-use-standard-date-and-time-formats"><a name="must-use-standard-date-and-time-formats" class="plugin-anchor" href="#must-use-standard-date-and-time-formats"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use Standard Date and Time Formats</h2>
 <ul>
 <li><p>Inside the JSON payload, use the date and time formats defined by <a href="http://tools.ietf.org/html/rfc3339#section-5.6" target="_blank">RFC 3339</a> &#x2014; e.g. <code>2015-05-28T14:09:17+02:00</code> for a point in time (note that the  <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types" target="_blank">OpenAPI format</a> &quot;date-time&quot; corresponds to &quot;date-time&quot; in the RFC) and <code>2015-05-28</code> for a date (note that the OpenAPI format &quot;date&quot; corresponds to &quot;full-date&quot; in the RFC). Both are specific profiles, a subset of the international standard <a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>.</p>
@@ -350,23 +366,6 @@
 </ul>
 <p>A zone offset may be used (both, in request and responses) -- this is simply defined by the standards. However, we encourage to restrict to UTC (and go without offsets) when dates are passed and returned. From experience we know that zone offsets are not easy to understand and often not correctly handled. Note also, that zone offsets are different from local times that may include daylight saving time.</p>
 <p>When it comes to storage, all dates should be consistently stored in UTC without zone offset. Localization should be done locally by the services that provide user interfaces, if required.</p>
-<h2 id="could-use-standard-data-formats"><a name="could-use-standard-data-formats" class="plugin-anchor" href="#could-use-standard-data-formats"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Standard Data Formats</h2>
-<ul>
-<li><p><a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1-alpha2 country codes</a></p>
-</li>
-<li><ul>
-<li>(It&apos;s &#x201C;GB&#x201D;, not &#x201C;UK&#x201D;, even though &#x201C;UK&#x201D; has seen some use at Zalando)</li>
-</ul>
-</li>
-<li><p><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 language code</a></p>
-</li>
-<li><ul>
-<li><a href="https://tools.ietf.org/html/bcp47" target="_blank">BCP-47</a> (based on ISO 639-1) for language variants</li>
-</ul>
-</li>
-<li><p><a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217 currency codes</a></p>
-</li>
-</ul>
 <h2 id="could-use-standards-for-country-language-and-currency-codes"><a name="could-use-standards-for-country-language-and-currency-codes" class="plugin-anchor" href="#could-use-standards-for-country-language-and-currency-codes"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use Standards for Country, Language and Currency Codes</h2>
 <p>Use the following standard formats for country, language and currency codes:</p>
 <ul>
