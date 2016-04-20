@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="10" data-chapter-title="Pagination" data-filepath="pagination/Pagination.md" data-basepath=".." data-revision="Wed Apr 20 2016 07:59:11 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="10" data-chapter-title="Pagination" data-filepath="pagination/Pagination.md" data-basepath=".." data-revision="Wed Apr 20 2016 08:05:37 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -380,6 +380,10 @@ numeric offset identifies the first page entry</li>
 unique key element identifies the first page entry (see also
 <a href="https://developers.facebook.com/docs/graph-api/using-graph-api/v2.4#paging" target="_blank">Facebook&#x2019;s guide</a>)</li>
 </ul>
+<p>The technical conception of pagination should also consider user experience related issues. As mentioned
+in this <a href="https://www.smashingmagazine.com/2016/03/pagination-infinite-scrolling-load-more-buttons/" target="_blank">article</a>,
+jumping to a specific page is far less used than navigation via next/previous page links. This favours
+cursor-based over offset-based pagination.</p>
 <h2 id="should-prefer-cursorbased-pagination-avoid-offsetbased-pagination"><a name="should-prefer-cursorbased-pagination-avoid-offsetbased-pagination" class="plugin-anchor" href="#should-prefer-cursorbased-pagination-avoid-offsetbased-pagination"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Prefer Cursor-Based Pagination, Avoid Offset-Based Pagination</h2>
 <p>Cursor-based pagination is better for more efficient implementation, especially when it comes to
 high-data volumes and / or storage in NoSQL databases.</p>
