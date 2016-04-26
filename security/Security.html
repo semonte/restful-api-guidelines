@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-chapter-title="Security" data-filepath="security/Security.md" data-basepath=".." data-revision="Wed Apr 20 2016 08:16:00 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="4" data-chapter-title="Security" data-filepath="security/Security.md" data-basepath=".." data-revision="Tue Apr 26 2016 14:21:37 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -384,7 +384,7 @@ on how to specify security definitions in you API specification or take a look a
 </code></pre>
 <p>In order to see how to define and assign scopes, please refer to the next section.</p>
 <h2 id="must-define-and-assign-scopes"><a name="must-define-and-assign-scopes" class="plugin-anchor" href="#must-define-and-assign-scopes"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Define and assign scopes</h2>
-<p>Every API needs to define scopes and every endpoint needs to have a at least one scope assigned. Scopes are defined by a name and a description once per API specification, as shown in the previous section. Please refer to the following rules when creating scope names:</p>
+<p>Every API needs to define scopes and every endpoint needs to have at least one scope assigned. Scopes are defined by a name and a description once per API specification, as shown in the previous section. Please refer to the following rules when creating scope names:</p>
 <pre><code>&lt;scope&gt; ::= &lt;standard-scope&gt; |           -- should be sufficient for majority of use cases 
             &lt;resource-specific-scope&gt;    -- for special security access differentiation use cases 
 &lt;standard-scope&gt; ::= &lt;application-id&gt;.&lt;access-type&gt; 
@@ -393,7 +393,7 @@ on how to specify security definitions in you API specification or take a look a
 &lt;application-id&gt; ::= &lt;as defined via STUPS&gt;
 &lt;access-type&gt; ::= read | write           -- might be extended in future
 &lt;resource-id&gt; ::= &lt;free identifier following application-id syntax&gt;
-</code></pre><p>APIs should stick to standard scopes by default -- for the majority of use cases, restricting access to specific APIs (with read vs. write differentiation) is sufficient for controlling access for client types like merchant or retailer business partners, customers or operational staff. We want to avoid too many, fine grained scopes increasing governance complexity without real value add. In some situations, where some API serves very different types of resources interesting for different stakeholder types, resource specific scopes may make sense.</p>
+</code></pre><p>APIs should stick to standard scopes by default -- for the majority of use cases, restricting access to specific APIs (with read vs. write differentiation) is sufficient for controlling access for client types like merchant or retailer business partners, customers or operational staff. We want to avoid too many, fine grained scopes increasing governance complexity without real value add. In some situations, where the API serves different types of resources for different owners, resource specific scopes may make sense.</p>
 <p>Some examples for standard and resource-specific scopes:</p>
 <table>
 <thead>
@@ -431,7 +431,7 @@ on how to specify security definitions in you API specification or take a look a
 </tr>
 </tbody>
 </table>
-<p>After scopes names are defined and the scope is declared in the security definition at the top of an API specification it should be assigned to each API operation by specifying a <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#securityRequirementObject" target="_blank"><code>security</code> requirement</a> like this:</p>
+<p>After scopes names are defined and the scope is declared in the security definition at the top of an API specification, it should be assigned to each API operation by specifying a <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#securityRequirementObject" target="_blank"><code>security</code> requirement</a> like this:</p>
 <pre><code class="lang-yaml">paths:
   /sales-orders/{order-number}:
     get:
