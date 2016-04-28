@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="10" data-chapter-title="Pagination" data-filepath="pagination/Pagination.md" data-basepath=".." data-revision="Tue Apr 26 2016 14:21:37 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="10" data-chapter-title="Pagination" data-filepath="pagination/Pagination.md" data-basepath=".." data-revision="Thu Apr 28 2016 12:37:59 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -390,39 +390,33 @@ high-data volumes and / or storage in NoSQL databases.</p>
 <p>Before choosing offset-based pagination,  make sure that it is feasible for efficient realization.
 Carefully consider the following trade-offs:</p>
 <ul>
-<li>Usability/framework support</li>
-<li><ul>
+<li><p>Usability/framework support:</p>
+<ul>
 <li>offset/limit pagination is more familiar than cursor-based, so it has more framework support and
 is easier to use for API clients</li>
 </ul>
 </li>
-<li>Use case: Jump to a certain page</li>
-<li><ul>
+<li><p>Use case: Jump to a certain page</p>
+<ul>
 <li>If jumping to a particular page in a range (e.g., 51 of 100) is really a required use case,
 cursor-based navigation is not feasible</li>
 </ul>
 </li>
-<li>Variability of data may lead to anomalies in result pages</li>
-<li><ul>
+<li><p>Variability of data may lead to anomalies in result pages</p>
+<ul>
 <li>Using offset will create duplicates or lead to missed entries if rows are inserted or  deleted,
 respectively, between fetching two pages</li>
-</ul>
-</li>
-<li><ul>
 <li>When using cursor-based pagination, paging cannot continue when the cursor entry has been
 deleted while fetching two pages</li>
 </ul>
 </li>
-<li>Performance considerations
-Efficient server-side processing using offset-based pagination is hardly feasible for...</li>
-<li><ul>
+<li><p>Performance considerations
+Efficient server-side processing using offset-based pagination is hardly feasible for...</p>
+<ul>
 <li>higher data list volumes, especially if they do not reside in the database&#x2019;s main memory</li>
+<li>sharded or NoSQL databases</li>
 </ul>
-</li>
-<li><ul>
-<li>sharded or NoSQL databases
-This also holds for total count and backward iteration support</li>
-</ul>
+<p>This also holds for total count and backward iteration support</p>
 </li>
 </ul>
 <p>Further reading:</p>
