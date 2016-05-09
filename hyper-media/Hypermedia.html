@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="11" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Mon May 09 2016 12:56:12 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="11" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Mon May 09 2016 15:36:38 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -369,16 +369,9 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="hypermedia"><a name="hypermedia" class="plugin-anchor" href="#hypermedia"><span class="fa fa-link"></span></a>Hypermedia</h1>
-<h2 id="should-use-hateoas"><a name="should-use-hateoas" class="plugin-anchor" href="#should-use-hateoas"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use HATEOAS</h2>
-<p>This is a challenging topic. We don&#x2019;t have specific recommendations yet; we expect them to emerge
-from trial and error, and from the API Guild&#x2019;s ongoing research. For now, we strongly encourage
-teams to apply this principle and document results.</p>
-<p>Notes on aspects to be analyzed:</p>
-<ul>
-<li>Security concerns with respect to  passing OAuth2 tokens</li>
-<li>API discovery by client programmers vs. automated hypermedia driven workflows</li>
-<li>Additional client development work vs. reduced efforts in case of API and state handling changes</li>
-</ul>
+<h2 id="could-use-hateoas"><a name="could-use-hateoas" class="plugin-anchor" href="#could-use-hateoas"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use HATEOAS</h2>
+<p>If HATEOAS adds value to your API, consider using it. Because we are following API First, HATEOAS adds not much value for us in terms of self-descriptiveness. And we don&apos;t believe in generic HATEOAS clients which crawls and uses APIs on their own. So, only use HATEOAS if your API really defines possible client actions (one part of hypermedia) and leverages other HATEOAS features.</p>
+<p>This is still a challenging topic. We don&#x2019;t have more specific recommendations yet; we expect them to emerge from trial and error, and from the API Guild&#x2019;s ongoing research. For now, we strongly encourage teams to document results of their HATEOAS usage.</p>
 <p>Additional resources: <a href="http://en.wikipedia.org/wiki/HATEOAS" target="_blank">Wikipedia</a>, <a href="http://restcookbook.com/Basics/hateoas/" target="_blank">The RESTful CookBook</a></p>
 <h2 id="could-use-uris-for-custom-link-relations"><a name="could-use-uris-for-custom-link-relations" class="plugin-anchor" href="#could-use-uris-for-custom-link-relations"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use URIs for Custom Link Relations</h2>
 <p>Related or even embedded (sub-) resources should be linked via &#x201C;meta link attributes&#x201D; within the response payload; use here the following <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a> compliant syntax:</p>
