@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Common Headers | Introduction</title>
+        <title>Tooling | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -41,10 +41,8 @@
         
     
     
-    <link rel="next" href="../headers/ProprietaryHeaders.html">
     
-    
-    <link rel="prev" href="../common-data-objects/CommonDataObjects.html">
+    <link rel="prev" href="../references/References.html">
     
 
         
@@ -52,7 +50,7 @@
     <body>
         
         
-    <div class="book" data-level="14" data-chapter-title="Common Headers" data-filepath="headers/CommonHeaders.md" data-basepath=".." data-revision="Tue May 10 2016 10:03:13 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="18" data-chapter-title="Tooling" data-filepath="tooling/Tooling.md" data-basepath=".." data-revision="Tue May 10 2016 10:03:13 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -275,7 +273,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="14" data-path="headers/CommonHeaders.html">
+        <li class="chapter " data-level="14" data-path="headers/CommonHeaders.html">
             
                 
                     <a href="../headers/CommonHeaders.html">
@@ -335,7 +333,7 @@
             
         </li>
     
-        <li class="chapter " data-level="18" data-path="tooling/Tooling.html">
+        <li class="chapter active" data-level="18" data-path="tooling/Tooling.html">
             
                 
                     <a href="../tooling/Tooling.html">
@@ -383,28 +381,29 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="common-headers"><a name="common-headers" class="plugin-anchor" href="#common-headers"><span class="fa fa-link"></span></a>Common Headers</h1>
-<p>This section describes a handful of headers, which we found raised the most questions in our daily usage.</p>
-<h2 id="contentlocation"><a name="contentlocation" class="plugin-anchor" href="#contentlocation"><span class="fa fa-link"></span></a>Content-Location</h2>
-<p>This header is used in the response of either a successful read (GET, HEAD) or successful write operation (PUT, POST or PATCH).</p>
-<p>In the case of the GET requests it points to a location where an alternate representation of the
-entity in the response body can be found. In this case one
-has to set the Content-Type header as well. For example:</p>
-<pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">/products/123/images</span> HTTP/1.1</span>
-
-<span class="http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
-<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">image/png</span>
-<span class="hljs-attribute">Content-Location</span>: <span class="hljs-string">/products/123/images?format=raw</span>
-</span></code></pre>
-<p>In the case of mutating HTTP methods, the Content-Location header can be used when there is a response body,
-and then it indicates that the included response body can be found at the location indicated in the header.</p>
-<p>If the header value is the same as the location of the created resource (as indicated by the Location header
-after POST) or the modified resource (as indicated by the request URI after PUT / PATCH), then the returned
-body is indeed the current representation of the entity making a subsequent GET operation from the client side
-not necessary.</p>
-<p>If your API returns the new representation after a PUT, PATCH, or POST you should include the Content-Location header
-to make it explicit, that the returned resource is an up-to-date version.</p>
-<p>More details in <a href="https://tools.ietf.org/html/rfc7231#section-3.1.4.2" target="_blank">rfc7231</a></p>
+                        <h1 id="tooling"><a name="tooling" class="plugin-anchor" href="#tooling"><span class="fa fa-link"></span></a>Tooling</h1>
+<h2 id="api-first-integrations"><a name="api-first-integrations" class="plugin-anchor" href="#api-first-integrations"><span class="fa fa-link"></span></a>API First Integrations</h2>
+<p>The following frameworks were specifically designed to support the API First workflow with OpenAPI YAML files (sorted alphabetically):</p>
+<ul>
+<li><a href="https://github.com/zalando/connexion" target="_blank">Connexion: OpenAPI First framework for Python on top of Flask</a></li>
+<li><a href="https://github.com/zalando-stups/friboo" target="_blank">Friboo: utility library to write microservices in Clojure with support for Swagger and OAuth</a></li>
+<li><a href="https://github.com/zalando/play-swagger" target="_blank">Play Swagger: build RESTful Play services from OpenAPI specification</a></li>
+<li><a href="https://github.com/swagger-api/swagger-codegen" target="_blank">Swagger Codegen: template-driven engine to generate client code in different languages by parsing Swagger Resource Declaration</a></li>
+<li><a href="https://github.com/zalando-stups/swagger-codegen-tooling" target="_blank">Swagger Codegen Tooling: plugin for Maven that generates pieces of code from OpenAPI specification</a></li>
+</ul>
+<p>The Swagger/OpenAPI homepage lists more <a href="http://swagger.io/open-source-integrations/" target="_blank">Community-Driven Language Integrations</a>,
+but most of them do not fit our API First approach.</p>
+<h2 id="support-libraries"><a name="support-libraries" class="plugin-anchor" href="#support-libraries"><span class="fa fa-link"></span></a>Support Libraries</h2>
+<p>These utility libraries support you in implementing various parts of our RESTful API guidelines (sorted alphabetically):</p>
+<ul>
+<li><a href="https://github.com/zalando/problem" target="_blank">Problem: Java library that implements application/problem+json</a></li>
+<li><a href="https://github.com/zalando/problem-spring-web" target="_blank">Problems for Spring Web MVC: library for handling Problems in Spring Web MVC</a></li>
+<li><a href="https://github.com/zalando/jackson-datatype-money" target="_blank">Jackson Datatype Money: extension module to properly support datatypes of javax.money</a></li>
+<li><a href="https://github.com/zalando-incubator/json-fields" target="_blank">JSON fields: framework for limiting fields of JSON objects exposed by Rest APIs</a></li>
+<li><a href="https://github.com/zalando/tracer" target="_blank">Tracer: call tracing and log correlation in distributed systems</a></li>
+<li><a href="https://github.com/zalando-stups/twintip-crawler" target="_blank">TWINTIP: API definition crawler for the STUPS ecosystem</a></li>
+<li><a href="https://github.com/zalando/twintip-spring-web" target="_blank">TWINTIP Spring Integration: API discovery endpoint for Spring Web MVC</a></li>
+</ul>
 
                     
                     </section>
@@ -415,10 +414,8 @@ to make it explicit, that the returned resource is an up-to-date version.</p>
         </div>
 
         
-        <a href="../common-data-objects/CommonDataObjects.html" class="navigation navigation-prev " aria-label="Previous page: Common Data Objects"><i class="fa fa-angle-left"></i></a>
+        <a href="../references/References.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: References"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../headers/ProprietaryHeaders.html" class="navigation navigation-next " aria-label="Next page: Proprietary Headers"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
