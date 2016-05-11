@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="12" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Wed May 11 2016 12:32:45 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="12" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Wed May 11 2016 12:33:41 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -416,10 +416,87 @@
                         <h1 id="hypermedia"><a name="hypermedia" class="plugin-anchor" href="#hypermedia"><span class="fa fa-link"></span></a>Hypermedia</h1>
 <h2 id="could-use-hateoas"><a name="could-use-hateoas" class="plugin-anchor" href="#could-use-hateoas"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use HATEOAS</h2>
 <p>We prefer <a href="http://martinfowler.com/articles/richardsonMaturityModel.html#level2" target="_blank">REST Maturity Level 2</a>. Only if HATEOAS - as <a href="http://martinfowler.com/articles/richardsonMaturityModel.html#level3" target="_blank">Level 3</a> - adds value to your API, consider using it. Because we are following API First, HATEOAS adds not much value for us in terms of self-descriptiveness. And we don&apos;t believe in generic HATEOAS clients which crawl and use APIs on their own. So, only use HATEOAS if your API really defines possible client actions (one part of hypermedia) and leverages other HATEOAS features.</p>
-<p>Decoupled from HATEOAS, adding links and relationships should be considered as useful addition to APIs as it adds context and helps navigation in APIs to decent degree.</p>
+<p>Decoupled from HATEOAS, adding <a href="#must-use-hal">links and relationships</a> should be considered as useful addition to APIs as it adds context and helps navigation in APIs to decent degree.</p>
 <p>Additional resources: <a href="http://en.wikipedia.org/wiki/HATEOAS" target="_blank">Wikipedia</a>, <a href="http://restcookbook.com/Basics/hateoas/" target="_blank">The RESTful CookBook</a></p>
+<h2 id="must-use-hal"><a name="must-use-hal" class="plugin-anchor" href="#must-use-hal"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use HAL</h2>
+<p>Links to other resources must be defined exclusively using <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a> and
+preferably using standard <a href="http://www.iana.org/assignments/link-relations/link-relations.xml" target="_blank">link relations</a>.</p>
+<p>We opted for HAL after conduction a comparison of different hypermedia formats based on properties like:</p>
+<ul>
+<li>Simplicity: easy to understand and implement in a non-breaking way</li>
+<li>Adoption: use in open-source libraries and tools as well as other companies</li>
+<li>Docs: degree of good documentation</li>
+</ul>
+<p></p>
+
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Simplicity</th>
+<th>Adoption</th>
+<th>Primary Focus</th>
+<th>Docs</th>
+<th>Last Update</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a></td>
+<td>&#x2713;</td>
+<td>&#x2713;</td>
+<td>Links and relationships</td>
+<td>&#x2713;</td>
+<td>2013-09-18</td>
+</tr>
+<tr>
+<td><a href="http://jsonapi.org/" target="_blank">JSON API</a></td>
+<td>&#x2717;</td>
+<td>&#x2713;</td>
+<td>Response format</td>
+<td>&#x2713;</td>
+<td>2015-05-29</td>
+</tr>
+<tr>
+<td><a href="http://json-ld.org/" target="_blank">JSON-LD</a></td>
+<td>&#x2717;</td>
+<td>?</td>
+<td>Link data</td>
+<td>?</td>
+<td>2014-01-16</td>
+</tr>
+<tr>
+<td><a href="https://github.com/kevinswiber/siren" target="_blank">Siren</a></td>
+<td>&#x2717;</td>
+<td>&#x2717;</td>
+<td>Entities and navigation</td>
+<td>&#x2717;</td>
+<td>2015-10-21</td>
+</tr>
+<tr>
+<td><a href="http://amundsen.com/media-types/collection/" target="_blank">Collection+JSON</a></td>
+<td>&#x2717;</td>
+<td>&#x2717;</td>
+<td>Collections and queries</td>
+<td>&#x2717;</td>
+<td>2013-02-24</td>
+</tr>
+</tbody>
+</table>
+<p>Interesting articles for comparisons of different hypermedia formats:</p>
+<ul>
+<li><a href="http://sookocheff.com/post/api/on-choosing-a-hypermedia-format/" target="_blank">Kevin Sookocheff&#x2019;s On choosing a hypermedia type for your API</a></li>
+<li><a href="http://blogs.mulesoft.com/dev/api-dev/api-best-practices-hypermedia-part-3/" target="_blank">Mike Stowe&apos;s API Best Practices: Hypermedia</a></li>
+</ul>
+<h2 id="must-do-not-use-link-headers"><a name="must-do-not-use-link-headers" class="plugin-anchor" href="#must-do-not-use-link-headers"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Do Not Use Link Headers</h2>
+<p>We don&apos;t allow the usage of <a href="http://tools.ietf.org/html/rfc5988#section-5" target="_blank">link headers</a> and favor <a href="#must-use-hal">HAL</a> instead.
+The primary reason is to have a consistent place for links as well as the better support for links in JSON payloads compared
+to the uncommon link header syntax.</p>
 <h2 id="could-use-uris-for-custom-link-relations"><a name="could-use-uris-for-custom-link-relations" class="plugin-anchor" href="#could-use-uris-for-custom-link-relations"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use URIs for Custom Link Relations</h2>
-<p>Related or even embedded (sub-) resources should be linked via &#x201C;meta link attributes&#x201D; within the response payload; use here the following <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a> compliant syntax:</p>
+<p>You should consider using a custom link relation if and only if standard <a href="http://www.iana.org/assignments/link-relations/link-relations.xml" target="_blank">link relations</a>
+are not sufficient to express a relation.
+Related or even embedded (sub-) resources should be linked via &#x201C;meta link attributes&#x201D; within the response payload; use
+the following <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a> compliant syntax:</p>
 <pre><code>{
   ...
   &#x201C;_links&#x201D;: {
@@ -428,25 +505,7 @@
     }]
   }
 }
-</code></pre><p>Or the <a href="http://jsonapi.org/" target="_blank">JSON API</a> compliant one where you also embed the entities directly:</p>
-<pre><code>{
-  ...
-  &#x201C;relationships&#x201D;: {
-    &quot;my-entities&quot;: {
-      &quot;data&quot;: [
-        {&quot;id&quot;: 1, &quot;type&quot;: &quot;my-entity&quot;}
-      ],
-      &quot;links&quot;: {
-        &quot;related&quot;: &quot;/my-entities/123&quot;
-      }
-    }
-  }
-}
-</code></pre><h2 id="should-use-standards-for-hypermedia-link-types-hal-or-json-api-recommended"><a name="should-use-standards-for-hypermedia-link-types-hal-or-json-api-recommended" class="plugin-anchor" href="#should-use-standards-for-hypermedia-link-types-hal-or-json-api-recommended"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use Standards for Hypermedia Link Types, HAL or JSON API recommended</h2>
-<p>To represent hypermedia links in payload results, we should consider using a standard format like <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a>, <a href="http://jsonapi.org/" target="_blank">JSON API</a>, <a href="http://json-ld.org/" target="_blank">JSON-LD</a> with <a href="http://www.hydra-cg.com/spec/latest/core/" target="_blank">Hydra</a>, or <a href="https://github.com/kevinswiber/siren" target="_blank">Siren</a>.  (Hint: Read <a href="http://sookocheff.com/post/api/on-choosing-a-hypermedia-format/" target="_blank">Kevin Sookocheff&#x2019;s post</a>, for instance, to learn more about the hypermedia types.)</p>
-<p>We are in an ongoing discussion in the API guild which standard should be recommended for a certain use case. In the meantime
-we recommend to use <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a> or <a href="http://jsonapi.org/" target="_blank">JSON API</a>.</p>
-<h2 id="should-allow-optional-embedding-of-subresources"><a name="should-allow-optional-embedding-of-subresources" class="plugin-anchor" href="#should-allow-optional-embedding-of-subresources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Allow Optional Embedding of Sub-Resources</h2>
+</code></pre><h2 id="should-allow-optional-embedding-of-subresources"><a name="should-allow-optional-embedding-of-subresources" class="plugin-anchor" href="#should-allow-optional-embedding-of-subresources"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Allow Optional Embedding of Sub-Resources</h2>
 <p>Embedding related resources (also know as <em>Resource expansion</em>) is a great way to reduce the number of requests. In
 cases where clients know upfront that they need some related resources they can instruct the server to prefetch that
 data eagerly. Whether this is optimized on the server, e.g. a database join, or done in a generic way, e.g. an HTTP
@@ -454,8 +513,8 @@ proxy that transparently embeds resources, is up to the implementation.</p>
 <p>See <a href="../naming/Naming.html#could-use-conventional-query-strings"><em>Conventional Query Strings</em></a> for naming.</p>
 <h2 id="must-modify-the-contenttype-for-embedded-resources"><a name="must-modify-the-contenttype-for-embedded-resources" class="plugin-anchor" href="#must-modify-the-contenttype-for-embedded-resources"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Modify the Content-Type for Embedded Resources</h2>
 <p>Embedded resources requires to change the media type of the response accordingly:</p>
-<pre><code class="lang-http">GET /order/123?embed=(items)
-Accept: application/x.order+json
+<pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">/order/123?embed=(items)</span> HTTP/1.1</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/x.order+json</span>
 </code></pre>
 <pre><code class="lang-http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
 <span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x.order+json;embed=(items)</span>
