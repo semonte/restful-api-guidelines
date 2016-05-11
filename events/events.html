@@ -1,0 +1,592 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Events | Introduction</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../references/References.html">
+    
+    
+    <link rel="prev" href="../api-discovery/ApiDiscovery.html">
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="18" data-chapter-title="Events" data-filepath="events/events.md" data-basepath=".." data-revision="Wed May 11 2016 12:32:45 GMT+0000 (UTC)" data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="1" data-path="TOC.html">
+            
+                
+                    <a href="../TOC.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            
+                        
+                        Table of Contents
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i><b>1.</b>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="design-principles/DesignPrinciples.html">
+            
+                
+                    <a href="../design-principles/DesignPrinciples.html">
+                
+                        <i class="fa fa-check"></i><b>2.</b>
+                        
+                            
+                        
+                        Design Principles
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="general-guidelines/GeneralGuidelines.html">
+            
+                
+                    <a href="../general-guidelines/GeneralGuidelines.html">
+                
+                        <i class="fa fa-check"></i><b>3.</b>
+                        
+                            
+                        
+                        General Guidelines
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="security/Security.html">
+            
+                
+                    <a href="../security/Security.html">
+                
+                        <i class="fa fa-check"></i><b>4.</b>
+                        
+                            
+                        
+                        Security
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="compatibility/Compatibility.html">
+            
+                
+                    <a href="../compatibility/Compatibility.html">
+                
+                        <i class="fa fa-check"></i><b>5.</b>
+                        
+                            
+                        
+                        Compatibility
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="json-guidelines/JsonGuidelines.html">
+            
+                
+                    <a href="../json-guidelines/JsonGuidelines.html">
+                
+                        <i class="fa fa-check"></i><b>6.</b>
+                        
+                            
+                        
+                        JSON Guidelines
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="naming/Naming.html">
+            
+                
+                    <a href="../naming/Naming.html">
+                
+                        <i class="fa fa-check"></i><b>7.</b>
+                        
+                            
+                        
+                        Naming
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="resources/Resources.html">
+            
+                
+                    <a href="../resources/Resources.html">
+                
+                        <i class="fa fa-check"></i><b>8.</b>
+                        
+                            
+                        
+                        Resources
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="http/Http.html">
+            
+                
+                    <a href="../http/Http.html">
+                
+                        <i class="fa fa-check"></i><b>9.</b>
+                        
+                            
+                        
+                        HTTP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="performance/Performance.html">
+            
+                
+                    <a href="../performance/Performance.html">
+                
+                        <i class="fa fa-check"></i><b>10.</b>
+                        
+                            
+                        
+                        Performance
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="pagination/Pagination.html">
+            
+                
+                    <a href="../pagination/Pagination.html">
+                
+                        <i class="fa fa-check"></i><b>11.</b>
+                        
+                            
+                        
+                        Pagination
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="hyper-media/Hypermedia.html">
+            
+                
+                    <a href="../hyper-media/Hypermedia.html">
+                
+                        <i class="fa fa-check"></i><b>12.</b>
+                        
+                            
+                        
+                        Hypermedia
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="data-formats/DataFormats.html">
+            
+                
+                    <a href="../data-formats/DataFormats.html">
+                
+                        <i class="fa fa-check"></i><b>13.</b>
+                        
+                            
+                        
+                        Data Formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="common-data-objects/CommonDataObjects.html">
+            
+                
+                    <a href="../common-data-objects/CommonDataObjects.html">
+                
+                        <i class="fa fa-check"></i><b>14.</b>
+                        
+                            
+                        
+                        Common Data Objects
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="headers/CommonHeaders.html">
+            
+                
+                    <a href="../headers/CommonHeaders.html">
+                
+                        <i class="fa fa-check"></i><b>15.</b>
+                        
+                            
+                        
+                        Common Headers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="headers/ProprietaryHeaders.html">
+            
+                
+                    <a href="../headers/ProprietaryHeaders.html">
+                
+                        <i class="fa fa-check"></i><b>16.</b>
+                        
+                            
+                        
+                        Proprietary Headers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="api-discovery/ApiDiscovery.html">
+            
+                
+                    <a href="../api-discovery/ApiDiscovery.html">
+                
+                        <i class="fa fa-check"></i><b>17.</b>
+                        
+                            
+                        
+                        API Discovery
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="18" data-path="events/events.html">
+            
+                
+                    <a href="../events/events.html">
+                
+                        <i class="fa fa-check"></i><b>18.</b>
+                        
+                            
+                        
+                        Events
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="references/References.html">
+            
+                
+                    <a href="../references/References.html">
+                
+                        <i class="fa fa-check"></i><b>19.</b>
+                        
+                            
+                        
+                        References
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="20" data-path="tooling/Tooling.html">
+            
+                
+                    <a href="../tooling/Tooling.html">
+                
+                        <i class="fa fa-check"></i><b>20.</b>
+                        
+                            
+                        
+                        Tooling
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../">Introduction</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="events"><a name="events" class="plugin-anchor" href="#events"><span class="fa fa-link"></span></a>Events</h1>
+<p>Zalando&#x2019;s architecture centers around decoupled microservices and in that context we favour asynchronous event driven approaches. The <a href="https://github.com/zalando/nakadi" target="_blank">Nakadi</a> framework provides an event publish and subscribe system, abstracting exchanges through a RESTful API. </p>
+<p>Nakadi is a key element for data integration in the architecture, and the standard system for inter-service event messaging. The guidelines in this section are for use with the Nakadi framework and focus on how to design and publish events intended to be shared for others to consume. Critically, once events pass service boundaries they are considered part of the service API and are subject to the API guidelines. </p>
+<h2 id="must-treat-events-as-part-of-the-service-interface"><a name="must-treat-events-as-part-of-the-service-interface" class="plugin-anchor" href="#must-treat-events-as-part-of-the-service-interface"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Treat Events as part of the service interface</h2>
+<p>Events are part of a service&#x2019;s interface to the outside world equivalent in standing to a service&#x2019;s REST API. Services publishing data for integration must treat their events as a first class design concern, just as they would an API. For example this means approaching events with the &quot;API first&quot; principle in mind <a href="../index.html">as described in the Introduction</a> and making them available for review.</p>
+<h2 id="must-events-should-define-useful-business-resources"><a name="must-events-should-define-useful-business-resources" class="plugin-anchor" href="#must-events-should-define-useful-business-resources"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Events should define useful business resources</h2>
+<p> Events are intended to be used by other services including business process/data analytics and monitoring. They should be based around the resources and business processes you have defined for your service domain and adhere to its natural lifecycle (see also &quot;Should: Define useful resources&quot; in the <a href="../general-guidelines/GeneralGuidelines.html">General Guidelines</a>).</p>
+<p> As there is a cost in creating an explosion of event types and topics, prefer to define event types that are abstract/generic enough to be valuable for multiple use cases, and avoid publishing event types without a clear need.</p>
+<h2 id="must-event-types-must-conform-to-nakadis-api"><a name="must-event-types-must-conform-to-nakadis-api" class="plugin-anchor" href="#must-event-types-must-conform-to-nakadis-api"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Event Types must conform to Nakadi&apos;s API</h2>
+<p>Nakadi defines a structure called an <em>EventType</em>, which describes details for a particular kind of event. The EventType declares standard information, such as a name, an owning application (and by implication, an owning team), a well known event category (business process or data change), and a schema defining the event payload. It also allows the declaration of validation and enrichment strategies for events, along with supplemental information such as how events are partitioned in the stream. </p>
+<p>An EventType is registered with Nakadi via its <em>Schema Registry API</em>. Once the EventType is created, individual events that conform to the type and its payload schema can be published, and consumers can access them as stream of Events. <a href="https://github.com/zalando/nakadi/blob/nakadi-jvm/api/nakadi-event-bus-api.yaml" target="_blank">Nakadi&apos;s Open API definitions</a> include the definitions for two main categories, business events (BusinessEvent), and data change events (DataChangeEvent), as well as a generic &apos;undefined&apos; type. </p>
+<p>The service specific data defined for an event is called the <em>payload</em>. Only this non-Nakadi defined part of the event is expected to be submitted with the EventType schema.  When defining an EventType&apos;s payload schema as part of your API and for review purposes, it&apos;s ok to declare the payload as an object definition using Open API, but please note that Nakadi currently expects the EventType&apos;s schema to be submitted as JSON Schema and not as Open API JSON or YAML. Further details on how to register EventTypes are available in the Nakadi project&apos;s documentation.</p>
+<h2 id="must-use-the-business-events-to-signal-steps-and-arrival-points-in-business-processes"><a name="must-use-the-business-events-to-signal-steps-and-arrival-points-in-business-processes" class="plugin-anchor" href="#must-use-the-business-events-to-signal-steps-and-arrival-points-in-business-processes"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use the Business Events to signal steps and arrival points in business processes</h2>
+<p>Nakadi defines a specific event type for business processes, called <a href="https://github.com/zalando/nakadi/blob/nakadi-jvm/api/nakadi-event-bus-api.yaml#/definitions/BusinessEvent" target="_blank">BusinessEvent</a>. When publishing events that represent steps in a business process, event types must be based on the BusinessEvent type.</p>
+<p>All your events of a single business process will conform to the following rules:</p>
+<ul>
+<li><p>Business events must contain a specific identifier field (a business process id or &quot;bp-id&quot;) similar to flow-id to allow for efficient aggregation of all events in a business process execution.</p>
+</li>
+<li><p>Business events must contain a means to correctly order events in a business process execution. In distributed settings where monotically increasing values (such as a high precision timestamp that is assured to move forwards) cannot be obtained, Nakadi provides a <code>parent_eids</code> data structure that allows causal relationships to be declared between events.</p>
+</li>
+<li><p>Business events should only contain information that is new to the business process execution at the specific step/arrival point.</p>
+</li>
+<li><p>Each business process sequence should be started by a business event containing all relevant context information.</p>
+</li>
+<li><p>Business events must be published reliably by the service.</p>
+</li>
+</ul>
+<p>At the moment we cannot state whether it&apos;s best practice to publish all the events for a business process using a single event type and represent the specific steps with a state field, or whether to use multiple event types to represent each step. For now we suggest assessing each option and sticking to one for a given business process.</p>
+<h2 id="must-use-the-data-change-event-structure-to-signal-mutations"><a name="must-use-the-data-change-event-structure-to-signal-mutations" class="plugin-anchor" href="#must-use-the-data-change-event-structure-to-signal-mutations"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use the Data Change Event structure to signal mutations</h2>
+<p>Nakadi defines an event for signalling data changes, called a <a href="https://github.com/zalando/nakadi/blob/nakadi-jvm/api/nakadi-event-bus-api.yaml#/definitions/DataChangeEvent" target="_blank">DataChangeEvent</a>. When publishing events that represents created, updated, or deleted data, change event types must be based on the DataChangeEvent category.</p>
+<ul>
+<li><p>Change events must identify the changed entity to allow aggregation of all related events for the entity.</p>
+</li>
+<li><p>Change events should contain a means of ordering events for a given entity (such as created or updated timestamps that are assured to move forwards with respect to the entity, or version identifiers provided by some databases). Note that basing events on data structures that can be converged upon (such as <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type" target="_blank">CRDTs</a> or <a href="https://en.wikipedia.org/wiki/Logical_clock" target="_blank">logical clocks</a>) in a distributed setting are outside the scope of this guidance.</p>
+</li>
+<li><p>Change events must be published reliably by the service.</p>
+</li>
+<li><p>When the <code>hash</code> partition strategy is used, change events should identify a partition key that allows all related events for the entity to be consistently to assigned to a partition.</p>
+</li>
+</ul>
+<h2 id="should-data-change-events-should-match-api-representations"><a name="should-data-change-events-should-match-api-representations" class="plugin-anchor" href="#should-data-change-events-should-match-api-representations"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Data Change Events should match API representations</h2>
+<p>A data change event&apos;s representation of an entity should correspond to the REST API representation. </p>
+<p>There&apos;s value in having the fewest number of published structures for a service. Consumers of the service will be working with fewer representations, and the service owners will have less API surface to maintain. In particular, you should only publish events that are interesting in the domain and abstract away from implementation or local details - there&apos;s no need to reflect every change that happens within your system.</p>
+<p>There are cases where it could make sense to define data change events that don&apos;t directly correspond to your API resource representations. Some examples are -</p>
+<ul>
+<li><p>Where the API resource representations are very different from the datastore representation, but the physical data are easier to reliably process for data integration.</p>
+</li>
+<li><p>Publishing aggregated event data that rolls up a set of changes. </p>
+</li>
+<li><p>Using events to indicate changes in relationship between entities, for example indicating items have had a tag applied to them, or have been classified in some way. </p>
+</li>
+<li><p>Events that are the result of a computation, such as a matching algorithm, or the generation of enriched data, and which might not be stored as entity by the service. </p>
+</li>
+</ul>
+<h2 id="must-event-types-must-indicate-ownership"><a name="must-event-types-must-indicate-ownership" class="plugin-anchor" href="#must-event-types-must-indicate-ownership"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Event Types must indicate ownership</h2>
+<p>Event definitions must have clear ownership - this can be indicated via the <code>owning_application</code> field of the EventType. </p>
+<p>Typically there is one producer application, which owns the EventType and is responsible for its definition, akin to how RESTful API definitions are managed. However, the owner may also be a particular service from a set of multiple services that are producing the same kind of event. Please note indicating that a specific application is producing or consuming a specific event type is not yet defined explicitly, but a subject of Nakadi service discovery support functions.</p>
+<h2 id="must-event-payloads-must-be-defined-in-accordance-with-the-overall-guidelines"><a name="must-event-payloads-must-be-defined-in-accordance-with-the-overall-guidelines" class="plugin-anchor" href="#must-event-payloads-must-be-defined-in-accordance-with-the-overall-guidelines"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Event Payloads must be defined in accordance with the overall Guidelines</h2>
+<p>Events must be consistent with other API data and the API Guidelines in general. </p>
+<p>Everything expressed in the <a href="../index.html">Introduction to these Guidelines</a> is applicable to event data interchange between services. This is because our events, just like our APIs, represent a commitment to express what our systems do and designing high-quality, useful events allows us to develop new and interesting products and services. </p>
+<p>What distinguishes events from other kinds of data is the delivery style used, asynchronous publish-subscribe messaging. But there is no reason why they could not be made available using a REST API, for example via a search request or as a paginated feed, and it will be common to base events on the models created for the service&#x2019;s REST API. </p>
+<p>The following existing guidelines for API data are applicable to events -</p>
+<p><a href="../general-guidelines/GeneralGuidelines.html">General Guidelines</a> -</p>
+<ul>
+<li>Must: API First: Define APIs using OpenAPI YAML or JSON</li>
+<li>Must: Write in U.S. English</li>
+</ul>
+<p><a href="../naming/Naming.html">Naming</a> -</p>
+<ul>
+<li>Must: JSON field names must be snake_case (never camelCase)</li>
+</ul>
+<p><a href="../data-formats/DataFormats.html">Data Formats</a> -</p>
+<ul>
+<li>Must: Use JSON as the Body Payload</li>
+<li>Must: Use Standard Date and Time Formats</li>
+<li>Could: Use Standards for Country, Language and Currency Codes</li>
+<li>Could: Use Application-Specific Content Types</li>
+</ul>
+<p><a href="../common-data-objects/CommonDataObjects.html">Common Data Objects</a> -</p>
+<ul>
+<li>Should: Use a Common Money Object</li>
+<li>Should: Use Common Address Fields</li>
+</ul>
+<p><a href="../hyper-media/Hypermedia.html">Hypermedia</a> - </p>
+<ul>
+<li>Should: Use HATEOAS. The use of hypermedia techniques are equally applicable to events.</li>
+<li>Could: Use URIs for Custom Link Relations</li>
+<li>Should: Consider Using a Standard for linked/embedded resources. </li>
+</ul>
+<p>There are a couple of technical considerations to bear in mind when defining event schema -</p>
+<ul>
+<li><p>Nakadi currently requires JSON Schema format, and does not yet support Open API YAML. It&apos;s ok to define your events for peer review in YAML to avoid maintaining duplicate representations.</p>
+</li>
+<li><p>Open API&apos;s use of JSON Schema varies from the JSON Schema draft-4 specification. An example of this is Open API allowing extension structures such as <code>x-extensible-enum</code> that aren&apos;t directly expressible in JSON Schema. </p>
+</li>
+</ul>
+<p>These are best understood as point in time guidance around using Nakadi - as the project develops it may support consuming Open API (or other) structures directly, and the guidance here will be updated. </p>
+<h2 id="must-maintain-backwards-compatibility-for-events"><a name="must-maintain-backwards-compatibility-for-events" class="plugin-anchor" href="#must-maintain-backwards-compatibility-for-events"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Maintain backwards compatibility for Events</h2>
+<p>Changes to events must be based around making additive and backward compatible changes. This follows the guideline, &quot;Must: Don&#x2019;t Break Backward Compatibility&quot; from the <a href="../compatibility/Compatibility.html">Compatibility guidelines</a>. </p>
+<p>In the context of events, compatibility issues are complicated by the fact that producers and consumers of events are highly asynchronous and can&#x2019;t use content-negotiation techniques that are available to REST style clients and servers. This places a higher bar on producers to maintain compatibility as they will not be in a position to serve versioned media types on demand. </p>
+<p>For event schema, these are considered backward compatible changes, as seen by consumers  -</p>
+<ul>
+<li>Adding new optional fields to JSON objects.</li>
+<li>Changing the order of fields (field order in objects is arbitrary).</li>
+<li>Changing the order of values with same type in an array.</li>
+<li>Removing optional fields.</li>
+<li>Removing an individual value from an enumeration.</li>
+</ul>
+<p>These are considered backwards-incompatible changes, as seen by consumers  -</p>
+<ul>
+<li>Removing required fields from JSON objects.</li>
+<li>Changing the default value of a field.</li>
+<li>Changing the type of a field, object, enum or array.</li>
+<li>Changing the order of values with different type in an array (also known as a tuple).</li>
+<li>Adding a new optional field to redefine the meaning of an existing field (also known as a co-occurrence constraint).</li>
+<li>Adding a value to an enumeration (note that <code>x-extensible-enum</code> is not available in JSON Schema).</li>
+</ul>
+<h2 id="must-event-identifiers-must-be-unique"><a name="must-event-identifiers-must-be-unique" class="plugin-anchor" href="#must-event-identifiers-must-be-unique"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Event identifiers must be unique</h2>
+<p>The <code>eid</code> (event identifier) value of an event must be unique.</p>
+<p>The <code>eid</code> property is part of the standard metadata for an event and gives the event an identifier. Producing clients must generate this value when sending an event and it must be guaranteed to be unique from the perspective of the owning application. In particular events within a given event type&apos;s stream must have unique identifiers. This allows consumers to process the <code>eid</code> to assert the event is unique and use it as an idempotency check. </p>
+<p>Note that uniqueness checking of the <code>eid</code> is not enforced by Nakadi at the event type or global levels and it is the responsibility of the producer to ensure event identifiers do in fact distinctly identify events. A straightforward way to create a unique identifier for an event is to generate a UUID value.</p>
+<h2 id="must-event-type-names-must-follow-conventions"><a name="must-event-type-names-must-follow-conventions" class="plugin-anchor" href="#must-event-type-names-must-follow-conventions"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Event Type names must follow conventions</h2>
+<p>Event types can follow these naming conventions (each convention has its own should, must or could conformance level) -</p>
+<ul>
+<li><p>Event type names must be url-safe. This is because the event type names are used by Nakadi as part of the URL for the event type and its stream.</p>
+</li>
+<li><p>Event type names should be lowercase words and numbers, using hypens, underscores or periods as separators. </p>
+</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../api-discovery/ApiDiscovery.html" class="navigation navigation-prev " aria-label="Previous page: API Discovery"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../references/References.html" class="navigation navigation-next " aria-label="Next page: References"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"structured-toc":{},"gitbook-restructure-navigation":{"transformations":[{"from":0,"to":1}]},"restructure-navigation":{},"anchors":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

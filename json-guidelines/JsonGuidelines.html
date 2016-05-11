@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Common Headers | Introduction</title>
+        <title>JSON Guidelines | Introduction</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -41,10 +41,10 @@
         
     
     
-    <link rel="next" href="../headers/ProprietaryHeaders.html">
+    <link rel="next" href="../naming/Naming.html">
     
     
-    <link rel="prev" href="../common-data-objects/CommonDataObjects.html">
+    <link rel="prev" href="../compatibility/Compatibility.html">
     
 
         
@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="15" data-chapter-title="Common Headers" data-filepath="headers/CommonHeaders.md" data-basepath=".." data-revision="Wed May 11 2016 12:32:45 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="6" data-chapter-title="JSON Guidelines" data-filepath="json-guidelines/JsonGuidelines.md" data-basepath=".." data-revision="Wed May 11 2016 12:32:45 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -155,7 +155,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6" data-path="json-guidelines/JsonGuidelines.html">
+        <li class="chapter active" data-level="6" data-path="json-guidelines/JsonGuidelines.html">
             
                 
                     <a href="../json-guidelines/JsonGuidelines.html">
@@ -290,7 +290,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="15" data-path="headers/CommonHeaders.html">
+        <li class="chapter " data-level="15" data-path="headers/CommonHeaders.html">
             
                 
                     <a href="../headers/CommonHeaders.html">
@@ -413,28 +413,46 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="common-headers"><a name="common-headers" class="plugin-anchor" href="#common-headers"><span class="fa fa-link"></span></a>Common Headers</h1>
-<p>This section describes a handful of headers, which we found raised the most questions in our daily usage.</p>
-<h2 id="contentlocation"><a name="contentlocation" class="plugin-anchor" href="#contentlocation"><span class="fa fa-link"></span></a>Content-Location</h2>
-<p>This header is used in the response of either a successful read (GET, HEAD) or successful write operation (PUT, POST or PATCH).</p>
-<p>In the case of the GET requests it points to a location where an alternate representation of the
-entity in the response body can be found. In this case one
-has to set the Content-Type header as well. For example:</p>
-<pre><code class="lang-http"><span class="hljs-request">GET <span class="hljs-string">/products/123/images</span> HTTP/1.1</span>
-
-<span class="http"><span class="hljs-status">HTTP/1.1 <span class="hljs-number">200</span> OK</span>
-<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">image/png</span>
-<span class="hljs-attribute">Content-Location</span>: <span class="hljs-string">/products/123/images?format=raw</span>
-</span></code></pre>
-<p>In the case of mutating HTTP methods, the Content-Location header can be used when there is a response body,
-and then it indicates that the included response body can be found at the location indicated in the header.</p>
-<p>If the header value is the same as the location of the created resource (as indicated by the Location header
-after POST) or the modified resource (as indicated by the request URI after PUT / PATCH), then the returned
-body is indeed the current representation of the entity making a subsequent GET operation from the client side
-not necessary.</p>
-<p>If your API returns the new representation after a PUT, PATCH, or POST you should include the Content-Location header
-to make it explicit, that the returned resource is an up-to-date version.</p>
-<p>More details in <a href="https://tools.ietf.org/html/rfc7231#section-3.1.4.2" target="_blank">rfc7231</a></p>
+                        <h1 id="json-guidelines"><a name="json-guidelines" class="plugin-anchor" href="#json-guidelines"><span class="fa fa-link"></span></a>JSON Guidelines</h1>
+<p>These guidelines provides recommendations for defining JSON data at Zalando. JSON here refers to <a href="http://www.rfc-editor.org/rfc/rfc7159.txt" target="_blank">RFC 7159</a> (which updates <a href="https://www.ietf.org/rfc/rfc4627.txt" target="_blank">RFC 4627</a>), the &#x201C;application/json&#x201D; media type and custom JSON media types defined for APIs. The guidelines clarifies some specific cases to allow Zalando JSON data to have an idiomatic form across teams and services. </p>
+<h2 id="property-naming"><a name="property-naming" class="plugin-anchor" href="#property-naming"><span class="fa fa-link"></span></a>Property Naming</h2>
+<h3 id="must-property-names-must-be-snakecase-and-never-camelcase"><a name="must-property-names-must-be-snakecase-and-never-camelcase" class="plugin-anchor" href="#must-property-names-must-be-snakecase-and-never-camelcase"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Property names must be snake_case (and never camelCase).</h3>
+<p>No established industry standard exists, but many popular Internet companies prefer snake_case: e.g. GitHub, Stack Exchange, Twitter. Others, like Google and Amazon, use both - but not only camelCase. It&#x2019;s essential to establish a consistent look and feel such that JSON looks as if it came from the same hand. </p>
+<h3 id="must-property-names-must-be-an-ascii-subset"><a name="must-property-names-must-be-an-ascii-subset" class="plugin-anchor" href="#must-property-names-must-be-an-ascii-subset"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Property names must be an ASCII subset</h3>
+<p>Property names are restricted to ASCII encoded strings. The first character must be a letter, an underscore  or a dollar sign, and subsequent characters can be a letter, an underscore, a dollar sign, or a number.</p>
+<h3 id="should-reserved-javascript-keywords-should-be-avoided"><a name="should-reserved-javascript-keywords-should-be-avoided" class="plugin-anchor" href="#should-reserved-javascript-keywords-should-be-avoided"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Reserved JavaScript keywords should be avoided</h3>
+<p>Most API content is consumed by non-JavaScript clients today, but for security and sanity reasons, JavaScript (strictly, ECMAScript) keywords are worth avoiding. A list of keywords can be found in the <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-reserved-words" target="_blank">ECMAScript Language Specification</a>.</p>
+<h3 id="should-array-names-should-be-pluralized"><a name="should-array-names-should-be-pluralized" class="plugin-anchor" href="#should-array-names-should-be-pluralized"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Array names should be pluralized</h3>
+<p>To indicate they contain multiple values prefer to pluralize array names. This implies that object names should in turn be singular.</p>
+<h2 id="property-values"><a name="property-values" class="plugin-anchor" href="#property-values"><span class="fa fa-link"></span></a>Property Values</h2>
+<h3 id="must-boolean-property-values-must-not-be-null"><a name="must-boolean-property-values-must-not-be-null" class="plugin-anchor" href="#must-boolean-property-values-must-not-be-null"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Boolean property values must not be null</h3>
+<p>Schema based JSON properties that are by design booleans must not be presented as nulls. A boolean is essentially a closed enumeration of two values, true and false. If the content has a meaningful null value, strongly prefer to replace the boolean with enumeration of named values or statuses - for example accepted_terms_and_conditions with true or false can be replaced with terms_and_conditions with values yes, no and unknown.</p>
+<h3 id="should-null-values-should-have-their-fields-removed"><a name="should-null-values-should-have-their-fields-removed" class="plugin-anchor" href="#should-null-values-should-have-their-fields-removed"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Null values should have their fields removed</h3>
+<p>Swagger/OpenAPI, which is in common use, doesn&apos;t support null field values (it does allow omitting that field completely if it is not marked as required). However that doesn&apos;t prevent clients and servers sending and receiving those fields with null values. Also, in some cases null may be a meaningful value - for example, JSON Merge Patch <a href="https://tools.ietf.org/html/rfc7386" target="_blank">RFC 7382</a>) using null to indicate property deletion.</p>
+<h3 id="should-empty-array-values-should-not-be-null"><a name="should-empty-array-values-should-not-be-null" class="plugin-anchor" href="#should-empty-array-values-should-not-be-null"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Empty array values should not be null</h3>
+<p>Empty array values can unambiguously be represented as the the empty list, <code>[]</code>.</p>
+<h3 id="should-enumerations-should-be-represented-as-strings"><a name="should-enumerations-should-be-represented-as-strings" class="plugin-anchor" href="#should-enumerations-should-be-represented-as-strings"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Enumerations should be represented as Strings</h3>
+<p>Strings are a reasonable target for values that are by design enumerations. </p>
+<h3 id="should-date-property-values-should-conform-to-rfc-3399"><a name="should-date-property-values-should-conform-to-rfc-3399" class="plugin-anchor" href="#should-date-property-values-should-conform-to-rfc-3399"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Date property values should conform to RFC 3399</h3>
+<p>Use the date and time formats defined by <a href="http://tools.ietf.org/html/rfc3339#section-5.6" target="_blank">RFC 3339</a> &#x2014; e.g. <code>2015-05-28T14:09:17+02:00</code> for a point in time (note that the  <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types" target="_blank">OpenAPI format</a> &quot;date-time&quot; corresponds to &quot;date-time&quot; in the RFC) and <code>2015-05-28</code> for a date (note that the OpenAPI format &quot;date&quot; corresponds to &quot;full-date&quot; in the RFC). Both are specific profiles, a subset of the international standard <a href="http://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a>.</p>
+<p>A zone offset could be used, however, we encourage  restricting dates to UTC and without offsets:  for example <code>2015-05-28T14:07:17Z</code> rather than <code>2015-05-28T14:07:17+00:00</code>. From experience we have learned that zone offsets are not easy to understand and often not correctly handled. Note also that zone offsets are different from local times that might be including daylight saving time. Localization of dates should be done by the services that provide user interfaces, if required.</p>
+<p>When it comes to storage, all dates should be consistently stored in UTC without a zone offset. </p>
+<p>Sometimes it can seem data is naturally represented using numerical timestamps, but this can introduce interpretation issues with precision - for example whether to represent a timestamp as 1460062925, 1460062925000 or 1460062925.000. Date strings, though more verbose and requiring more effort to parse, avoid this ambiguity.</p>
+<h3 id="could-time-durations-and-intervals-could-conform-to-iso-8601"><a name="could-time-durations-and-intervals-could-conform-to-iso-8601" class="plugin-anchor" href="#could-time-durations-and-intervals-could-conform-to-iso-8601"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Time durations and intervals could conform to ISO 8601</h3>
+<p>Schema based JSON properties that are by design durations and intervals could be strings formatted as recommended by ISO 8601 (<a href="https://tools.ietf.org/html/rfc3339#appendix-A" target="_blank">Appendix A of RFC 3399 contains a grammar</a> for durations). </p>
+<h3 id="could-standards-could-be-used-for-language-country-and-currency"><a name="could-standards-could-be-used-for-language-country-and-currency" class="plugin-anchor" href="#could-standards-could-be-used-for-language-country-and-currency"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Standards could be used for Language, Country and Currency</h3>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1-alpha2 country 
+</a><ul>
+<li>(It&apos;s &quot;GB&quot;, not &quot;UK&quot;, even though &quot;UK&quot; has seen some use at Zalando)</li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 language code</a><ul>
+<li><a href="https://tools.ietf.org/html/bcp47" target="_blank">BCP-47</a> (based on ISO 639-1) for language variants</li>
+</ul>
+</li>
+<li><a href="http://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217 currency codes</a></li>
+</ul>
 
                     
                     </section>
@@ -445,10 +463,10 @@ to make it explicit, that the returned resource is an up-to-date version.</p>
         </div>
 
         
-        <a href="../common-data-objects/CommonDataObjects.html" class="navigation navigation-prev " aria-label="Previous page: Common Data Objects"><i class="fa fa-angle-left"></i></a>
+        <a href="../compatibility/Compatibility.html" class="navigation navigation-prev " aria-label="Previous page: Compatibility"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../headers/ProprietaryHeaders.html" class="navigation navigation-next " aria-label="Next page: Proprietary Headers"><i class="fa fa-angle-right"></i></a>
+        <a href="../naming/Naming.html" class="navigation navigation-next " aria-label="Next page: Naming"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
