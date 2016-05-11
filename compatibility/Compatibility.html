@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="5" data-chapter-title="Compatibility" data-filepath="compatibility/Compatibility.md" data-basepath=".." data-revision="Wed May 11 2016 09:45:30 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="5" data-chapter-title="Compatibility" data-filepath="compatibility/Compatibility.md" data-basepath=".." data-revision="Wed May 11 2016 09:47:21 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -416,8 +416,8 @@ allow us to make compatible changes without versioning:</p>
 <p>Apply the following rules to evolve RESTful APIs in a backward-compatible way:</p>
 <ul>
 <li>Ignore unknown fields in the payload</li>
-<li>Add optional, non mandatory fields</li>
-<li>Never change and only extend a field&#x2019;s meaning</li>
+<li>Add only optional, never mandatory fields</li>
+<li>Never change the meaning of a field.</li>
 <li>Enum ranges cannot not be extended when used for output parameters &#x2014; clients
 may not be prepared to handle it. However, enum ranges can be extended when
 used for input parameters.</li>
@@ -449,10 +449,10 @@ evolving, operating and releasing our systems (<a href="http://martinfowler.com/
 three ways:</p>
 <ul>
 <li>create a new resource (variant) in addition to the old resource variant</li>
-<li>create a new service endpoint &#x2014; i.e. a new microservice application with a new API (variant)</li>
+<li>create a new service endpoint &#x2014; i.e. a new application with a new API (with a new domain name)</li>
 <li>create a new API version supported in parallel with the old API by the same microservice</li>
 </ul>
-<p>Avoiding versioning also means preferring the first two variants.</p>
+<p>As we discourage versioning by all means because of the manifold disadvantages, we suggest to only use the first two approaches.</p>
 <h2 id="must-use-media-type-versioning"><a name="must-use-media-type-versioning" class="plugin-anchor" href="#must-use-media-type-versioning"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use Media Type Versioning</h2>
 <p>When API versioning is unavoidable, you have to design your multi-version
 RESTful APIs using media type versioning (instead of URI versioning, see below).
