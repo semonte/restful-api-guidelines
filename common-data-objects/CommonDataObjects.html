@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="14" data-chapter-title="Common Data Objects" data-filepath="common-data-objects/CommonDataObjects.md" data-basepath=".." data-revision="Wed May 11 2016 14:26:53 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="14" data-chapter-title="Common Data Objects" data-filepath="common-data-objects/CommonDataObjects.md" data-basepath=".." data-revision="Wed May 11 2016 14:28:31 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -413,7 +413,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="common-data-objects"><a name="common-data-objects" class="plugin-anchor" href="#common-data-objects"><span class="fa fa-link"></span></a>Common Data Objects</h1>
+                        <p>&#xFEFF;# Common Data Objects</p>
 <p>Definitions of data objects that are good candidates for wider usage:</p>
 <h2 id="should-use-a-common-money-object"><a name="should-use-a-common-money-object" class="plugin-anchor" href="#should-use-a-common-money-object"><span class="fa fa-link"></span></a><span style="color:darkgoldenrod;font-weight:bold">Should:</span> Use a Common Money Object</h2>
 <p>Use the following common money structure:</p>
@@ -548,11 +548,9 @@ Clients of such APIs should accept both media types.</p>
    - title
    - status
 </code></pre><h2 id="must-an-error-message-must-not-contain-the-stack-trace"><a name="must-an-error-message-must-not-contain-the-stack-trace" class="plugin-anchor" href="#must-an-error-message-must-not-contain-the-stack-trace"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> An error message must not contain the stack trace.</h2>
-<p>The reasons:</p>
-<ul>
-<li>The API would leak implementation details to the outside world.</li>
-<li>Clients may not rely on pure API implementation details.</li>
-</ul>
+<p>Stack traces contain implementation details that are not part of an API, and on which clients
+should never rely. Moreover, stack traces can leak sensitive information that partners and third
+parties are not allowed to receive and may disclose insights about vulnerabilities to attackers.</p>
 
                     
                     </section>
