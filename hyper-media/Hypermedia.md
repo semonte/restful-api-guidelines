@@ -8,12 +8,17 @@ Decoupled from HATEOAS, adding [links and relationships](#must-use-hal) should b
 
 Additional resources: [Wikipedia](http://en.wikipedia.org/wiki/HATEOAS), [The RESTful CookBook](http://restcookbook.com/Basics/hateoas/)
 
-## {{ book.must }} Use HAL
+## {{ book.must }} Use a well-defined subset of HAL
 
 Links to other resources must be defined exclusively using [HAL](http://stateless.co/hal_specification.html) and
 preferably using standard [link relations](http://www.iana.org/assignments/link-relations/link-relations.xml).
 
-We opted for HAL after conduction a comparison of different hypermedia formats based on properties like:
+Clients and Servers are required to support `_links` with its `href` and `rel` attributes, not only at the root level
+but also in nested objects. To reduce the effort needed by clients to process hypertext data from servers it's not
+required to implement CURIEs, URI templates or embedded resources. Nor is it required to support the HAL media type
+`application/hal+json`.
+
+We opted for this subset of HAL after conduction a comparison of different hypermedia formats based on properties like:
 
 * Simplicity: easy to understand and implement in a non-breaking way
 * Adoption: use in open-source libraries and tools as well as other companies
