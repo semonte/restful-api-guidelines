@@ -20,19 +20,20 @@ required to implement CURIEs, URI templates or embedded resources. Nor is it req
 
 We opted for this subset of HAL after conduction a comparison of different hypermedia formats based on properties like:
 
-* Simplicity: easy to understand and implement in a non-breaking way
+* Simplicity: resource link syntax and concepts are easy to understand and interpret for API clients.
+* Compatibility: introducing and adding links to resources is not breaking existing API clients.
 * Adoption: use in open-source libraries and tools as well as other companies
 * Docs: degree of good documentation
 
 <p></p>
 
-| Standard                                                       | Simplicity | Adoption | Primary Focus           | Docs | Last Update |
-|----------------------------------------------------------------|------------|----------|-------------------------|------|-------------|
-| [HAL](http://stateless.co/hal_specification.html)              | ✓          | ✓        | Links and relationships | ✓    | 2013-09-18  |
-| [JSON API](http://jsonapi.org/)                                | ✗          | ✓        | Response format         | ✓    | 2015-05-29  |
-| [JSON-LD](http://json-ld.org/)                                 | ✗          | ?        | Link data               | ?    | 2014-01-16  |
-| [Siren](https://github.com/kevinswiber/siren)                  | ✗          | ✗        | Entities and navigation | ✗    | 2015-10-21  |
-| [Collection+JSON](http://amundsen.com/media-types/collection/) | ✗          | ✗        | Collections and queries | ✗    | 2013-02-24  |
+| Standard                                                       | Simplicity | Compatibility | Adoption | Primary Focus           | Docs |
+|----------------------------------------------------------------|------------|---------------|----------|-------------------------|------|
+| [HAL](http://stateless.co/hal_specification.html)              | ✓          | ✓             | ✓        | Links and relationships | ✓    |
+| [JSON API](http://jsonapi.org/)                                | ✗          | ✗             | ✓        | Response format         | ✓    |
+| [JSON-LD](http://json-ld.org/)                                 | ✗          | ✓             | ?        | Link data               | ?    |
+| [Siren](https://github.com/kevinswiber/siren)                  | ✗          | ✗             | ✗        | Entities and navigation | ✗    |
+| [Collection+JSON](http://amundsen.com/media-types/collection/) | ✗          | ✗             | ✗        | Collections and queries | ✗    |
 
 Interesting articles for comparisons of different hypermedia formats:
 * [Kevin Sookocheff’s On choosing a hypermedia type for your API](http://sookocheff.com/post/api/on-choosing-a-hypermedia-format/)
