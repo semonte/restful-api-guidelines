@@ -33,7 +33,7 @@ Interesting articles for comparisons of different hypermedia formats:
 * [Kevin Sookocheff’s On choosing a hypermedia type for your API](http://sookocheff.com/post/api/on-choosing-a-hypermedia-format/)
 * [Mike Stowe's API Best Practices: Hypermedia](http://blogs.mulesoft.com/dev/api-dev/api-best-practices-hypermedia-part-3/)
 
-## {{ book.must }} Do Not Use Link Headers
+## {{ book.must }} Do Not Use Link Headers with JSON entities
 
 We don't allow the usage of [link headers](http://tools.ietf.org/html/rfc5988#section-5) and favor [HAL](#must-use-hal) instead.
 The primary reason is to have a consistent place for links as well as the better support for links in JSON payloads compared
