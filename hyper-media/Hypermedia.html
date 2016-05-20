@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="12" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Fri May 20 2016 12:46:19 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="12" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Fri May 20 2016 12:50:17 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -427,7 +427,8 @@ required to implement CURIEs, URI templates or embedded resources. Nor is it req
 <code>application/hal+json</code>.</p>
 <p>We opted for this subset of HAL after conduction a comparison of different hypermedia formats based on properties like:</p>
 <ul>
-<li>Simplicity: easy to understand and implement in a non-breaking way</li>
+<li>Simplicity: resource link syntax and concepts are easy to understand and interpret for API clients.</li>
+<li>Compatibility: introducing and adding links to resources is not breaking existing API clients.</li>
 <li>Adoption: use in open-source libraries and tools as well as other companies</li>
 <li>Docs: degree of good documentation</li>
 </ul>
@@ -438,10 +439,10 @@ required to implement CURIEs, URI templates or embedded resources. Nor is it req
 <tr>
 <th>Standard</th>
 <th>Simplicity</th>
+<th>Compatibility</th>
 <th>Adoption</th>
 <th>Primary Focus</th>
 <th>Docs</th>
-<th>Last Update</th>
 </tr>
 </thead>
 <tbody>
@@ -449,41 +450,41 @@ required to implement CURIEs, URI templates or embedded resources. Nor is it req
 <td><a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a></td>
 <td>&#x2713;</td>
 <td>&#x2713;</td>
+<td>&#x2713;</td>
 <td>Links and relationships</td>
 <td>&#x2713;</td>
-<td>2013-09-18</td>
 </tr>
 <tr>
 <td><a href="http://jsonapi.org/" target="_blank">JSON API</a></td>
 <td>&#x2717;</td>
+<td>&#x2717;</td>
 <td>&#x2713;</td>
 <td>Response format</td>
 <td>&#x2713;</td>
-<td>2015-05-29</td>
 </tr>
 <tr>
 <td><a href="http://json-ld.org/" target="_blank">JSON-LD</a></td>
 <td>&#x2717;</td>
+<td>&#x2713;</td>
 <td>?</td>
 <td>Link data</td>
 <td>?</td>
-<td>2014-01-16</td>
 </tr>
 <tr>
 <td><a href="https://github.com/kevinswiber/siren" target="_blank">Siren</a></td>
 <td>&#x2717;</td>
 <td>&#x2717;</td>
+<td>&#x2717;</td>
 <td>Entities and navigation</td>
 <td>&#x2717;</td>
-<td>2015-10-21</td>
 </tr>
 <tr>
 <td><a href="http://amundsen.com/media-types/collection/" target="_blank">Collection+JSON</a></td>
 <td>&#x2717;</td>
 <td>&#x2717;</td>
+<td>&#x2717;</td>
 <td>Collections and queries</td>
 <td>&#x2717;</td>
-<td>2013-02-24</td>
 </tr>
 </tbody>
 </table>
