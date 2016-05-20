@@ -40,9 +40,9 @@ Interesting articles for comparisons of different hypermedia formats:
 
 ## {{ book.must }} Do Not Use Link Headers with JSON entities
 
-We don't allow the usage of [`Link` headers](http://tools.ietf.org/html/rfc5988#section-5) and favor [HAL](#must-use-hal) instead.
-The primary reason is to have a consistent place for links as well as the better support for links in JSON payloads compared
-to the uncommon link header syntax.
+We don't allow the use of the [`Link` Header defined by RFC 5988 ](http://tools.ietf.org/html/rfc5988#section-5) 
+in conjunction with JSON media types, and favor [HAL](#must-use-hal) instead. The primary reason is to have a consistent
+place for links as well as the better support for links in JSON payloads compared to the uncommon link header syntax.
 
 ## {{ book.could }} Use URIs for Custom Link Relations
 
