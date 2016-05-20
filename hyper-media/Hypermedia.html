@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="12" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Fri May 20 2016 12:38:26 GMT+0000 (UTC)" data-innerlanguage="">
+    <div class="book" data-level="12" data-chapter-title="Hypermedia" data-filepath="hyper-media/Hypermedia.md" data-basepath=".." data-revision="Fri May 20 2016 12:46:19 GMT+0000 (UTC)" data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -418,10 +418,14 @@
 <p>We prefer <a href="http://martinfowler.com/articles/richardsonMaturityModel.html#level2" target="_blank">REST Maturity Level 2</a>. Only if HATEOAS - as <a href="http://martinfowler.com/articles/richardsonMaturityModel.html#level3" target="_blank">Level 3</a> - adds value to your API, consider using it. Because we are following API First, HATEOAS adds not much value for us in terms of self-descriptiveness. And we don&apos;t believe in generic HATEOAS clients which crawl and use APIs on their own. So, only use HATEOAS if your API really defines possible client actions (one part of hypermedia) and leverages other HATEOAS features.</p>
 <p>Decoupled from HATEOAS, adding <a href="#must-use-hal">links and relationships</a> should be considered as useful addition to APIs as it adds context and helps navigation in APIs to decent degree.</p>
 <p>Additional resources: <a href="http://en.wikipedia.org/wiki/HATEOAS" target="_blank">Wikipedia</a>, <a href="http://restcookbook.com/Basics/hateoas/" target="_blank">The RESTful CookBook</a></p>
-<h2 id="must-use-hal"><a name="must-use-hal" class="plugin-anchor" href="#must-use-hal"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use HAL</h2>
+<h2 id="must-use-a-welldefined-subset-of-hal"><a name="must-use-a-welldefined-subset-of-hal" class="plugin-anchor" href="#must-use-a-welldefined-subset-of-hal"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Use a well-defined subset of HAL</h2>
 <p>Links to other resources must be defined exclusively using <a href="http://stateless.co/hal_specification.html" target="_blank">HAL</a> and
 preferably using standard <a href="http://www.iana.org/assignments/link-relations/link-relations.xml" target="_blank">link relations</a>.</p>
-<p>We opted for HAL after conduction a comparison of different hypermedia formats based on properties like:</p>
+<p>Clients and Servers are required to support <code>_links</code> with its <code>href</code> and <code>rel</code> attributes, not only at the root level
+but also in nested objects. To reduce the effort needed by clients to process hypertext data from servers it&apos;s not
+required to implement CURIEs, URI templates or embedded resources. Nor is it required to support the HAL media type
+<code>application/hal+json</code>.</p>
+<p>We opted for this subset of HAL after conduction a comparison of different hypermedia formats based on properties like:</p>
 <ul>
 <li>Simplicity: easy to understand and implement in a non-breaking way</li>
 <li>Adoption: use in open-source libraries and tools as well as other companies</li>
@@ -489,9 +493,9 @@ preferably using standard <a href="http://www.iana.org/assignments/link-relation
 <li><a href="http://blogs.mulesoft.com/dev/api-dev/api-best-practices-hypermedia-part-3/" target="_blank">Mike Stowe&apos;s API Best Practices: Hypermedia</a></li>
 </ul>
 <h2 id="must-do-not-use-link-headers-with-json-entities"><a name="must-do-not-use-link-headers-with-json-entities" class="plugin-anchor" href="#must-do-not-use-link-headers-with-json-entities"><span class="fa fa-link"></span></a><span style="color:red;font-weight:bold">Must:</span> Do Not Use Link Headers with JSON entities</h2>
-<p>We don&apos;t allow the usage of <a href="http://tools.ietf.org/html/rfc5988#section-5" target="_blank"><code>Link</code> headers</a> and favor <a href="#must-use-hal">HAL</a> instead.
-The primary reason is to have a consistent place for links as well as the better support for links in JSON payloads compared
-to the uncommon link header syntax.</p>
+<p>We don&apos;t allow the use of the <a href="http://tools.ietf.org/html/rfc5988#section-5" target="_blank"><code>Link</code> Header defined by RFC 5988 </a> 
+in conjunction with JSON media types, and favor <a href="#must-use-hal">HAL</a> instead. The primary reason is to have a consistent
+place for links as well as the better support for links in JSON payloads compared to the uncommon link header syntax.</p>
 <h2 id="could-use-uris-for-custom-link-relations"><a name="could-use-uris-for-custom-link-relations" class="plugin-anchor" href="#could-use-uris-for-custom-link-relations"><span class="fa fa-link"></span></a><span style="color:green;font-weight:bold">Could:</span> Use URIs for Custom Link Relations</h2>
 <p>You should consider using a custom link relation if and only if standard <a href="http://www.iana.org/assignments/link-relations/link-relations.xml" target="_blank">link relations</a>
 are not sufficient to express a relation.
